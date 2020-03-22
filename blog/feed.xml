@@ -9,7 +9,7 @@
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
             <title>React Native 中文网 Blog</title>
-            <url>undefined/img/header_logo.svg</url>
+            <url>undefined/https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/img/header_logo.svg</url>
             <link>undefined/blog</link>
         </image>
         <item>
