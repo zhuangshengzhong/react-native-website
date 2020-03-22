@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>React Native 中文网 Blog</title>
+        <link>https://reactnativecn.github.io/react-native-website/blog</link>
+        <description>The best place to stay up-to-date with the latest React Native 中文网 news and events.</description>
+        <lastBuildDate>Thu, 19 Mar 2020 06:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <image>
+            <title>React Native 中文网 Blog</title>
+            <url>https://reactnativecn.github.io/react-native-website/img/header_logo.svg</url>
+            <link>https://reactnativecn.github.io/react-native-website/blog</link>
+        </image>
+        <item>
+            <title><![CDATA[React实战VIP教程限时免费领取 深入学习一线大厂必备前端技能]]></title>
+            <link>https://reactnativecn.github.io/react-native-website/blog/2020/03/19/react-tutorial-kaikeba.html</link>
+            <guid>https://reactnativecn.github.io/react-native-website/blog/2020/03/19/react-tutorial-kaikeba.html</guid>
+            <pubDate>Thu, 19 Mar 2020 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p>根据《2018 年度JavaScript趋势报告》显示，目前React 在前端领域流行度最高， Vue 排名位居第二，但从“使用过并且将再次使用”的比例来看，Vue和React相比仍有不小差距。</p> <p><img src="/react-native-website/blog/assets/2018-js-trending-chart.png" alt></p> <blockquote> <p>（注：共有来自 153 个不同的国家共 20000 多名 JavaScript 开发者参与调查，中国共75个开发者占总数的 0.37%，中国也许这个数据会有一些不同）</p> </blockquote> <p>除Facebook，Instagram，Netflix，微软等众多国际知名互联网公司都是React.js的拥趸者外，国内很多主流互...</p>]]></description>
+        </item>
+    </channel>
+</rss>

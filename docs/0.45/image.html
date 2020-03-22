@@ -1,0 +1,1039 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Image · React Native 中文网</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="一个用于显示多种不同类型图片的React组件，包括网络图片、静态资源、临时的本地图片、以及本地磁盘上的图片（如相册）等。详细用法参阅[图片文档](images.html)。"/><meta name="docsearch:version" content="0.45"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Image · React Native 中文网"/><meta property="og:type" content="website"/><meta property="og:url" content="https://reactnativecn.github.io/react-native-website/"/><meta property="og:description" content="一个用于显示多种不同类型图片的React组件，包括网络图片、静态资源、临时的本地图片、以及本地磁盘上的图片（如相册）等。详细用法参阅[图片文档](images.html)。"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/react-native-website/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@9.18.1/styles/solarized-dark.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-63485149-4', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/cnwebsite/static/js/codeblocks.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/cnwebsite/static/js/tabs.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/cnwebsite/static/js/doccode.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="https://cdn.jsdelivr.net/gh/facebook/docusaurus@1.14.4/packages/docusaurus-1.x/lib/static/js/scrollSpy.js"></script><link rel="stylesheet" href="/react-native-website/css/main.css"/><script src="https://cdn.jsdelivr.net/gh/facebook/docusaurus@1.14.4/packages/docusaurus-1.x/lib/static/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/react-native-website/"><img class="logo" src="/react-native-website/img/header_logo.svg" alt="React Native 中文网"/><h2 class="headerTitleWithLogo">React Native 中文网</h2></a><a href="/react-native-website/versions"><h3>0.45</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/react-native-website/docs/0.45/getting-started" target="_self">文档</a></li><li class="siteNavGroupActive"><a href="/react-native-website/docs/0.45/activityindicator" target="_self">API</a></li><li class=""><a href="//github.com/reactnativecn/react-native-website/issues" target="_blank">讨论</a></li><li class=""><a href="//update.reactnative.cn" target="_blank">热更新</a></li><li class=""><a href="/react-native-website/about" target="_self">关于</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://github.com/facebook/react-native" target="_self">GitHub</a></li><li class=""><a href="//zh-hans.reactjs.org/" target="_blank">React</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>组件</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">入门基础<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/getting-started">搭建开发环境</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/tutorial">编写Hello World</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/props">Props（属性）</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/state">State（状态）</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/style">样式</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/height-and-width">高度与宽度</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/layout-with-flexbox">使用Flexbox布局</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/handling-text-input">处理文本输入</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/using-a-scrollview">如何使用滚动视图</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/using-a-listview">如何使用长列表</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/network">网络</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/more-resources">其他参考资源</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">进阶指南<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/integration-with-existing-apps">嵌入到现有原生应用</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/navigation">使用导航器跳转页面</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/colors">颜色</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/images">图片</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/handling-touches">处理触摸事件</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/animations">动画</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/accessibility">无障碍功能</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/timers">定时器</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/direct-manipulation">直接操作</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/debugging">调试</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/testing">自动化测试</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/javascript-environment">JavaScript环境</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/performance">性能</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/upgrading">升级</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/platform-specific-code">特定平台代码</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/gesture-responder-system">手势响应系统</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">使用指南(iOS)<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/native-modules-ios">原生模块</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/native-component-ios">原生UI组件</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/linking-libraries-ios">链接原生库</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/running-on-device-ios">在设备上运行</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/running-on-simulator-ios">在模拟器上运行</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/communication-ios">在原生和React Native间通信</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">使用指南(Android)<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/native-modules-android">原生模块</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/native-component-android">原生UI组件</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/headless-js-android">Headless JS（后台任务）</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/running-on-device-android">在设备上运行</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/signed-apk-android">打包APK</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/android-ui-performance">调试Android UI性能</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/android-building-from-source">从源代码编译React Native</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">组件<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/activityindicator">ActivityIndicator</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/button">Button</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/datepickerios">DatePickerIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/drawerlayoutandroid">DrawerLayoutAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/flatlist">FlatList</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/react-native-website/docs/0.45/image">Image</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/keyboardavoidingview">KeyboardAvoidingView</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/listview">ListView</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/listviewdatasource">ListView.DataSource</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/modal">Modal</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/navigatorios">NavigatorIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/picker">Picker</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/pickerios">PickerIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/progressbarandroid">ProgressBarAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/progressviewios">ProgressViewIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/refreshcontrol">RefreshControl</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/scrollview">ScrollView</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/sectionlist">SectionList</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/segmentedcontrolios">SegmentedControlIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/slider">Slider</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/statusbar">StatusBar</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/switch">Switch</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/tabbarios">TabBarIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/tabbarios-item">TabBarIOS.Item</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/text">Text</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/textinput">TextInput</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/toolbarandroid">ToolbarAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/touchablehighlight">TouchableHighlight</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/touchablenativefeedback">TouchableNativeFeedback</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/touchableopacity">TouchableOpacity</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/touchablewithoutfeedback">TouchableWithoutFeedback</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/view">View</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/viewpagerandroid">ViewPagerAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/virtualizedlist">VirtualizedList</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/webview">WebView</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">API<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/actionsheetios">ActionSheetIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/adsupportios">AdSupportIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/alert">Alert</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/alertios">AlertIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/animated">Animated</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/appregistry">AppRegistry</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/appstate">AppState</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/asyncstorage">AsyncStorage</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/backandroid">BackAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/backhandler">BackHandler</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/cameraroll">CameraRoll</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/clipboard">Clipboard</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/datepickerandroid">DatePickerAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/dimensions">Dimensions</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/easing">Easing</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/geolocation">Geolocation</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/imageeditor">ImageEditor</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/imagepickerios">ImagePickerIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/imagestore">ImageStore</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/interactionmanager">InteractionManager</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/keyboard">Keyboard</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/layoutanimation">LayoutAnimation</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/linking">Linking</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/nativemethodsmixin">NativeMethodsMixin</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/netinfo">NetInfo</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/panresponder">PanResponder</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/permissionsandroid">PermissionsAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/pixelratio">PixelRatio</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/pushnotificationios">PushNotificationIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/share">Share</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/stylesheet">StyleSheet</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/systrace">Systrace</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/timepickerandroid">TimePickerAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/toastandroid">ToastAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/vibration">Vibration</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/layout-props">布局样式属性</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.45/shadow-props">阴影样式属性</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="//github.com/reactnativecn/react-native-website/blob/production/cndocs/image.md" target="_blank" rel="noreferrer noopener">帮助改进此文档</a><h1 id="__docusaurus" class="postHeaderTitle">Image</h1></header><article><div><span><p>一个用于显示多种不同类型图片的React组件，包括网络图片、静态资源、临时的本地图片、以及本地磁盘上的图片（如相册）等。详细用法参阅<a href="images.html">图片文档</a>。</p>
+<p>用法样例：</p>
+<pre><code class="hljs css language-jsx">renderImages() {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+        <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.icon}</span>
+        <span class="hljs-attr">source</span>=<span class="hljs-string">{require(</span>'<span class="hljs-attr">.</span>/<span class="hljs-attr">icon.png</span>')}
+      /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+        <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.logo}</span>
+        <span class="hljs-attr">source</span>=<span class="hljs-string">{{uri:</span> '<span class="hljs-attr">http:</span>//<span class="hljs-attr">facebook.github.io</span>/<span class="hljs-attr">react</span>/<span class="hljs-attr">img</span>/<span class="hljs-attr">logo_og.png</span>'}}
+      /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+  );
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="截图"></a><a href="#截图" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>截图</h3>
+<p><img src="/img/components/image.png" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="在android上支持gif和webp格式图片"></a><a href="#在android上支持gif和webp格式图片" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>在Android上支持GIF和WebP格式图片</h3>
+<p>默认情况下Android是不支持GIF和WebP格式的。你需要在<code>android/app/build.gradle</code>文件中根据需要手动添加以下模块：</p>
+<pre><code class="hljs"><span class="hljs-keyword">dependencies</span> {
+  <span class="hljs-comment">// 如果你需要支持Android4.0(API level 14)之前的版本</span>
+  <span class="hljs-keyword">compile</span> <span class="hljs-string">'com.facebook.fresco:animated-base-support:1.0.1'</span>
+
+  <span class="hljs-comment">// 如果你需要支持GIF动图</span>
+  <span class="hljs-keyword">compile</span> <span class="hljs-string">'com.facebook.fresco:animated-gif:1.0.1'</span>
+
+  <span class="hljs-comment">// 如果你需要支持WebP格式，包括WebP动图</span>
+  <span class="hljs-keyword">compile</span> <span class="hljs-string">'com.facebook.fresco:animated-webp:1.0.1'</span>
+  <span class="hljs-keyword">compile</span> <span class="hljs-string">'com.facebook.fresco:webpsupport:1.0.1'</span>
+
+  <span class="hljs-comment">// 如果只需要支持WebP格式而不需要动图</span>
+  <span class="hljs-keyword">compile</span> <span class="hljs-string">'com.facebook.fresco:webpsupport:1.0.1'</span>
+}
+</code></pre>
+<p>如果你在使用GIF的同时还使用了ProGuard，那么需要在<code>proguard-rules.pro</code>中添加如下规则 :</p>
+<pre><code class="hljs">-keep <span class="hljs-keyword">class</span> com.facebook.imagepipeline.animated.factory.AnimatedFactoryImpl {
+  public <span class="hljs-constructor">AnimatedFactoryImpl(<span class="hljs-params">com</span>.<span class="hljs-params">facebook</span>.<span class="hljs-params">imagepipeline</span>.<span class="hljs-params">bitmaps</span>.PlatformBitmapFactory, <span class="hljs-params">com</span>.<span class="hljs-params">facebook</span>.<span class="hljs-params">imagepipeline</span>.<span class="hljs-params">core</span>.ExecutorSupplier)</span>;
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="属性"></a><a href="#属性" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>属性</h3>
+<div class="props">
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="onlayout"></a>onLayout <span class="propType">function</span> <a class="hash-link" href="#onlayout">#</a></h4>
+        <div>
+            <p>当元素挂载或者布局改变的时候调用，参数为：<code>{nativeEvent: {layout: {x, y, width, height}}}</code>.</p>
+        </div>
+    </div>
+        <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="onload"></a>onLoad <span class="propType">function</span> <a class="hash-link" href="#onload">#</a></h4>
+        <div>
+            <p>加载成功完成时调用此回调函数。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="onloadend"></a>onLoadEnd <span class="propType">function</span> <a class="hash-link" href="#onloadend">#</a></h4>
+        <div>
+            <p>加载结束后，不论成功还是失败，调用此回调函数。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="onloadstart"></a>onLoadStart <span class="propType">function</span> <a class="hash-link" href="#onloadstart">#</a></h4>
+        <div>
+            <p>加载开始时调用。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="resizemode"></a>resizeMode <span class="propType">enum('cover', 'contain', 'stretch', 'repeat', 'center')</span> <a class="hash-link" href="#resizemode">#</a></h4>
+        <div>
+            <p>决定当组件尺寸和图片尺寸不成比例的时候如何调整图片的大小。</p>
+            <ul>
+            <li><p><code>cover</code>: 在保持图片宽高比的前提下缩放图片，直到宽度和高度都大于等于容器视图的尺寸（如果容器有padding内衬的话，则相应减去）。__译注__：这样图片完全覆盖甚至超出容器，容器中不留任何空白。</p></li>
+                <li><p><code>contain</code>: 在保持图片宽高比的前提下缩放图片，直到宽度和高度都小于等于容器视图的尺寸（如果容器有padding内衬的话，则相应减去）。__译注__：这样图片完全被包裹在容器中，容器中可能留有空白</p></li>
+                <li><p><code>stretch</code>: 拉伸图片且不维持宽高比，直到宽高都刚好填满容器。</p></li>
+            <li><p><code>repeat</code>: 重复平铺图片直到填满容器。图片会维持原始尺寸。仅iOS可用。</p></li>
+            <li><p><code>center</code>: 居中不拉伸。</p></li>
+              </ul>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="source"></a>source <span class="propType">{uri: string}, number</span> <a class="hash-link" href="#source">#</a></h4>
+        <div>
+            <p><code>uri</code>是一个表示图片的资源标识的字符串，它可以是一个http地址或是一个本地文件路径（使用<code>require(相对路径)</code>来引用）。</p>
+            <p>This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache.</p>
+            <p>目前原生支持的图片格式有`png`、`jpg`、`jpeg`、`bmp`、`gif`、`webp` （限Android）、`psd` （限iOS）。当然你可以在github上找一些第三方组件来扩充支持的格式。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="style"></a>style <span class="propType">style</span> <a class="hash-link" href="#style">#</a></h4>
+        <div class="compactProps">
+            <div class="prop">
+                <h6 class="propTitle"><a href="layout-with-flexbox.html">布局Flexbox...</a></h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle"><a href="shadow-props.html">阴影Shadow...</a></h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle"><a href="transforms.html">动画变换Transforms...</a></h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle">backfaceVisibility <span class="propType">ReactPropTypes.oneOf(['visible', 'hidden'])</span> </h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle">resizeMode <span class="propType">Object.keys(ImageResizeMode)</span></h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle">backgroundColor <span class="propType"><a href="colors.html">color</a></span></h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle">borderBottomLeftRadius <span class="propType">ReactPropTypes.number</span></h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle">borderBottomRightRadius <span class="propType">ReactPropTypes.number</span></h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle">borderColor <span class="propType"><a href="colors.html">color</a></h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle">borderRadius <span class="propType">number</span></h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle">borderTopLeftRadius <span class="propType">ReactPropTypes.number</span></h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle">borderTopRightRadius <span class="propType">ReactPropTypes.number</span></h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle">borderWidth <span class="propType">number</span></h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle">overflow <span class="propType">enum('visible', 'hidden')</span></h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle">tintColor <span class="propType"><a href="colors.html">color</a></span>
+                <div><p>为所有非透明的像素指定一个颜色</p></div>
+                </h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle">opacity <span class="propType">number</span></h6>
+            </div>
+            <div class="prop">
+                <h6 class="propTitle"><span class="platform">android</span>overlayColor <span
+                        class="propType">ReactPropTypes.string</span>
+                    <div><p>当图片有圆角的时候，指定一个颜色用于填充圆角处的空白。虽然一般情况下圆角处是透明的，但在某些情况下，Android并不支持圆角透明，比如：
+                        <ul>
+                        <li>某些resize模式比如<code>'contain'</code></li>
+                        <li>GIF动画</li>
+                        </p>
+                        </ul>
+                        <p>常见的用法就是在不能圆角透明时，设置<code>overlayColor</code>和背景色一致。</p>
+                        <p>详细说明可参考
+                            <a href="http://frescolib.org/docs/rounded-corners-and-circles.html">http://frescolib.org/docs/rounded-corners-and-circles.html</a>
+                        </p></div>
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="testid"></a>testID <span class="propType">string</span> <a class="hash-link" href="#testid">#</a></h4>
+        <div>
+            <p>一个唯一的资源标识符，用来在自动测试脚本中标识这个元素。</p>
+        </div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="resizemethod"></a><span class="platform">android</span>resizeMethod
+        <span class="propType">enum('auto', 'resize', 'scale')</span> <a class="hash-link"
+                                                                         href="#resizemethod">#</a></h4>
+        <div><p>当图片实际尺寸和容器样式尺寸不一致时，决定以怎样的策略来调整图片的尺寸。默认值为<code>auto</code>。</p>
+            <ul>
+                <li><p><code>auto</code>：使用启发式算法来在<code>resize</code>和<code>scale</code>中自动决定。</p>
+                </li>
+                <li><p><code>resize</code>： 在图片解码之前，使用软件算法对其在内存中的数据进行修改。当图片尺寸比容器尺寸大得多时，应该优先使用此选项。</p></li>
+                <li><p><code>scale</code>：对图片进行缩放。和<code>resize</code>相比，
+                    <code>scale</code>速度更快（一般有硬件加速），而且图片质量更优。在图片尺寸比容器尺寸小或者只是稍大一点时，应该优先使用此选项。</p></li>
+            </ul>
+            <p>关于<code>resize</code>和<code>scale</code>的详细说明请参考<a
+                    href="http://frescolib.org/docs/resizing-rotating.html">http://frescolib.org/docs/resizing-rotating.html</a>.
+            </p></div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="accessibilitylabel"></a><span class="platform">ios</span>accessibilityLabel <span class="propType">string</span> <a class="hash-link" href="#accessibilitylabel">#</a></h4>
+        <div>
+            <p>当用户与图片交互时，读屏器（无障碍功能）会朗读的文字。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="accessible"></a><span class="platform">ios</span>accessible <span class="propType">bool</span> <a class="hash-link" href="#accessible">#</a></h4>
+        <div>
+            <p>当此属性为真的时候，表示这个图片是一个启用了无障碍功能的元素。</p>
+        </div>
+    </div>
+    <div class="prop">
+    <h4 class="propTitle"><a class="anchor" name="blurradius"></a>blurRadius <span class="propType">number</span> <a class="hash-link" href="#blurradius">#</a>
+    </h4>
+    <div>
+    <p>blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。</p>
+    </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="capinsets"></a><span class="platform">ios</span>capInsets <span class="propType">{top: number, left: number, bottom: number, right: number}</span> <a class="hash-link" href="#capinsets">#</a></h4>
+        <div>
+            <p>当图片被缩放的时候，capInsets指定的角上的尺寸会被固定而不进行缩放，而中间和边上其他的部分则会被拉伸。这在制作一些可变大小的圆角按钮、阴影、以及其它资源的时候非常有用（译注：这就是常说的九宫格或者.9图。了解更多信息，可以参见<a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets" target="_blank">苹果官方文档</a></p>
+        </div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="defaultsource"></a><span class="platform">ios</span>defaultSource
+        <span class="propType">{uri: string, width: number, height: number, scale: number}, number</span> <a
+                class="hash-link" href="#defaultsource">#</a></h4>
+        <div><p>在读取图片时默认显示的加载提示图片</p>
+            <ul>
+                <li><code>uri</code> - 是一个表示图片的资源标识的字符串，它可以是一个http地址或是一个本地文件路径（使用<code>require(相对路径)</code>来引用）。
+                </li>
+                <li><code>width</code>, <code>height</code> - 如果你知道图片的尺寸，那么可以在这里指定。这一尺寸会被用作<code>&lt;Image/&gt;</code>组件的默认尺寸。
+                </li>
+                <li><code>scale</code> - 图片的缩放系数。默认是1.0，意味着每一个图片像素都对应一个设备独立像素（DIP）。
+                </li>
+                <li><code>number</code> - 本地图片引用语法<code>require('./image.jpg')</code>所返回的内部资源id。</li>
+            </ul>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="onerror"></a><span class="platform">ios</span>onError <span class="propType">function</span> <a class="hash-link" href="#onerror">#</a></h4>
+        <div>
+            <p>当加载错误的时候调用此回调函数，参数为<code>{nativeEvent: {error}}</code></p>
+        </div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="onpartialload"></a><span class="platform">ios</span>onPartialLoad
+        <span class="propType">function</span> <a class="hash-link" href="#onpartialload">#</a></h4>
+        <div><p>如果图片本身支持逐步加载，则逐步加载的过程中会调用此方法。“逐步加载”的具体定义与具体的标准和实现有关。</p></div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="onprogress"></a><span class="platform">ios</span>onProgress <span class="propType">function</span> <a class="hash-link" href="#onprogress">#</a></h4>
+        <div>
+            <p>在加载过程中不断调用，参数为<code>{nativeEvent: {loaded, total}}</code></p>
+        </div>
+    </div>
+</div>
+<h3><a class="anchor" aria-hidden="true" id="方法"></a><a href="#方法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>方法</h3>
+<div class="props">
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="getsize"></a><span class="propType">static </span>getSize<span
+            class="propType">(uri: string, success: (width: number, height: number) =&gt; void, failure: (error: any) =&gt; void)</span>
+        <a class="hash-link" href="#getsize">#</a></h4>
+        <div><p>在显示图片前获取图片的宽高(以像素为单位)。如果图片地址不正确或下载失败,此方法也会失败。</p>
+            <p>要获取图片的尺寸,首先需要加载或下载图片(同时会被缓存起来)。这意味着理论上你可以用这个方法来预加载图片，虽然此方法并没有针对这一用法进行优化，而且将来可能会换一些实现方案使得并不需要完整下载图片即可获取尺寸。所以更好的预加载方案是使用下面那个专门的预加载方法。</p></div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="prefetch"></a><span class="propType">static </span>prefetch<span
+            class="propType">(url: string)</span> <a class="hash-link" href="#prefetch">#</a></h4>
+        <div><p>预加载一个远程图片(将其下载到本地磁盘缓存)。</p></div>
+    </div>
+</div>
+<h3><a class="anchor" aria-hidden="true" id="例子"></a><a href="#例子" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h3>
+<pre><code class="hljs css language-jsx"><span class="hljs-meta">'use strict'</span>;
+
+<span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
+<span class="hljs-keyword">var</span> ReactNative = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-native'</span>);
+<span class="hljs-keyword">var</span> {
+  ActivityIndicator,
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} = ReactNative;
+
+<span class="hljs-keyword">var</span> base64Icon = <span class="hljs-string">'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAQAAACSR7JhAAADtUlEQVR4Ac3YA2Bj6QLH0XPT1Fzbtm29tW3btm3bfLZtv7e2ObZnms7d8Uw098tuetPzrxv8wiISrtVudrG2JXQZ4VOv+qUfmqCGGl1mqLhoA52oZlb0mrjsnhKpgeUNEs91Z0pd1kvihA3ULGVHiQO2narKSHKkEMulm9VgUyE60s1aWoMQUbpZOWE+kaqs4eLEjdIlZTcFZB0ndc1+lhB1lZrIuk5P2aib1NBpZaL+JaOGIt0ls47SKzLC7CqrlGF6RZ09HGoNy1lYl2aRSWL5GuzqWU1KafRdoRp0iOQEiDzgZPnG6DbldcomadViflnl/cL93tOoVbsOLVM2jylvdWjXolWX1hmfZbGR/wjypDjFLSZIRov09BgYmtUqPQPlQrPapecLgTIy0jMgPKtTeob2zWtrGH3xvjUkPCtNg/tm1rjwrMa+mdUkPd3hWbH0jArPGiU9ufCsNNWFZ40wpwn+62/66R2RUtoso1OB34tnLOcy7YB1fUdc9e0q3yru8PGM773vXsuZ5YIZX+5xmHwHGVvlrGPN6ZSiP1smOsMMde40wKv2VmwPPVXNut4sVpUreZiLBHi0qln/VQeI/LTMYXpsJtFiclUN+5HVZazim+Ky+7sAvxWnvjXrJFneVtLWLyPJu9K3cXLWeOlbMTlrIelbMDlrLenrjEQOtIF+fuI9xRp9ZBFp6+b6WT8RrxEpdK64BuvHgDk+vUy+b5hYk6zfyfs051gRoNO1usU12WWRWL73/MMEy9pMi9qIrR4ZpV16Rrvduxazmy1FSvuFXRkqTnE7m2kdb5U8xGjLw/spRr1uTov4uOgQE+0N/DvFrG/Jt7i/FzwxbA9kDanhf2w+t4V97G8lrT7wc08aA2QNUkuTfW/KimT01wdlfK4yEw030VfT0RtZbzjeMprNq8m8tnSTASrTLti64oBNdpmMQm0eEwvfPwRbUBywG5TzjPCsdwk3IeAXjQblLCoXnDVeoAz6SfJNk5TTzytCNZk/POtTSV40NwOFWzw86wNJRpubpXsn60NJFlHeqlYRbslqZm2jnEZ3qcSKgm0kTli3zZVS7y/iivZTweYXJ26Y+RTbV1zh3hYkgyFGSTKPfRVbRqWWVReaxYeSLarYv1Qqsmh1s95S7G+eEWK0f3jYKTbV6bOwepjfhtafsvUsqrQvrGC8YhmnO9cSCk3yuY984F1vesdHYhWJ5FvASlacshUsajFt2mUM9pqzvKGcyNJW0arTKN1GGGzQlH0tXwLDgQTurS8eIQAAAABJRU5ErkJggg=='</span>;
+
+<span class="hljs-keyword">var</span> ImageCapInsetsExample = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./ImageCapInsetsExample'</span>);
+<span class="hljs-keyword">const</span> IMAGE_PREFETCH_URL = <span class="hljs-string">'http://origami.design/public/images/bird-logo.png?r=1&amp;t='</span> + <span class="hljs-built_in">Date</span>.now();
+<span class="hljs-keyword">var</span> prefetchTask = Image.prefetch(IMAGE_PREFETCH_URL);
+
+<span class="hljs-keyword">var</span> NetworkImageCallbackExample = React.createClass({
+  <span class="hljs-attr">getInitialState</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">events</span>: [],
+      <span class="hljs-attr">startLoadPrefetched</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">mountTime</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(),
+    };
+  },
+
+  componentWillMount() {
+    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">mountTime</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()});
+  },
+
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> { mountTime } = <span class="hljs-keyword">this</span>.state;
+
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+          <span class="hljs-attr">source</span>=<span class="hljs-string">{this.props.source}</span>
+          <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> {<span class="hljs-attr">overflow:</span> '<span class="hljs-attr">visible</span>'}]}
+          <span class="hljs-attr">onLoadStart</span>=<span class="hljs-string">{()</span> =&gt;</span> this._loadEventFired(`✔ onLoadStart (+${new Date() - mountTime}ms)`)}
+          onLoad={(event) =&gt; {
+            // Currently this image source feature is only available on iOS.
+            if (event.nativeEvent.source) {
+              const url = event.nativeEvent.source.url;
+              this._loadEventFired(`✔ onLoad (+${new Date() - mountTime}ms) for URL ${url}`);
+            } else {
+              this._loadEventFired(`✔ onLoad (+${new Date() - mountTime}ms)`);
+            }
+          }}
+          onLoadEnd={() =&gt; {
+            this._loadEventFired(`✔ onLoadEnd (+${new Date() - mountTime}ms)`);
+            this.setState({startLoadPrefetched: true}, () =&gt; {
+              prefetchTask.then(() =&gt; {
+                this._loadEventFired(`✔ Prefetch OK (+${new Date() - mountTime}ms)`);
+              }, error =&gt; {
+                this._loadEventFired(`✘ Prefetch failed (+${new Date() - mountTime}ms)`);
+              });
+            });
+          }}
+        /&gt;
+        {this.state.startLoadPrefetched ?
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{this.props.prefetchedSource}</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> {<span class="hljs-attr">overflow:</span> '<span class="hljs-attr">visible</span>'}]}
+            <span class="hljs-attr">onLoadStart</span>=<span class="hljs-string">{()</span> =&gt;</span> this._loadEventFired(`✔ (prefetched) onLoadStart (+${new Date() - mountTime}ms)`)}
+            onLoad={(event) =&gt; {
+              // Currently this image source feature is only available on iOS.
+              if (event.nativeEvent.source) {
+                const url = event.nativeEvent.source.url;
+                this._loadEventFired(`✔ (prefetched) onLoad (+${new Date() - mountTime}ms) for URL ${url}`);
+              } else {
+                this._loadEventFired(`✔ (prefetched) onLoad (+${new Date() - mountTime}ms)`);
+              }
+            }}
+            onLoadEnd={() =&gt; this._loadEventFired(`✔ (prefetched) onLoadEnd (+${new Date() - mountTime}ms)`)}
+          /&gt;
+          : null}
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{marginTop:</span> <span class="hljs-attr">20</span>}}&gt;</span>
+          {this.state.events.join('\n')}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+
+  _loadEventFired(event) {
+    <span class="hljs-keyword">this</span>.setState(<span class="hljs-function">(<span class="hljs-params">state</span>) =&gt;</span> {
+      <span class="hljs-keyword">return</span> state.events = [...state.events, event];
+    });
+  }
+});
+
+<span class="hljs-keyword">var</span> NetworkImageExample = React.createClass({
+  <span class="hljs-attr">getInitialState</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">error</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">loading</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">progress</span>: <span class="hljs-number">0</span>
+    };
+  },
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> loader = <span class="hljs-keyword">this</span>.state.loading ?
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.progress}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>{this.state.progress}%<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ActivityIndicator</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{marginLeft:5}}</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span> : <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.state.error ?
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>{this.state.error}<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span> :
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+        <span class="hljs-attr">source</span>=<span class="hljs-string">{this.props.source}</span>
+        <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> {<span class="hljs-attr">overflow:</span> '<span class="hljs-attr">visible</span>'}]}
+        <span class="hljs-attr">onLoadStart</span>=<span class="hljs-string">{(e)</span> =&gt;</span> this.setState({loading: true})}
+        onError={(e) =&gt; this.setState({error: e.nativeEvent.error, loading: false})}
+        onProgress={(e) =&gt; this.setState({progress: Math.round(100 * e.nativeEvent.loaded / e.nativeEvent.total)})}
+        onLoad={() =&gt; this.setState({loading: false, error: false})}&gt;
+        {loader}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Image</span>&gt;</span></span>;
+  }
+});
+
+<span class="hljs-keyword">var</span> ImageSizeExample = React.createClass({
+  <span class="hljs-attr">getInitialState</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">width</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">height</span>: <span class="hljs-number">0</span>,
+    };
+  },
+  <span class="hljs-attr">componentDidMount</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    Image.getSize(<span class="hljs-keyword">this</span>.props.source.uri, (width, height) =&gt; {
+      <span class="hljs-keyword">this</span>.setState({width, height});
+    });
+  },
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{flexDirection:</span> '<span class="hljs-attr">row</span>'}}&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+          <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
+            <span class="hljs-attr">width:</span> <span class="hljs-attr">60</span>,
+            <span class="hljs-attr">height:</span> <span class="hljs-attr">60</span>,
+            <span class="hljs-attr">backgroundColor:</span> '<span class="hljs-attr">transparent</span>',
+            <span class="hljs-attr">marginRight:</span> <span class="hljs-attr">10</span>,
+          }}
+          <span class="hljs-attr">source</span>=<span class="hljs-string">{this.props.source}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+          Actual dimensions:{'\n'}
+          Width: {this.state.width}, Height: {this.state.height}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+});
+
+<span class="hljs-keyword">var</span> MultipleSourcesExample = React.createClass({
+  <span class="hljs-attr">getInitialState</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">width</span>: <span class="hljs-number">30</span>,
+      <span class="hljs-attr">height</span>: <span class="hljs-number">30</span>,
+    };
+  },
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{flexDirection:</span> '<span class="hljs-attr">row</span>', <span class="hljs-attr">justifyContent:</span> '<span class="hljs-attr">space-between</span>'}}&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.touchableText}</span>
+            <span class="hljs-attr">onPress</span>=<span class="hljs-string">{this.decreaseImageSize}</span> &gt;</span>
+            Decrease image size
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.touchableText}</span>
+            <span class="hljs-attr">onPress</span>=<span class="hljs-string">{this.increaseImageSize}</span> &gt;</span>
+            Increase image size
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>Container image size: {this.state.width}x{this.state.height} <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">View</span>
+          <span class="hljs-attr">style</span>=<span class="hljs-string">{{height:</span> <span class="hljs-attr">this.state.height</span>, <span class="hljs-attr">width:</span> <span class="hljs-attr">this.state.width</span>}} &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{{flex:</span> <span class="hljs-attr">1</span>}}
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{[</span>
+              {<span class="hljs-attr">uri:</span> '<span class="hljs-attr">https:</span>//<span class="hljs-attr">facebook.github.io</span>/<span class="hljs-attr">react</span>/<span class="hljs-attr">img</span>/<span class="hljs-attr">logo_small.png</span>', <span class="hljs-attr">width:</span> <span class="hljs-attr">38</span>, <span class="hljs-attr">height:</span> <span class="hljs-attr">38</span>},
+              {<span class="hljs-attr">uri:</span> '<span class="hljs-attr">https:</span>//<span class="hljs-attr">facebook.github.io</span>/<span class="hljs-attr">react</span>/<span class="hljs-attr">img</span>/<span class="hljs-attr">logo_small_2x.png</span>', <span class="hljs-attr">width:</span> <span class="hljs-attr">76</span>, <span class="hljs-attr">height:</span> <span class="hljs-attr">76</span>},
+              {<span class="hljs-attr">uri:</span> '<span class="hljs-attr">https:</span>//<span class="hljs-attr">facebook.github.io</span>/<span class="hljs-attr">react</span>/<span class="hljs-attr">img</span>/<span class="hljs-attr">logo_og.png</span>', <span class="hljs-attr">width:</span> <span class="hljs-attr">400</span>, <span class="hljs-attr">height:</span> <span class="hljs-attr">400</span>}
+            ]}
+          /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+  <span class="hljs-attr">increaseImageSize</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.state.width &gt;= <span class="hljs-number">100</span>) {
+      <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-keyword">this</span>.setState({
+      <span class="hljs-attr">width</span>: <span class="hljs-keyword">this</span>.state.width + <span class="hljs-number">10</span>,
+      <span class="hljs-attr">height</span>: <span class="hljs-keyword">this</span>.state.height + <span class="hljs-number">10</span>,
+    });
+  },
+  <span class="hljs-attr">decreaseImageSize</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.state.width &lt;= <span class="hljs-number">10</span>) {
+      <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-keyword">this</span>.setState({
+      <span class="hljs-attr">width</span>: <span class="hljs-keyword">this</span>.state.width - <span class="hljs-number">10</span>,
+      <span class="hljs-attr">height</span>: <span class="hljs-keyword">this</span>.state.height - <span class="hljs-number">10</span>,
+    });
+  },
+});
+
+exports.displayName = (<span class="hljs-literal">undefined</span>: ?string);
+exports.framework = <span class="hljs-string">'React'</span>;
+exports.title = <span class="hljs-string">'&lt;Image&gt;'</span>;
+exports.description = <span class="hljs-string">'Base component for displaying different types of images.'</span>;
+
+exports.examples = [
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Plain Network Image'</span>,
+    <span class="hljs-attr">description</span>: <span class="hljs-string">'If the `source` prop `uri` property is prefixed with '</span> +
+    <span class="hljs-string">'"http", then it will be downloaded from the network.'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+          <span class="hljs-attr">source</span>=<span class="hljs-string">{{uri:</span> '<span class="hljs-attr">https:</span>//<span class="hljs-attr">facebook.github.io</span>/<span class="hljs-attr">react</span>/<span class="hljs-attr">img</span>/<span class="hljs-attr">logo_og.png</span>'}}
+          <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.base}</span>
+        /&gt;</span></span>
+      );
+    },
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Plain Static Image'</span>,
+    <span class="hljs-attr">description</span>: <span class="hljs-string">'Static assets should be placed in the source code tree, and '</span> +
+    <span class="hljs-string">'required in the same way as JavaScript modules.'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.horizontal}</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span> <span class="hljs-attr">source</span>=<span class="hljs-string">{require(</span>'<span class="hljs-attr">.</span>/<span class="hljs-attr">uie_thumb_normal.png</span>')} <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.icon}</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span> <span class="hljs-attr">source</span>=<span class="hljs-string">{require(</span>'<span class="hljs-attr">.</span>/<span class="hljs-attr">uie_thumb_selected.png</span>')} <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.icon}</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span> <span class="hljs-attr">source</span>=<span class="hljs-string">{require(</span>'<span class="hljs-attr">.</span>/<span class="hljs-attr">uie_comment_normal.png</span>')} <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.icon}</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span> <span class="hljs-attr">source</span>=<span class="hljs-string">{require(</span>'<span class="hljs-attr">.</span>/<span class="hljs-attr">uie_comment_highlighted.png</span>')} <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.icon}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+      );
+    },
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Image Loading Events'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">NetworkImageCallbackExample</span> <span class="hljs-attr">source</span>=<span class="hljs-string">{{uri:</span> '<span class="hljs-attr">http:</span>//<span class="hljs-attr">origami.design</span>/<span class="hljs-attr">public</span>/<span class="hljs-attr">images</span>/<span class="hljs-attr">bird-logo.png</span>?<span class="hljs-attr">r</span>=<span class="hljs-string">1&amp;t</span>=<span class="hljs-string">' + Date.now()}}
+          prefetchedSource={{uri: IMAGE_PREFETCH_URL}}/&gt;</span></span></span>
+      );
+    },
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Error Handler'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag"><span class="hljs-string">&lt;NetworkImageExample source={{uri: '</span><span class="hljs-attr">https:</span>//<span class="hljs-attr">TYPO_ERROR_facebook.github.io</span>/<span class="hljs-attr">react</span>/<span class="hljs-attr">img</span>/<span class="hljs-attr">logo_og.png</span>'}} /&gt;</span></span>
+      );
+    },
+    <span class="hljs-attr">platform</span>: <span class="hljs-string">'ios'</span>,
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Image Download Progress'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">NetworkImageExample</span> <span class="hljs-attr">source</span>=<span class="hljs-string">{{uri:</span> '<span class="hljs-attr">http:</span>//<span class="hljs-attr">origami.design</span>/<span class="hljs-attr">public</span>/<span class="hljs-attr">images</span>/<span class="hljs-attr">bird-logo.png</span>?<span class="hljs-attr">r</span>=<span class="hljs-string">1</span>'}}/&gt;</span></span>
+      );
+    },
+    <span class="hljs-attr">platform</span>: <span class="hljs-string">'ios'</span>,
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'defaultSource'</span>,
+    <span class="hljs-attr">description</span>: <span class="hljs-string">'Show a placeholder image when a network image is loading'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+          <span class="hljs-attr">defaultSource</span>=<span class="hljs-string">{require(</span>'<span class="hljs-attr">.</span>/<span class="hljs-attr">bunny.png</span>')}
+          <span class="hljs-attr">source</span>=<span class="hljs-string">{{uri:</span> '<span class="hljs-attr">https:</span>//<span class="hljs-attr">facebook.github.io</span>/<span class="hljs-attr">origami</span>/<span class="hljs-attr">public</span>/<span class="hljs-attr">images</span>/<span class="hljs-attr">birds.jpg</span>'}}
+          <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.base}</span>
+        /&gt;</span></span>
+      );
+    },
+    <span class="hljs-attr">platform</span>: <span class="hljs-string">'ios'</span>,
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Border Color'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.horizontal}</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{smallImage}</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{[</span>
+              <span class="hljs-attr">styles.base</span>,
+              <span class="hljs-attr">styles.background</span>,
+              {<span class="hljs-attr">borderWidth:</span> <span class="hljs-attr">3</span>, <span class="hljs-attr">borderColor:</span> '#<span class="hljs-attr">f099f0</span>'}
+            ]}
+          /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+      );
+    },
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Border Width'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.horizontal}</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{smallImage}</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{[</span>
+              <span class="hljs-attr">styles.base</span>,
+              <span class="hljs-attr">styles.background</span>,
+              {<span class="hljs-attr">borderWidth:</span> <span class="hljs-attr">5</span>, <span class="hljs-attr">borderColor:</span> '#<span class="hljs-attr">f099f0</span>'}
+            ]}
+          /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+      );
+    },
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Border Radius'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.horizontal}</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> {<span class="hljs-attr">borderRadius:</span> <span class="hljs-attr">5</span>}]}
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{fullImage}</span>
+          /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> <span class="hljs-attr">styles.leftMargin</span>, {<span class="hljs-attr">borderRadius:</span> <span class="hljs-attr">19</span>}]}
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{fullImage}</span>
+          /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+      );
+    },
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Background Color'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.horizontal}</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span> <span class="hljs-attr">source</span>=<span class="hljs-string">{smallImage}</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.base}</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{[</span>
+              <span class="hljs-attr">styles.base</span>,
+              <span class="hljs-attr">styles.leftMargin</span>,
+              {<span class="hljs-attr">backgroundColor:</span> '<span class="hljs-attr">rgba</span>(<span class="hljs-attr">0</span>, <span class="hljs-attr">0</span>, <span class="hljs-attr">100</span>, <span class="hljs-attr">0.25</span>)'}
+            ]}
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{smallImage}</span>
+          /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> <span class="hljs-attr">styles.leftMargin</span>, {<span class="hljs-attr">backgroundColor:</span> '<span class="hljs-attr">red</span>'}]}
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{smallImage}</span>
+          /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> <span class="hljs-attr">styles.leftMargin</span>, {<span class="hljs-attr">backgroundColor:</span> '<span class="hljs-attr">black</span>'}]}
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{smallImage}</span>
+          /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+      );
+    },
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Opacity'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.horizontal}</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> {<span class="hljs-attr">opacity:</span> <span class="hljs-attr">1</span>}]}
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{fullImage}</span>
+          /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> <span class="hljs-attr">styles.leftMargin</span>, {<span class="hljs-attr">opacity:</span> <span class="hljs-attr">0.8</span>}]}
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{fullImage}</span>
+          /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> <span class="hljs-attr">styles.leftMargin</span>, {<span class="hljs-attr">opacity:</span> <span class="hljs-attr">0.6</span>}]}
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{fullImage}</span>
+          /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> <span class="hljs-attr">styles.leftMargin</span>, {<span class="hljs-attr">opacity:</span> <span class="hljs-attr">0.4</span>}]}
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{fullImage}</span>
+          /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> <span class="hljs-attr">styles.leftMargin</span>, {<span class="hljs-attr">opacity:</span> <span class="hljs-attr">0.2</span>}]}
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{fullImage}</span>
+          /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> <span class="hljs-attr">styles.leftMargin</span>, {<span class="hljs-attr">opacity:</span> <span class="hljs-attr">0</span>}]}
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{fullImage}</span>
+          /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+      );
+    },
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Nesting'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+          <span class="hljs-attr">style</span>=<span class="hljs-string">{{width:</span> <span class="hljs-attr">60</span>, <span class="hljs-attr">height:</span> <span class="hljs-attr">60</span>, <span class="hljs-attr">backgroundColor:</span> '<span class="hljs-attr">transparent</span>'}}
+          <span class="hljs-attr">source</span>=<span class="hljs-string">{fullImage}</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.nestedText}</span>&gt;</span>
+            React
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Image</span>&gt;</span></span>
+      );
+    },
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Tint Color'</span>,
+    <span class="hljs-attr">description</span>: <span class="hljs-string">'The `tintColor` style prop changes all the non-alpha '</span> +
+      <span class="hljs-string">'pixels to the tint color.'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.horizontal}</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+              <span class="hljs-attr">source</span>=<span class="hljs-string">{require(</span>'<span class="hljs-attr">.</span>/<span class="hljs-attr">uie_thumb_normal.png</span>')}
+              <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.icon,</span> {<span class="hljs-attr">borderRadius:</span> <span class="hljs-attr">5</span>, <span class="hljs-attr">tintColor:</span> '#<span class="hljs-attr">5ac8fa</span>' }]}
+            /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+              <span class="hljs-attr">source</span>=<span class="hljs-string">{require(</span>'<span class="hljs-attr">.</span>/<span class="hljs-attr">uie_thumb_normal.png</span>')}
+              <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.icon,</span> <span class="hljs-attr">styles.leftMargin</span>, {<span class="hljs-attr">borderRadius:</span> <span class="hljs-attr">5</span>, <span class="hljs-attr">tintColor:</span> '#<span class="hljs-attr">4cd964</span>' }]}
+            /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+              <span class="hljs-attr">source</span>=<span class="hljs-string">{require(</span>'<span class="hljs-attr">.</span>/<span class="hljs-attr">uie_thumb_normal.png</span>')}
+              <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.icon,</span> <span class="hljs-attr">styles.leftMargin</span>, {<span class="hljs-attr">borderRadius:</span> <span class="hljs-attr">5</span>, <span class="hljs-attr">tintColor:</span> '#<span class="hljs-attr">ff2d55</span>' }]}
+            /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+              <span class="hljs-attr">source</span>=<span class="hljs-string">{require(</span>'<span class="hljs-attr">.</span>/<span class="hljs-attr">uie_thumb_normal.png</span>')}
+              <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.icon,</span> <span class="hljs-attr">styles.leftMargin</span>, {<span class="hljs-attr">borderRadius:</span> <span class="hljs-attr">5</span>, <span class="hljs-attr">tintColor:</span> '#<span class="hljs-attr">8e8e93</span>' }]}
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.sectionText}</span>&gt;</span>
+            It also works with downloaded images:
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.horizontal}</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+              <span class="hljs-attr">source</span>=<span class="hljs-string">{smallImage}</span>
+              <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> {<span class="hljs-attr">borderRadius:</span> <span class="hljs-attr">5</span>, <span class="hljs-attr">tintColor:</span> '#<span class="hljs-attr">5ac8fa</span>' }]}
+            /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+              <span class="hljs-attr">source</span>=<span class="hljs-string">{smallImage}</span>
+              <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> <span class="hljs-attr">styles.leftMargin</span>, {<span class="hljs-attr">borderRadius:</span> <span class="hljs-attr">5</span>, <span class="hljs-attr">tintColor:</span> '#<span class="hljs-attr">4cd964</span>' }]}
+            /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+              <span class="hljs-attr">source</span>=<span class="hljs-string">{smallImage}</span>
+              <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> <span class="hljs-attr">styles.leftMargin</span>, {<span class="hljs-attr">borderRadius:</span> <span class="hljs-attr">5</span>, <span class="hljs-attr">tintColor:</span> '#<span class="hljs-attr">ff2d55</span>' }]}
+            /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+              <span class="hljs-attr">source</span>=<span class="hljs-string">{smallImage}</span>
+              <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.base,</span> <span class="hljs-attr">styles.leftMargin</span>, {<span class="hljs-attr">borderRadius:</span> <span class="hljs-attr">5</span>, <span class="hljs-attr">tintColor:</span> '#<span class="hljs-attr">8e8e93</span>' }]}
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+      );
+    },
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Resize Mode'</span>,
+    <span class="hljs-attr">description</span>: <span class="hljs-string">'The `resizeMode` style prop controls how the image is '</span> +
+      <span class="hljs-string">'rendered within the frame.'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+          {[smallImage, fullImage].map((image, index) =&gt; {
+            return (
+            <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{index}</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.horizontal}</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.resizeModeText]}</span>&gt;</span>
+                    Contain
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+                    <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.resizeMode}</span>
+                    <span class="hljs-attr">resizeMode</span>=<span class="hljs-string">{Image.resizeMode.contain}</span>
+                    <span class="hljs-attr">source</span>=<span class="hljs-string">{image}</span>
+                  /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.leftMargin}</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.resizeModeText]}</span>&gt;</span>
+                    Cover
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+                    <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.resizeMode}</span>
+                    <span class="hljs-attr">resizeMode</span>=<span class="hljs-string">{Image.resizeMode.cover}</span>
+                    <span class="hljs-attr">source</span>=<span class="hljs-string">{image}</span>
+                  /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.horizontal}</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.resizeModeText]}</span>&gt;</span>
+                    Stretch
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+                    <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.resizeMode}</span>
+                    <span class="hljs-attr">resizeMode</span>=<span class="hljs-string">{Image.resizeMode.stretch}</span>
+                    <span class="hljs-attr">source</span>=<span class="hljs-string">{image}</span>
+                  /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+                { Platform.OS === 'ios' ?
+                  <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.leftMargin}</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.resizeModeText]}</span>&gt;</span>
+                      Repeat
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+                      <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.resizeMode}</span>
+                      <span class="hljs-attr">resizeMode</span>=<span class="hljs-string">{Image.resizeMode.repeat}</span>
+                      <span class="hljs-attr">source</span>=<span class="hljs-string">{image}</span>
+                    /&gt;</span>
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+                : null }
+                { Platform.OS === 'android' ?
+                  <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.leftMargin}</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.resizeModeText]}</span>&gt;</span>
+                      Center
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+                      <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.resizeMode}</span>
+                      <span class="hljs-attr">resizeMode</span>=<span class="hljs-string">{Image.resizeMode.center}</span>
+                      <span class="hljs-attr">source</span>=<span class="hljs-string">{image}</span>
+                    /&gt;</span>
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+                : null }
+              <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+          );
+        })}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+      );
+    },
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Animated GIF'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+          <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.gif}</span>
+          <span class="hljs-attr">source</span>=<span class="hljs-string">{{uri:</span> '<span class="hljs-attr">https:</span>//<span class="hljs-attr">38.media.tumblr.com</span>/<span class="hljs-attr">9e9bd08c6e2d10561dd1fb4197df4c4e</span>/<span class="hljs-attr">tumblr_mfqekpMktw1rn90umo1_500.gif</span>'}}
+        /&gt;</span></span>
+      );
+    },
+    <span class="hljs-attr">platform</span>: <span class="hljs-string">'ios'</span>,
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Base64 image'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+          <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.base64}</span>
+          <span class="hljs-attr">source</span>=<span class="hljs-string">{{uri:</span> <span class="hljs-attr">base64Icon</span>, <span class="hljs-attr">scale:</span> <span class="hljs-attr">3</span>}}
+        /&gt;</span></span>
+      );
+    },
+    <span class="hljs-attr">platform</span>: <span class="hljs-string">'ios'</span>,
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Cap Insets'</span>,
+    <span class="hljs-attr">description</span>:
+      <span class="hljs-string">'When the image is resized, the corners of the size specified '</span> +
+      <span class="hljs-string">'by capInsets will stay a fixed size, but the center content and '</span> +
+      <span class="hljs-string">'borders of the image will be stretched. This is useful for creating '</span> +
+      <span class="hljs-string">'resizable rounded buttons, shadows, and other resizable assets.'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ImageCapInsetsExample</span> /&gt;</span></span>;
+    },
+    <span class="hljs-attr">platform</span>: <span class="hljs-string">'ios'</span>,
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Image Size'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ImageSizeExample</span> <span class="hljs-attr">source</span>=<span class="hljs-string">{fullImage}</span> /&gt;</span></span>;
+    },
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'MultipleSourcesExample'</span>,
+    <span class="hljs-attr">description</span>:
+      <span class="hljs-string">'The `source` prop allows passing in an array of uris, so that native to choose which image '</span> +
+      <span class="hljs-string">'to diplay based on the size of the of the target image'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MultipleSourcesExample</span> /&gt;</span></span>;
+    },
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Legacy local image'</span>,
+    <span class="hljs-attr">description</span>:
+      <span class="hljs-string">'Images shipped with the native bundle, but not managed '</span> +
+      <span class="hljs-string">'by the JS packager'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+          <span class="hljs-attr">source</span>=<span class="hljs-string">{{uri:</span> '<span class="hljs-attr">legacy_image</span>', <span class="hljs-attr">width:</span> <span class="hljs-attr">120</span>, <span class="hljs-attr">height:</span> <span class="hljs-attr">120</span>}}
+        /&gt;</span></span>
+      );
+    },
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Bundled images'</span>,
+    <span class="hljs-attr">description</span>:
+      <span class="hljs-string">'Images shipped in a separate native bundle'</span>,
+    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{flexDirection:</span> '<span class="hljs-attr">row</span>'}}&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{{</span>
+              <span class="hljs-attr">url:</span> '<span class="hljs-attr">ImageInBundle</span>',
+              <span class="hljs-attr">bundle:</span> '<span class="hljs-attr">RNTesterBundle</span>',
+              <span class="hljs-attr">width:</span> <span class="hljs-attr">100</span>,
+              <span class="hljs-attr">height:</span> <span class="hljs-attr">100</span>,
+            }}
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{{borderColor:</span> '<span class="hljs-attr">yellow</span>', <span class="hljs-attr">borderWidth:</span> <span class="hljs-attr">4</span>}}
+          /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
+            <span class="hljs-attr">source</span>=<span class="hljs-string">{{</span>
+              <span class="hljs-attr">url:</span> '<span class="hljs-attr">ImageInAssetCatalog</span>',
+              <span class="hljs-attr">bundle:</span> '<span class="hljs-attr">RNTesterBundle</span>',
+              <span class="hljs-attr">width:</span> <span class="hljs-attr">100</span>,
+              <span class="hljs-attr">height:</span> <span class="hljs-attr">100</span>,
+            }}
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{{marginLeft:</span> <span class="hljs-attr">10</span>, <span class="hljs-attr">borderColor:</span> '<span class="hljs-attr">blue</span>', <span class="hljs-attr">borderWidth:</span> <span class="hljs-attr">4</span>}}
+          /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+      );
+    },
+    <span class="hljs-attr">platform</span>: <span class="hljs-string">'ios'</span>,
+  },
+];
+
+<span class="hljs-keyword">var</span> fullImage = {<span class="hljs-attr">uri</span>: <span class="hljs-string">'https://facebook.github.io/react/img/logo_og.png'</span>};
+<span class="hljs-keyword">var</span> smallImage = {<span class="hljs-attr">uri</span>: <span class="hljs-string">'https://facebook.github.io/react/img/logo_small_2x.png'</span>};
+
+<span class="hljs-keyword">var</span> styles = StyleSheet.create({
+  <span class="hljs-attr">base</span>: {
+    <span class="hljs-attr">width</span>: <span class="hljs-number">38</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">38</span>,
+  },
+  <span class="hljs-attr">progress</span>: {
+    <span class="hljs-attr">flex</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">alignItems</span>: <span class="hljs-string">'center'</span>,
+    <span class="hljs-attr">flexDirection</span>: <span class="hljs-string">'row'</span>,
+    <span class="hljs-attr">width</span>: <span class="hljs-number">100</span>
+  },
+  <span class="hljs-attr">leftMargin</span>: {
+    <span class="hljs-attr">marginLeft</span>: <span class="hljs-number">10</span>,
+  },
+  <span class="hljs-attr">background</span>: {
+    <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">'#222222'</span>
+  },
+  <span class="hljs-attr">sectionText</span>: {
+    <span class="hljs-attr">marginVertical</span>: <span class="hljs-number">6</span>,
+  },
+  <span class="hljs-attr">nestedText</span>: {
+    <span class="hljs-attr">marginLeft</span>: <span class="hljs-number">12</span>,
+    <span class="hljs-attr">marginTop</span>: <span class="hljs-number">20</span>,
+    <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">'transparent'</span>,
+    <span class="hljs-attr">color</span>: <span class="hljs-string">'white'</span>
+  },
+  <span class="hljs-attr">resizeMode</span>: {
+    <span class="hljs-attr">width</span>: <span class="hljs-number">90</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">60</span>,
+    <span class="hljs-attr">borderWidth</span>: <span class="hljs-number">0.5</span>,
+    <span class="hljs-attr">borderColor</span>: <span class="hljs-string">'black'</span>
+  },
+  <span class="hljs-attr">resizeModeText</span>: {
+    <span class="hljs-attr">fontSize</span>: <span class="hljs-number">11</span>,
+    <span class="hljs-attr">marginBottom</span>: <span class="hljs-number">3</span>,
+  },
+  <span class="hljs-attr">icon</span>: {
+    <span class="hljs-attr">width</span>: <span class="hljs-number">15</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">15</span>,
+  },
+  <span class="hljs-attr">horizontal</span>: {
+    <span class="hljs-attr">flexDirection</span>: <span class="hljs-string">'row'</span>,
+  },
+  <span class="hljs-attr">gif</span>: {
+    <span class="hljs-attr">flex</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">200</span>,
+  },
+  <span class="hljs-attr">base64</span>: {
+    <span class="hljs-attr">flex</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">50</span>,
+    <span class="hljs-attr">resizeMode</span>: <span class="hljs-string">'contain'</span>,
+  },
+  <span class="hljs-attr">touchableText</span>: {
+    <span class="hljs-attr">fontWeight</span>: <span class="hljs-string">'500'</span>,
+    <span class="hljs-attr">color</span>: <span class="hljs-string">'blue'</span>,
+  },
+});
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/react-native-website/docs/0.45/flatlist"><span class="arrow-prev">← </span><span class="function-name-prevnext">FlatList</span></a><a class="docs-next button" href="/react-native-website/docs/0.45/keyboardavoidingview"><span class="function-name-prevnext">KeyboardAvoidingView</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright"><p style="color:inherit">React Native中文网 © 2020 杭州欧石南网络科技有限公司</p><p style="color:inherit"><a href="http://beian.miit.gov.cn/">浙ICP备15023664号-3</a><img src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" alt="浙公网安备 33010602005511号"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602005511">浙公网安备 33010602005511号</a></p></section><script>
+        (function(){
+          var c = document.createElement("div");
+          c.setAttribute("id", "lv-container");
+          c.setAttribute("data-id", "city");
+          c.setAttribute("data-uid", "MTAyMC8zODM4NS8xNDkxMw==");
+          var container = document.querySelector(".mainContainer")
+          container && container.appendChild(c);
+        })()
+        </script><script src="https://cdn-city.livere.com/js/embed.dist.js"></script></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '7ab53ed26928639bae06ef0f6165f68b',
+                indexName: 'reactnative_cn',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {"hitsPerPage":5}
+              });
+            </script></body></html>

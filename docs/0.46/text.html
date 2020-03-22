@@ -1,0 +1,1140 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Text · React Native 中文网</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="一个用于显示文本的React组件，并且它也支持嵌套、样式，以及触摸处理。在下面的例子里，嵌套的标题和正文文字会继承来自`styles.baseText`的`fontFamily`字体样式，不过标题上还附加了它自己额外的样式。标题和文本会在顶部依次堆叠，并且被代码中内嵌的换行符分隔开。"/><meta name="docsearch:version" content="0.46"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Text · React Native 中文网"/><meta property="og:type" content="website"/><meta property="og:url" content="https://reactnativecn.github.io/react-native-website/"/><meta property="og:description" content="一个用于显示文本的React组件，并且它也支持嵌套、样式，以及触摸处理。在下面的例子里，嵌套的标题和正文文字会继承来自`styles.baseText`的`fontFamily`字体样式，不过标题上还附加了它自己额外的样式。标题和文本会在顶部依次堆叠，并且被代码中内嵌的换行符分隔开。"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/react-native-website/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@9.18.1/styles/solarized-dark.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-63485149-4', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/cnwebsite/static/js/codeblocks.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/cnwebsite/static/js/tabs.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/cnwebsite/static/js/doccode.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="https://cdn.jsdelivr.net/gh/facebook/docusaurus@1.14.4/packages/docusaurus-1.x/lib/static/js/scrollSpy.js"></script><link rel="stylesheet" href="/react-native-website/css/main.css"/><script src="https://cdn.jsdelivr.net/gh/facebook/docusaurus@1.14.4/packages/docusaurus-1.x/lib/static/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/react-native-website/"><img class="logo" src="/react-native-website/img/header_logo.svg" alt="React Native 中文网"/><h2 class="headerTitleWithLogo">React Native 中文网</h2></a><a href="/react-native-website/versions"><h3>0.46</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/react-native-website/docs/0.46/getting-started" target="_self">文档</a></li><li class="siteNavGroupActive"><a href="/react-native-website/docs/0.46/activityindicator" target="_self">API</a></li><li class=""><a href="//github.com/reactnativecn/react-native-website/issues" target="_blank">讨论</a></li><li class=""><a href="//update.reactnative.cn" target="_blank">热更新</a></li><li class=""><a href="/react-native-website/about" target="_self">关于</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://github.com/facebook/react-native" target="_self">GitHub</a></li><li class=""><a href="//zh-hans.reactjs.org/" target="_blank">React</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>组件</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">入门基础<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/getting-started">搭建开发环境</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/tutorial">编写Hello World</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/props">Props（属性）</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/state">State（状态）</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/style">样式</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/height-and-width">高度与宽度</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/layout-with-flexbox">使用Flexbox布局</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/handling-text-input">处理文本输入</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/using-a-scrollview">如何使用滚动视图</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/using-a-listview">如何使用长列表</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/network">网络</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/more-resources">其他参考资源</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">进阶指南<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/integration-with-existing-apps">集成到现有原生应用</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/navigation">使用导航器跳转页面</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/colors">颜色</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/images">图片</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/handling-touches">处理触摸事件</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/animations">动画</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/accessibility">无障碍功能</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/timers">定时器</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/direct-manipulation">直接操作</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/debugging">调试</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/testing">自动化测试</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/javascript-environment">JavaScript环境</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/performance">性能</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/upgrading">升级</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/platform-specific-code">特定平台代码</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/gesture-responder-system">手势响应系统</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">使用指南(iOS)<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/native-modules-ios">原生模块</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/native-component-ios">原生UI组件</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/linking-libraries-ios">链接原生库</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/running-on-device-ios">在设备上运行</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/running-on-simulator-ios">在模拟器上运行</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/communication-ios">在原生和React Native间通信</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">使用指南(Android)<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/native-modules-android">原生模块</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/native-component-android">原生UI组件</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/headless-js-android">Headless JS（后台任务）</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/running-on-device-android">在设备上运行</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/signed-apk-android">打包APK</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/android-ui-performance">调试Android UI性能</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/android-building-from-source">从源代码编译React Native</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">组件<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/activityindicator">ActivityIndicator</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/button">Button</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/datepickerios">DatePickerIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/drawerlayoutandroid">DrawerLayoutAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/flatlist">FlatList</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/image">Image</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/keyboardavoidingview">KeyboardAvoidingView</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/listview">ListView</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/listviewdatasource">ListView.DataSource</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/modal">Modal</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/navigatorios">NavigatorIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/picker">Picker</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/pickerios">PickerIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/progressbarandroid">ProgressBarAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/progressviewios">ProgressViewIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/refreshcontrol">RefreshControl</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/scrollview">ScrollView</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/sectionlist">SectionList</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/segmentedcontrolios">SegmentedControlIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/slider">Slider</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/statusbar">StatusBar</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/switch">Switch</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/tabbarios">TabBarIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/tabbarios-item">TabBarIOS.Item</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/react-native-website/docs/0.46/text">Text</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/textinput">TextInput</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/toolbarandroid">ToolbarAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/touchablehighlight">TouchableHighlight</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/touchablenativefeedback">TouchableNativeFeedback</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/touchableopacity">TouchableOpacity</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/touchablewithoutfeedback">TouchableWithoutFeedback</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/view">View</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/viewpagerandroid">ViewPagerAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/virtualizedlist">VirtualizedList</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/webview">WebView</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">API<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/actionsheetios">ActionSheetIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/adsupportios">AdSupportIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/alert">Alert</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/alertios">AlertIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/animated">Animated</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/appregistry">AppRegistry</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/appstate">AppState</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/asyncstorage">AsyncStorage</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/backandroid">BackAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/backhandler">BackHandler</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/cameraroll">CameraRoll</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/clipboard">Clipboard</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/datepickerandroid">DatePickerAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/dimensions">Dimensions</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/easing">Easing</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/geolocation">Geolocation</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/imageeditor">ImageEditor</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/imagepickerios">ImagePickerIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/imagestore">ImageStore</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/interactionmanager">InteractionManager</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/keyboard">Keyboard</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/layoutanimation">LayoutAnimation</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/linking">Linking</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/nativemethodsmixin">NativeMethodsMixin</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/netinfo">NetInfo</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/panresponder">PanResponder</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/permissionsandroid">PermissionsAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/pixelratio">PixelRatio</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/pushnotificationios">PushNotificationIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/share">Share</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/stylesheet">StyleSheet</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/systrace">Systrace</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/timepickerandroid">TimePickerAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/toastandroid">ToastAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/vibration">Vibration</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/layout-props">布局样式属性</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.46/shadow-props">阴影样式属性</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="//github.com/reactnativecn/react-native-website/blob/production/cndocs/text.md" target="_blank" rel="noreferrer noopener">帮助改进此文档</a><h1 id="__docusaurus" class="postHeaderTitle">Text</h1></header><article><div><span><p>一个用于显示文本的React组件，并且它也支持嵌套、样式，以及触摸处理。在下面的例子里，嵌套的标题和正文文字会继承来自<code>styles.baseText</code>的<code>fontFamily</code>字体样式，不过标题上还附加了它自己额外的样式。标题和文本会在顶部依次堆叠，并且被代码中内嵌的换行符分隔开。</p>
+<pre><code class="hljs css language-jsx">renderText: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.baseText}</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.titleText}</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">{this.onPressTitle}</span>&gt;</span>
+        {this.state.titleText + '\n\n'}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">numberOfLines</span>=<span class="hljs-string">{5}</span>&gt;</span>
+        {this.state.bodyText}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
+  );
+},
+...
+var styles = StyleSheet.create({
+  <span class="hljs-attr">baseText</span>: {
+    <span class="hljs-attr">fontFamily</span>: <span class="hljs-string">'Cochin'</span>,
+  },
+  <span class="hljs-attr">titleText</span>: {
+    <span class="hljs-attr">fontSize</span>: <span class="hljs-number">20</span>,
+    <span class="hljs-attr">fontWeight</span>: <span class="hljs-string">'bold'</span>,
+  },
+};
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="截图"></a><a href="#截图" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>截图</h3>
+<p><img src="/img/components/text.png" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="属性"></a><a href="#属性" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>属性</h3>
+<div class="props">
+  <div class="prop">
+    <h4 class="propTitle"><a class="anchor" name="adjustsfontsizetofit"></a>adjustsFontSizeToFit  <span class="propType">bool</span> <a class="hash-link" href="#adjustsfontsizetofit">#</a></h4>
+    <div>
+      <p>指定字体是否随着给定样式的限制而自动缩放。</p>
+    </div>
+  </div>
+  <div class="prop">
+    <h4 class="propTitle"><a class="anchor" name="allowfontscaling"></a>allowFontScaling <span class="propType">bool</span> <a class="hash-link" href="#allowfontscaling">#</a></h4>
+    <div>
+      <p>控制字体是否要根据系统的“字体大小”辅助选项来进行缩放。</p>
+    </div>
+  </div>
+  <div class="prop">
+    <h4 class="propTitle"><a class="anchor" name="minimumfontscale"></a><span class="platform">ios</span>minimumFontScale <span class="propType">bool</span> <a class="hash-link" href="#minimumfontscale">#</a></h4>
+    <div>
+      <p>当adjustsFontSizeToFit开启时，指定最小的缩放比（即不能低于这个值）。可设定的值为0.01 - 1.0</p>
+    </div>
+  </div>
+  <div class="prop">
+    <h4 class="propTitle"><a class="anchor" name="numberoflines"></a>numberOfLines <span class="propType">number</span> <a class="hash-link" href="#numberoflines">#</a></h4>
+    <div>
+      <p>用来当文本过长的时候裁剪文本。包括折叠产生的换行在内，总的行数不会超过这个属性的限制。</p>
+    </div>
+  </div>
+  <div class="prop">
+    <h4 class="propTitle"><a class="anchor" name="onlayout"></a>onLayout <span class="propType">function</span> <a class="hash-link" href="#onlayout">#</a></h4>
+    <div>
+      <p>当挂载或者布局变化以后调用，参数为如下的内容：</p>
+      <p>  <code>{nativeEvent: {layout: {x, y, width, height}}}</code></p>
+    </div>
+  </div>
+  <div class="prop">
+    <h4 class="propTitle"><a class="anchor" name="onlongpress"></a>onLongPress <span class="propType">function</span> <a class="hash-link" href="#onlongpress">#</a></h4>
+    <div>
+      <p>当文本被长按以后调用此回调函数。</p>
+    </div>
+  </div>
+  <div class="prop">
+    <h4 class="propTitle"><a class="anchor" name="onpress"></a>onPress <span class="propType">function</span> <a class="hash-link" href="#onpress">#</a></h4>
+    <div>
+      <p>当文本被点击以后调用此回调函数。</p>
+    </div>
+  </div>
+  <div class="prop">
+    <h4 class="propTitle"><a class="anchor" name="selectable"></a>selectable <span class="propType">function</span> <a class="hash-link" href="#selectable">#</a></h4>
+    <div>
+      <p>决定用户是否可以长按选择文本，以便复制和粘贴。</p>
+    </div>
+  </div><div class="prop"><h4 class="propTitle"><a class="anchor" name="style"></a>style <span class="propType">style</span> <a
+        class="hash-link" href="#style">#</a></h4>
+    <div class="compactProps">
+        <div class="prop"><h6 class="propTitle"><a href="view.html#style">View#style...</a></h6></div>
+        <div class="prop"><h6 class="propTitle">color <span class="propType"><a href="colors.html">color</a></span>
+        </h6></div>
+        <div class="prop"><h6 class="propTitle">fontFamily <span class="propType">string</span></h6></div>
+        <div class="prop"><h6 class="propTitle">fontSize <span class="propType">number</span></h6></div>
+        <div class="prop"><h6 class="propTitle">fontStyle <span class="propType">enum('normal', 'italic')</span></h6>
+        </div>
+        <div class="prop">
+            <h6 class="propTitle">fontWeight <span class="propType">enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')</span>
+                <div><p>指定字体的粗细。大多数字体都支持'normal'和'bold'值。并非所有字体都支持所有的数字值。如果某个值不支持，则会自动选择最接近的值。</p></div>
+            </h6>
+        </div>
+        <div class="prop"><h6 class="propTitle">lineHeight <span class="propType">number</span></h6></div>
+        <div class="prop">
+            <h6 class="propTitle">textAlign <span
+                    class="propType">enum('auto', 'left', 'right', 'center', 'justify')</span>
+                <div><p>指定文本的对齐方式。其中'justify'值仅iOS支持，在Android上会变为<code>left</code></p></div>
+            </h6>
+        </div>
+        <div class="prop"><h6 class="propTitle">textDecorationLine <span class="propType">enum('none', 'underline', 'line-through', 'underline line-through')</span>
+        </h6></div>
+        <div class="prop"><h6 class="propTitle">textShadowColor <span class="propType"><a
+                href="colors.html">color</a></span></h6></div>
+        <div class="prop"><h6 class="propTitle">textShadowOffset <span
+                class="propType">{width: number, height: number}</span></h6></div>
+        <div class="prop"><h6 class="propTitle">textShadowRadius <span class="propType">number</span></h6></div>
+        <div class="prop">
+            <h6 class="propTitle"><span class="platform">android</span>includeFontPadding <span
+                    class="propType">bool</span>
+                <div><p>Android在默认情况下会为文字额外保留一些padding，以便留出空间摆放上标或是下标的文字。对于某些字体来说，这些额外的padding可能会导致文字难以垂直居中。如果你把<code>textAlignVertical</code>设置为<code>center</code>之后，文字看起来依然不在正中间，那么可以尝试将本属性设置为<code>false</code>.
+                </p></div>
+            </h6>
+        </div>
+        <div class="prop"><h6 class="propTitle"><span class="platform">android</span>textAlignVertical <span
+                class="propType">enum('auto', 'top', 'bottom', 'center')</span></h6></div>
+        <div class="prop"><h6 class="propTitle"><span class="platform">ios</span>fontVariant <span
+                class="propType"><span>[enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums')]</span></span>
+        </h6></div>
+        <div class="prop"><h6 class="propTitle"><span class="platform">ios</span>letterSpacing <span class="propType">number</span>
+        </h6></div>
+        <div class="prop"><h6 class="propTitle"><span class="platform">ios</span>textDecorationColor <span
+                class="propType"><a href="colors.html">color</a></span></h6></div>
+        <div class="prop"><h6 class="propTitle"><span class="platform">ios</span>textDecorationStyle <span
+                class="propType">enum('solid', 'double', 'dotted', 'dashed')</span></h6></div>
+        <div class="prop"><h6 class="propTitle"><span class="platform">ios</span>writingDirection <span
+                class="propType">enum('auto', 'ltr', 'rtl')</span></h6></div>
+    </div>
+</div>
+  <div class="prop">
+    <h4 class="propTitle"><a class="anchor" name="testid"></a>testID <span class="propType">string</span> <a class="hash-link" href="#testid">#</a></h4>
+    <div>
+      <p>用来在端到端测试中标记这个视图。</p>
+    </div>
+  </div>
+  <div class="prop">
+    <h4 class="propTitle"><a class="anchor" name="suppresshighlighting"></a><span class="platform">ios</span>suppressHighlighting <span class="propType">bool</span> <a class="hash-link" href="#suppresshighlighting">#</a></h4>
+    <div>
+      <p>当为true时，如果文本被按下，则没有任何视觉效果。默认情况下，文本被按下时会有一个灰色的、椭圆形的高光。</p>
+    </div>
+  </div>
+</div> 
+<h2><a class="anchor" aria-hidden="true" id="嵌套文本"></a><a href="#嵌套文本" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>嵌套文本</h2>
+<p>在iOS当中，显示一个格式化文本的方法就是使用<code>NSAttributedString</code>：提供你想显示的文本内容，并且使用范围标注来指定一些格式。这种用法非常繁琐。在React Native中，我们决定采用和Web一致的设计，这样你可以把相同格式的文本嵌套包裹起来：</p>
+<pre><code class="hljs css language-jsx">&lt;Text style={{fontWeight: 'bold'}}&gt;
+  I am bold
+  &lt;Text style={{color: 'red'}}&gt;
+    and red
+  &lt;/Text&gt;
+&lt;/Text&gt;
+</code></pre>
+<p>而实际上在框架内部，这会生成一个扁平结构的<code>NSAttributedString</code>，包含以下的信息：</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-string">"I am bold and red"</span>
+<span class="hljs-number">0</span><span class="hljs-number">-9</span>: bold
+<span class="hljs-number">9</span><span class="hljs-number">-17</span>: bold, red
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="容器"></a><a href="#容器" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>容器</h2>
+<p><code>&lt;Text&gt;</code>元素在布局上不同于其它组件：在Text内部的元素不再使用flexbox布局，而是采用文本布局。这意味着<code>&lt;Text&gt;</code>内部的元素不再是一个个矩形，而可能会在行末进行折叠。</p>
+<pre><code class="hljs css language-jsx">&lt;Text&gt;
+  &lt;Text&gt;First part and &lt;/Text&gt;
+  &lt;Text&gt;second part&lt;/Text&gt;
+&lt;/Text&gt;
+// Text container: all the text flows as if it was one
+// |First part |
+// |and second |
+// |part       |
+
+&lt;View&gt;
+  &lt;Text&gt;First part and &lt;/Text&gt;
+  &lt;Text&gt;second part&lt;/Text&gt;
+&lt;/View&gt;
+// View container: each text is its own block
+// |First part |
+// |and        |
+// |second part|
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="样式继承限制"></a><a href="#样式继承限制" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>样式继承限制</h2>
+<p>在Web上，要想指定整个文档的字体和大小，我们只需要写：</p>
+<pre><code class="hljs css language-css"><span class="hljs-comment">/* 这段代码是CSS, *不是*React Native */</span>
+<span class="hljs-selector-tag">html</span> {
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'lucida grande'</span>, tahoma, verdana, arial, sans-serif;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">11px</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#141823</span>;
+}
+</code></pre>
+<p>当浏览器尝试渲染一个文本节点的时候，它会在树中一路向上查询，直到根节点，来找到一个具备<code>font-size</code>属性的元素。这个系统一个不好的地方在于<strong>任何</strong>节点都可能会有<code>font-size</code>属性，包括<code>&lt;div&gt;</code>标签。这个设计为了方便而设计，但实际上语义上并不太正确。</p>
+<p>在React Native中，我们把这个问题设计的更加严谨：<strong>你必须把你的文本节点放在<code>&lt;Text&gt;</code>组件内</strong>。你不能直接在<code>&lt;View&gt;</code>下放置一段文本。</p>
+<pre><code class="hljs css language-jsx">// 错误的做法：会导致一个错误。&lt;View&gt;下不能直接放一段文本。
+&lt;View&gt;
+  一些文本
+&lt;/View&gt;
+
+// 正确的做法
+&lt;View&gt;
+  &lt;Text&gt;
+    一些文本
+  &lt;/Text&gt;
+&lt;/View&gt;
+</code></pre>
+<p>并且你也不能直接设置一整颗子树的默认样式。使用一个一致的文本和尺寸的推荐方式是创建一个包含相关样式的组件<code>MyAppText</code>，然后在你的App中反复使用它。你还可以创建更多特殊的组件譬如<code>MyAppHeaderText</code>来表达不同样式的文本。</p>
+<pre><code class="hljs css language-jsx">&lt;View&gt;
+  &lt;MyAppText&gt;这个组件包含了一个默认的字体样式，用于整个应用的文本&lt;/MyAppText&gt;
+  &lt;MyAppHeaderText&gt;这个组件包含了用于标题的样式&lt;/MyAppHeaderText&gt;
+&lt;/View&gt;
+</code></pre>
+<p>React Native实际上还是有一部分样式继承的实现，不过仅限于文本标签的子树。在下面的代码里，第二部分会在加粗的同时又显示为红色：</p>
+<pre><code class="hljs css language-jsx">&lt;Text style={{fontWeight: 'bold'}}&gt;
+  I am bold
+  &lt;Text style={{color: 'red'}}&gt;
+    and red
+  &lt;/Text&gt;
+&lt;/Text&gt;
+</code></pre>
+<p>我们相信这种看起来不太舒服的给文本添加样式的方法反而会帮助我们生产更好的App：</p>
+<ul>
+<li><p>(对开发者来说) React组件在概念上被设计为强隔离性的：你应当可以在应用的任何位置放置一个组件，而且只要属性相同，其外观和表现都将完全相同。文本如果能够继承外面的样式属性，将会打破这种隔离性。</p></li>
+<li><p>(对实现者来说) React Native的实现也被简化了。我们不需要在每个元素上都添加一个<code>fontFamily</code>字段，并且我们也不需要隐含地在显示文本的时候向上遍历树。唯一的样式继承在原生Text组件中编码，也不会影响到其它组件或者系统本身。</p></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="例子"></a><a href="#例子" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h3>
+<h4><a class="anchor" aria-hidden="true" id="ios"></a><a href="#ios" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iOS</h4>
+<pre><code class="hljs css language-jsx"><span class="hljs-meta">'use strict'</span>;
+
+<span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
+<span class="hljs-keyword">var</span> ReactNative = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-native'</span>);
+<span class="hljs-keyword">var</span> {
+  Image,
+  StyleSheet,
+  Text,
+  View,
+} = ReactNative;
+
+<span class="hljs-keyword">var</span> Entity = React.createClass({
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontWeight:</span> '<span class="hljs-attr">500</span>', <span class="hljs-attr">color:</span> '#<span class="hljs-attr">527fe4</span>'}}&gt;</span>
+        {this.props.children}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
+    );
+  }
+});
+
+<span class="hljs-keyword">var</span> AttributeToggler = React.createClass({
+  <span class="hljs-attr">getInitialState</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> {<span class="hljs-attr">fontWeight</span>: <span class="hljs-string">'bold'</span>, <span class="hljs-attr">fontSize</span>: <span class="hljs-number">15</span>};
+  },
+  <span class="hljs-attr">toggleWeight</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.setState({
+      <span class="hljs-attr">fontWeight</span>: <span class="hljs-keyword">this</span>.state.fontWeight === <span class="hljs-string">'bold'</span> ? <span class="hljs-string">'normal'</span> : <span class="hljs-string">'bold'</span>
+    });
+  },
+  <span class="hljs-attr">increaseSize</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.setState({
+      <span class="hljs-attr">fontSize</span>: <span class="hljs-keyword">this</span>.state.fontSize + <span class="hljs-number">1</span>
+    });
+  },
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> curStyle = {<span class="hljs-attr">fontWeight</span>: <span class="hljs-keyword">this</span>.state.fontWeight, <span class="hljs-attr">fontSize</span>: <span class="hljs-keyword">this</span>.state.fontSize};
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{curStyle}</span>&gt;</span>
+          Tap the controls below to change attributes.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>See how it will even work on <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{curStyle}</span>&gt;</span>this nested text<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>
+          <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '#<span class="hljs-attr">ffaaaa</span>', <span class="hljs-attr">marginTop:</span> <span class="hljs-attr">5</span>}}
+          <span class="hljs-attr">onPress</span>=<span class="hljs-string">{this.toggleWeight}</span>&gt;</span>
+          Toggle Weight
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>
+          <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '#<span class="hljs-attr">aaaaff</span>', <span class="hljs-attr">marginTop:</span> <span class="hljs-attr">5</span>}}
+          <span class="hljs-attr">onPress</span>=<span class="hljs-string">{this.increaseSize}</span>&gt;</span>
+          Increase Size
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  }
+});
+
+exports.title = <span class="hljs-string">'&lt;Text&gt;'</span>;
+exports.description = <span class="hljs-string">'Base component for rendering styled text.'</span>;
+exports.displayName = <span class="hljs-string">'TextExample'</span>;
+exports.examples = [
+{
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Wrap'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+        The text should wrap if it goes on multiple lines. See, this is going to
+        the next line.
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Padding'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{padding:</span> <span class="hljs-attr">10</span>}}&gt;</span>
+        This text is indented by 10px padding on all sides.
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Font Family'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">Cochin</span>'}}&gt;</span>
+          Cochin
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">Cochin</span>', <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+          Cochin bold
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">Helvetica</span>'}}&gt;</span>
+          Helvetica
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">Helvetica</span>', <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+          Helvetica bold
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">Verdana</span>'}}&gt;</span>
+          Verdana
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">Verdana</span>', <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+          Verdana bold
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Font Size'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">23</span>}}&gt;</span>
+          Size 23
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">8</span>}}&gt;</span>
+          Size 8
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Color'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{color:</span> '<span class="hljs-attr">red</span>'}}&gt;</span>
+          Red color
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{color:</span> '<span class="hljs-attr">blue</span>'}}&gt;</span>
+          Blue color
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Font Weight'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">20</span>, <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">100</span>'}}&gt;</span>
+          Move fast and be ultralight
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">20</span>, <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">200</span>'}}&gt;</span>
+          Move fast and be light
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">20</span>, <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">normal</span>'}}&gt;</span>
+          Move fast and be normal
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">20</span>, <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+          Move fast and be bold
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">20</span>, <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">900</span>'}}&gt;</span>
+          Move fast and be ultrabold
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+},  {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Font Style'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontStyle:</span> '<span class="hljs-attr">normal</span>'}}&gt;</span>
+          Normal text
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontStyle:</span> '<span class="hljs-attr">italic</span>'}}&gt;</span>
+          Italic text
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Text Decoration'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">underline</span>', <span class="hljs-attr">textDecorationStyle:</span> '<span class="hljs-attr">solid</span>'}}&gt;</span>
+          Solid underline
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">underline</span>', <span class="hljs-attr">textDecorationStyle:</span> '<span class="hljs-attr">double</span>', <span class="hljs-attr">textDecorationColor:</span> '#<span class="hljs-attr">ff0000</span>'}}&gt;</span>
+          Double underline with custom color
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">underline</span>', <span class="hljs-attr">textDecorationStyle:</span> '<span class="hljs-attr">dashed</span>', <span class="hljs-attr">textDecorationColor:</span> '#<span class="hljs-attr">9CDC40</span>'}}&gt;</span>
+          Dashed underline with custom color
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">underline</span>', <span class="hljs-attr">textDecorationStyle:</span> '<span class="hljs-attr">dotted</span>', <span class="hljs-attr">textDecorationColor:</span> '<span class="hljs-attr">blue</span>'}}&gt;</span>
+          Dotted underline with custom color
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">none</span>'}}&gt;</span>
+          None textDecoration
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">line-through</span>', <span class="hljs-attr">textDecorationStyle:</span> '<span class="hljs-attr">solid</span>'}}&gt;</span>
+          Solid line-through
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">line-through</span>', <span class="hljs-attr">textDecorationStyle:</span> '<span class="hljs-attr">double</span>', <span class="hljs-attr">textDecorationColor:</span> '#<span class="hljs-attr">ff0000</span>'}}&gt;</span>
+          Double line-through with custom color
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">line-through</span>', <span class="hljs-attr">textDecorationStyle:</span> '<span class="hljs-attr">dashed</span>', <span class="hljs-attr">textDecorationColor:</span> '#<span class="hljs-attr">9CDC40</span>'}}&gt;</span>
+          Dashed line-through with custom color
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">line-through</span>', <span class="hljs-attr">textDecorationStyle:</span> '<span class="hljs-attr">dotted</span>', <span class="hljs-attr">textDecorationColor:</span> '<span class="hljs-attr">blue</span>'}}&gt;</span>
+          Dotted line-through with custom color
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">underline</span> <span class="hljs-attr">line-through</span>'}}&gt;</span>
+          Both underline and line-through
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Nested'</span>,
+  <span class="hljs-attr">description</span>: <span class="hljs-string">'Nested text components will inherit the styles of their '</span> +
+    <span class="hljs-string">'parents (only backgroundColor is inherited from non-Text parents).  '</span> +
+    <span class="hljs-string">'&lt;Text&gt; only supports other &lt;Text&gt; and raw text (strings) as children.'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+          (Normal text,
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+            (and bold
+            <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">11</span>, <span class="hljs-attr">color:</span> '#<span class="hljs-attr">527fe4</span>'}}&gt;</span>
+              (and tiny inherited bold blue)
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            )
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          )
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{opacity:0.7}}</span>&gt;</span>
+          (opacity
+            <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+              (is inherited
+                <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{opacity:0.7}}</span>&gt;</span>
+                  (and accumulated
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span>'#<span class="hljs-attr">ffaaaa</span>'}}&gt;</span>
+                      (and also applies to the background)
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+                  )
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              )
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          )
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">12</span>}}&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Entity</span>&gt;</span>Entity Name<span class="hljs-tag">&lt;/<span class="hljs-name">Entity</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Text Align'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+          auto (default) - english LTR
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+          أحب اللغة العربية auto (default) - arabic RTL
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textAlign:</span> '<span class="hljs-attr">left</span>'}}&gt;</span>
+          left left left left left left left left left left left left left left left
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textAlign:</span> '<span class="hljs-attr">center</span>'}}&gt;</span>
+          center center center center center center center center center center center
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textAlign:</span> '<span class="hljs-attr">right</span>'}}&gt;</span>
+          right right right right right right right right right right right right right
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textAlign:</span> '<span class="hljs-attr">justify</span>'}}&gt;</span>
+          justify: this text component{"'"}s contents are laid out with "textAlign: justify"
+          and as you can see all of the lines except the last one span the
+          available width of the parent container.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Letter Spacing'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{letterSpacing:</span> <span class="hljs-attr">0</span>}}&gt;</span>
+          letterSpacing = 0
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{letterSpacing:</span> <span class="hljs-attr">2</span>, <span class="hljs-attr">marginTop:</span> <span class="hljs-attr">5</span>}}&gt;</span>
+          letterSpacing = 2
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{letterSpacing:</span> <span class="hljs-attr">9</span>, <span class="hljs-attr">marginTop:</span> <span class="hljs-attr">5</span>}}&gt;</span>
+          letterSpacing = 9
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{letterSpacing:</span> <span class="hljs-attr">-1</span>, <span class="hljs-attr">marginTop:</span> <span class="hljs-attr">5</span>}}&gt;</span>
+          letterSpacing = -1
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Spaces'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+        A {'generated'} {' '} {'string'} and    some <span class="hljs-symbol">&amp;nbsp;</span><span class="hljs-symbol">&amp;nbsp;</span><span class="hljs-symbol">&amp;nbsp;</span> spaces
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Line Height'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{lineHeight:</span> <span class="hljs-attr">35</span>}}&gt;</span>
+          A lot of space between the lines of this long passage that should
+          wrap once.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Empty Text'</span>,
+  <span class="hljs-attr">description</span>: <span class="hljs-string">'It\'s ok to have Text with zero or null children.'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span> /&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Toggling Attributes'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>): <span class="hljs-title">ReactElement</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">AttributeToggler</span> /&gt;</span></span>;
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'backgroundColor attribute'</span>,
+  <span class="hljs-attr">description</span>: <span class="hljs-string">'backgroundColor is inherited from all types of views.'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '<span class="hljs-attr">yellow</span>'}}&gt;</span>
+        Yellow container background,
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '#<span class="hljs-attr">ffaaaa</span>'}}&gt;</span>
+          {' '}red background,
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '#<span class="hljs-attr">aaaaff</span>'}}&gt;</span>
+            {' '}blue background,
+            <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+              {' '}inherited blue background,
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '#<span class="hljs-attr">aaffaa</span>'}}&gt;</span>
+                {' '}nested green background.
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'numberOfLines attribute'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">numberOfLines</span>=<span class="hljs-string">{1}</span>&gt;</span>
+          Maximum of one line, no matter how much I write here. If I keep writing, it{"'"}ll just truncate after one line.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">numberOfLines</span>=<span class="hljs-string">{2}</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{marginTop:</span> <span class="hljs-attr">20</span>}}&gt;</span>
+          Maximum of two lines, no matter how much I write here. If I keep writing, it{"'"}ll just truncate after two lines.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{marginTop:</span> <span class="hljs-attr">20</span>}}&gt;</span>
+          No maximum lines specified, no matter how much I write here. If I keep writing, it{"'"}ll just keep going and going.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Text highlighting (tap the link to see highlight)'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>Lorem ipsum dolor sit amet, <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">suppressHighlighting</span>=<span class="hljs-string">{false}</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '<span class="hljs-attr">white</span>', <span class="hljs-attr">textDecorationLine:</span> '<span class="hljs-attr">underline</span>', <span class="hljs-attr">color:</span> '<span class="hljs-attr">blue</span>'}} <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> null}&gt;consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'allowFontScaling attribute'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+          By default, text will respect Text Size accessibility setting on iOS.
+          It means that all font sizes will be increased or descreased depending on the value of Text Size setting in
+          {" "}<span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>Settings.app - Display &amp; Brightness - Text Size<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{marginTop:</span> <span class="hljs-attr">10</span>}}&gt;</span>
+          You can disable scaling for your Text component by passing {"\""}allowFontScaling={"{"}false{"}\""} prop.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">allowFontScaling</span>=<span class="hljs-string">{false}</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{marginTop:</span> <span class="hljs-attr">20</span>}}&gt;</span>
+          This text will not scale.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Inline images'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+          This text contains an inline image <span class="hljs-tag">&lt;<span class="hljs-name">Image</span> <span class="hljs-attr">source</span>=<span class="hljs-string">{require(</span>'<span class="hljs-attr">.</span>/<span class="hljs-attr">flux.png</span>')} <span class="hljs-attr">style</span>=<span class="hljs-string">{{width:</span> <span class="hljs-attr">30</span>, <span class="hljs-attr">height:</span> <span class="hljs-attr">11</span>, <span class="hljs-attr">resizeMode:</span> '<span class="hljs-attr">cover</span>'}}/&gt;</span>. Neat, huh?
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+}, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'Text shadow'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">20</span>, <span class="hljs-attr">textShadowOffset:</span> {<span class="hljs-attr">width:</span> <span class="hljs-attr">2</span>, <span class="hljs-attr">height:</span> <span class="hljs-attr">2</span>}, <span class="hljs-attr">textShadowRadius:</span> <span class="hljs-attr">1</span>, <span class="hljs-attr">textShadowColor:</span> '#<span class="hljs-attr">00cccc</span>'}}&gt;</span>
+          Demo text shadow
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  },
+}];
+
+<span class="hljs-keyword">var</span> styles = StyleSheet.create({
+  <span class="hljs-attr">backgroundColorText</span>: {
+    <span class="hljs-attr">margin</span>: <span class="hljs-number">5</span>,
+    <span class="hljs-attr">marginBottom</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">'rgba(100, 100, 100, 0.3)'</span>
+  },
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="android"></a><a href="#android" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Android</h4>
+<pre><code class="hljs css language-jsx"><span class="hljs-meta">'use strict'</span>;
+
+<span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
+<span class="hljs-keyword">var</span> ReactNative = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-native'</span>);
+<span class="hljs-keyword">var</span> {
+  Image,
+  StyleSheet,
+  Text,
+  View,
+} = ReactNative;
+<span class="hljs-keyword">var</span> RNTesterBlock = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./RNTesterBlock'</span>);
+<span class="hljs-keyword">var</span> RNTesterPage = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./RNTesterPage'</span>);
+
+<span class="hljs-keyword">var</span> Entity = React.createClass({
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontWeight:</span> '<span class="hljs-attr">bold</span>', <span class="hljs-attr">color:</span> '#<span class="hljs-attr">527fe4</span>'}}&gt;</span>
+        {this.props.children}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
+    );
+  }
+});
+
+<span class="hljs-keyword">var</span> AttributeToggler = React.createClass({
+  <span class="hljs-attr">getInitialState</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> {<span class="hljs-attr">fontWeight</span>: <span class="hljs-string">'bold'</span>, <span class="hljs-attr">fontSize</span>: <span class="hljs-number">15</span>};
+  },
+  <span class="hljs-attr">toggleWeight</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.setState({
+      <span class="hljs-attr">fontWeight</span>: <span class="hljs-keyword">this</span>.state.fontWeight === <span class="hljs-string">'bold'</span> ? <span class="hljs-string">'normal'</span> : <span class="hljs-string">'bold'</span>
+    });
+  },
+  <span class="hljs-attr">increaseSize</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.setState({
+      <span class="hljs-attr">fontSize</span>: <span class="hljs-keyword">this</span>.state.fontSize + <span class="hljs-number">1</span>
+    });
+  },
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> curStyle = {<span class="hljs-attr">fontWeight</span>: <span class="hljs-keyword">this</span>.state.fontWeight, <span class="hljs-attr">fontSize</span>: <span class="hljs-keyword">this</span>.state.fontSize};
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{curStyle}</span>&gt;</span>
+          Tap the controls below to change attributes.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>See how it will even work on <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{curStyle}</span>&gt;</span>this nested text<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">{this.toggleWeight}</span>&gt;</span>Toggle Weight<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          {' (with highlight onPress)'}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">{this.increaseSize}</span> <span class="hljs-attr">suppressHighlighting</span>=<span class="hljs-string">{true}</span>&gt;</span>
+          Increase Size (suppressHighlighting true)
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  }
+});
+
+<span class="hljs-keyword">var</span> TextExample = React.createClass({
+  <span class="hljs-attr">statics</span>: {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'&lt;Text&gt;'</span>,
+    <span class="hljs-attr">description</span>: <span class="hljs-string">'Base component for rendering styled text.'</span>,
+  },
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">RNTesterPage</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"&lt;Text&gt;"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Wrap"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+            The text should wrap if it goes on multiple lines.
+            See, this is going to the next line.
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Padding"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{padding:</span> <span class="hljs-attr">10</span>}}&gt;</span>
+            This text is indented by 10px padding on all sides.
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Font Family"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif</span>'}}&gt;</span>
+            Sans-Serif
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif</span>', <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+            Sans-Serif Bold
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">serif</span>'}}&gt;</span>
+            Serif
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">serif</span>', <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+            Serif Bold
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">monospace</span>'}}&gt;</span>
+            Monospace
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">monospace</span>', <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+            Monospace Bold (After 5.0)
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Android Material Design fonts"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{flexDirection:</span> '<span class="hljs-attr">row</span>', <span class="hljs-attr">alignItems:</span> '<span class="hljs-attr">flex-start</span>'}}&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{flex:</span> <span class="hljs-attr">1</span>}}&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif</span>'}}&gt;</span>
+                Roboto Regular
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif</span>', <span class="hljs-attr">fontStyle:</span> '<span class="hljs-attr">italic</span>'}}&gt;</span>
+                Roboto Italic
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif</span>', <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+                Roboto Bold
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif</span>', <span class="hljs-attr">fontStyle:</span> '<span class="hljs-attr">italic</span>', <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+                Roboto Bold Italic
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif-light</span>'}}&gt;</span>
+                Roboto Light
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif-light</span>', <span class="hljs-attr">fontStyle:</span> '<span class="hljs-attr">italic</span>'}}&gt;</span>
+                Roboto Light Italic
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif-thin</span>'}}&gt;</span>
+                Roboto Thin (After 4.2)
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif-thin</span>', <span class="hljs-attr">fontStyle:</span> '<span class="hljs-attr">italic</span>'}}&gt;</span>
+                Roboto Thin Italic (After 4.2)
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif-condensed</span>'}}&gt;</span>
+                Roboto Condensed
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif-condensed</span>', <span class="hljs-attr">fontStyle:</span> '<span class="hljs-attr">italic</span>'}}&gt;</span>
+                Roboto Condensed Italic
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif-condensed</span>', <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+                Roboto Condensed Bold
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
+                  <span class="hljs-attr">fontFamily:</span> '<span class="hljs-attr">sans-serif-condensed</span>',
+                  <span class="hljs-attr">fontStyle:</span> '<span class="hljs-attr">italic</span>',
+                  <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+                Roboto Condensed Bold Italic
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif-medium</span>'}}&gt;</span>
+                Roboto Medium (After 5.0)
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif-medium</span>', <span class="hljs-attr">fontStyle:</span> '<span class="hljs-attr">italic</span>'}}&gt;</span>
+                Roboto Medium Italic (After 5.0)
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Custom Fonts"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{flexDirection:</span> '<span class="hljs-attr">row</span>', <span class="hljs-attr">alignItems:</span> '<span class="hljs-attr">flex-start</span>'}}&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{flex:</span> <span class="hljs-attr">1</span>}}&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">notoserif</span>'}}&gt;</span>
+                NotoSerif Regular
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">notoserif</span>', <span class="hljs-attr">fontStyle:</span> '<span class="hljs-attr">italic</span>', <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+                NotoSerif Bold Italic
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">notoserif</span>', <span class="hljs-attr">fontStyle:</span> '<span class="hljs-attr">italic</span>'}}&gt;</span>
+                NotoSerif Italic (Missing Font file)
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Font Size"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">23</span>}}&gt;</span>
+            Size 23
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">8</span>}}&gt;</span>
+            Size 8
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Color"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{color:</span> '<span class="hljs-attr">red</span>'}}&gt;</span>
+            Red color
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{color:</span> '<span class="hljs-attr">blue</span>'}}&gt;</span>
+            Blue color
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Font Weight"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+            Move fast and be bold
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontWeight:</span> '<span class="hljs-attr">normal</span>'}}&gt;</span>
+            Move fast and be bold
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Font Style"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontStyle:</span> '<span class="hljs-attr">italic</span>'}}&gt;</span>
+            Move fast and be bold
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontStyle:</span> '<span class="hljs-attr">normal</span>'}}&gt;</span>
+            Move fast and be bold
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Font Style and Weight"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontStyle:</span> '<span class="hljs-attr">italic</span>', <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}}&gt;</span>
+            Move fast and be bold
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Text Decoration"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">underline</span>'}}&gt;</span>
+            Solid underline
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">none</span>'}}&gt;</span>
+            None textDecoration
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">line-through</span>', <span class="hljs-attr">textDecorationStyle:</span> '<span class="hljs-attr">solid</span>'}}&gt;</span>
+            Solid line-through
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">underline</span> <span class="hljs-attr">line-through</span>'}}&gt;</span>
+            Both underline and line-through
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+            Mixed text with <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">underline</span>'}}&gt;</span>underline<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span> and <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textDecorationLine:</span> '<span class="hljs-attr">line-through</span>'}}&gt;</span>line-through<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span> text nodes
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Nested"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> console.log('1st')}&gt;
+            (Normal text,
+            <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontWeight:</span> '<span class="hljs-attr">bold</span>'}} <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> console.log('2nd')}&gt;
+              (and bold
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontStyle:</span> '<span class="hljs-attr">italic</span>', <span class="hljs-attr">fontSize:</span> <span class="hljs-attr">11</span>, <span class="hljs-attr">color:</span> '#<span class="hljs-attr">527fe4</span>'}} <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> console.log('3rd')}&gt;
+                (and tiny bold italic blue
+                <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontWeight:</span> '<span class="hljs-attr">normal</span>', <span class="hljs-attr">fontStyle:</span> '<span class="hljs-attr">normal</span>'}} <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> console.log('4th')}&gt;
+                  (and tiny normal blue)
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+                )
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              )
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            )
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">serif</span>'}} <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> console.log('1st')}&gt;
+            (Serif
+            <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontStyle:</span> '<span class="hljs-attr">italic</span>', <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}} <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> console.log('2nd')}&gt;
+              (Serif Bold Italic
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>
+                <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">monospace</span>', <span class="hljs-attr">fontStyle:</span> '<span class="hljs-attr">normal</span>', <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">normal</span>'}}
+                <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> console.log('3rd')}&gt;
+                (Monospace Normal
+                <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>
+                  <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontFamily:</span> '<span class="hljs-attr">sans-serif</span>', <span class="hljs-attr">fontWeight:</span> '<span class="hljs-attr">bold</span>'}}
+                  <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> console.log('4th')}&gt;
+                  (Sans-Serif Bold
+                  <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontWeight:</span> '<span class="hljs-attr">normal</span>'}} <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> console.log('5th')}&gt;
+                    (and Sans-Serif Normal)
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+                  )
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+                )
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              )
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            )
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">12</span>}}&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Entity</span>&gt;</span>Entity Name<span class="hljs-tag">&lt;/<span class="hljs-name">Entity</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Text Align"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+            auto (default) - english LTR
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+            أحب اللغة العربية auto (default) - arabic RTL
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textAlign:</span> '<span class="hljs-attr">left</span>'}}&gt;</span>
+            left left left left left left left left left left left left left left left
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textAlign:</span> '<span class="hljs-attr">center</span>'}}&gt;</span>
+            center center center center center center center center center center center
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{textAlign:</span> '<span class="hljs-attr">right</span>'}}&gt;</span>
+            right right right right right right right right right right right right right
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Unicode"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{flex:</span> <span class="hljs-attr">1</span>}}&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{flexDirection:</span> '<span class="hljs-attr">row</span>'}}&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '<span class="hljs-attr">red</span>'}}&gt;</span>
+                星际争霸是世界上最好的游戏。
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{flex:</span> <span class="hljs-attr">1</span>}}&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '<span class="hljs-attr">red</span>'}}&gt;</span>
+                星际争霸是世界上最好的游戏。
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{flex:</span> <span class="hljs-attr">1</span>, <span class="hljs-attr">alignItems:</span> '<span class="hljs-attr">center</span>'}}&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '<span class="hljs-attr">red</span>'}}&gt;</span>
+                星际争霸是世界上最好的游戏。
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{flex:</span> <span class="hljs-attr">1</span>}}&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '<span class="hljs-attr">red</span>'}}&gt;</span>
+                星际争霸是世界上最好的游戏。星际争霸是世界上最好的游戏。星际争霸是世界上最好的游戏。星际争霸是世界上最好的游戏。
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Spaces"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+            A {'generated'} {' '} {'string'} and    some <span class="hljs-symbol">&amp;nbsp;</span><span class="hljs-symbol">&amp;nbsp;</span><span class="hljs-symbol">&amp;nbsp;</span> spaces
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Line Height"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{lineHeight:</span> <span class="hljs-attr">35</span>}}&gt;</span>
+            Holisticly formulate inexpensive ideas before best-of-breed benefits. <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">20</span>}}&gt;</span>Continually<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span> expedite magnetic potentialities rather than client-focused interfaces.
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Empty Text"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Toggling Attributes"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">AttributeToggler</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"backgroundColor attribute"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '#<span class="hljs-attr">ffaaaa</span>'}}&gt;</span>
+            Red background,
+            <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '#<span class="hljs-attr">aaaaff</span>'}}&gt;</span>
+              {' '}blue background,
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+                {' '}inherited blue background,
+                <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '#<span class="hljs-attr">aaffaa</span>'}}&gt;</span>
+                  {' '}nested green background.
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '<span class="hljs-attr">rgba</span>(<span class="hljs-attr">100</span>, <span class="hljs-attr">100</span>, <span class="hljs-attr">100</span>, <span class="hljs-attr">0.3</span>)'}}&gt;</span>
+            Same alpha as background,
+            <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+              Inherited alpha from background,
+              <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '<span class="hljs-attr">rgba</span>(<span class="hljs-attr">100</span>, <span class="hljs-attr">100</span>, <span class="hljs-attr">100</span>, <span class="hljs-attr">0.3</span>)'}}&gt;</span>
+                Reapply alpha
+              <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"containerBackgroundColor attribute"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{flexDirection:</span> '<span class="hljs-attr">row</span>', <span class="hljs-attr">height:</span> <span class="hljs-attr">85</span>}}&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '#<span class="hljs-attr">ffaaaa</span>', <span class="hljs-attr">width:</span> <span class="hljs-attr">150</span>}} /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{backgroundColor:</span> '#<span class="hljs-attr">aaaaff</span>', <span class="hljs-attr">width:</span> <span class="hljs-attr">150</span>}} /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.backgroundColorText,</span> {<span class="hljs-attr">top:</span> <span class="hljs-attr">-80</span>}]}&gt;</span>
+            Default containerBackgroundColor (inherited) + backgroundColor wash
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.backgroundColorText,</span> {<span class="hljs-attr">top:</span> <span class="hljs-attr">-70</span>, <span class="hljs-attr">backgroundColor:</span> '<span class="hljs-attr">transparent</span>'}]}&gt;</span>
+            {"containerBackgroundColor: 'transparent' + backgroundColor wash"}
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"numberOfLines attribute"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">numberOfLines</span>=<span class="hljs-string">{1}</span>&gt;</span>
+            Maximum of one line no matter now much I write here. If I keep writing it{"'"}ll just truncate after one line
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">numberOfLines</span>=<span class="hljs-string">{2}</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{marginTop:</span> <span class="hljs-attr">20</span>}}&gt;</span>
+            Maximum of two lines no matter now much I write here. If I keep writing it{"'"}ll just truncate after two lines
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{marginTop:</span> <span class="hljs-attr">20</span>}}&gt;</span>
+            No maximum lines specified no matter now much I write here. If I keep writing it{"'"}ll just keep going and going
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Inline images"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+            This text contains an inline image <span class="hljs-tag">&lt;<span class="hljs-name">Image</span> <span class="hljs-attr">source</span>=<span class="hljs-string">{require(</span>'<span class="hljs-attr">.</span>/<span class="hljs-attr">flux.png</span>')}/&gt;</span>. Neat, huh?
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RNTesterBlock</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Text shadow"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">20</span>, <span class="hljs-attr">textShadowOffset:</span> {<span class="hljs-attr">width:</span> <span class="hljs-attr">2</span>, <span class="hljs-attr">height:</span> <span class="hljs-attr">2</span>}, <span class="hljs-attr">textShadowRadius:</span> <span class="hljs-attr">1</span>, <span class="hljs-attr">textShadowColor:</span> '#<span class="hljs-attr">00cccc</span>'}}&gt;</span>
+            Demo text shadow
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterBlock</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">RNTesterPage</span>&gt;</span>
+    );
+  }
+});
+
+var styles = StyleSheet.create({
+  backgroundColorText: {
+    left: 5,
+    backgroundColor: 'rgba(100, 100, 100, 0.3)'
+  },
+});
+
+module.exports = TextExample;
+</span></code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/react-native-website/docs/0.46/tabbarios-item"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/react-native-website/docs/0.46/textinput"><span class="function-name-prevnext">TextInput</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#嵌套文本">嵌套文本</a></li><li><a href="#容器">容器</a></li><li><a href="#样式继承限制">样式继承限制</a><ul class="toc-headings"><li><a href="#例子">例子</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright"><p style="color:inherit">React Native中文网 © 2020 杭州欧石南网络科技有限公司</p><p style="color:inherit"><a href="http://beian.miit.gov.cn/">浙ICP备15023664号-3</a><img src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" alt="浙公网安备 33010602005511号"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602005511">浙公网安备 33010602005511号</a></p></section><script>
+        (function(){
+          var c = document.createElement("div");
+          c.setAttribute("id", "lv-container");
+          c.setAttribute("data-id", "city");
+          c.setAttribute("data-uid", "MTAyMC8zODM4NS8xNDkxMw==");
+          var container = document.querySelector(".mainContainer")
+          container && container.appendChild(c);
+        })()
+        </script><script src="https://cdn-city.livere.com/js/embed.dist.js"></script></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '7ab53ed26928639bae06ef0f6165f68b',
+                indexName: 'reactnative_cn',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {"hitsPerPage":5}
+              });
+            </script></body></html>

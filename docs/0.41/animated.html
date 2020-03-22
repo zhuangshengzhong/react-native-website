@@ -1,0 +1,602 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Animated · React Native 中文网</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="动画是现代用户体验中非常重要的一个部分，`Animated`库就是用来创造流畅、强大、并且易于构建和维护的动画。"/><meta name="docsearch:version" content="0.41"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Animated · React Native 中文网"/><meta property="og:type" content="website"/><meta property="og:url" content="https://reactnativecn.github.io/react-native-website/"/><meta property="og:description" content="动画是现代用户体验中非常重要的一个部分，`Animated`库就是用来创造流畅、强大、并且易于构建和维护的动画。"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/react-native-website/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@9.18.1/styles/solarized-dark.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-63485149-4', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/cnwebsite/static/js/codeblocks.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/cnwebsite/static/js/tabs.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/cnwebsite/static/js/doccode.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="https://cdn.jsdelivr.net/gh/facebook/docusaurus@1.14.4/packages/docusaurus-1.x/lib/static/js/scrollSpy.js"></script><link rel="stylesheet" href="/react-native-website/css/main.css"/><script src="https://cdn.jsdelivr.net/gh/facebook/docusaurus@1.14.4/packages/docusaurus-1.x/lib/static/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/react-native-website/"><img class="logo" src="/react-native-website/img/header_logo.svg" alt="React Native 中文网"/><h2 class="headerTitleWithLogo">React Native 中文网</h2></a><a href="/react-native-website/versions"><h3>0.41</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/react-native-website/docs/0.41/getting-started" target="_self">文档</a></li><li class="siteNavGroupActive"><a href="/react-native-website/docs/0.41/activityindicator" target="_self">API</a></li><li class=""><a href="//github.com/reactnativecn/react-native-website/issues" target="_blank">讨论</a></li><li class=""><a href="//update.reactnative.cn" target="_blank">热更新</a></li><li class=""><a href="/react-native-website/about" target="_self">关于</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://github.com/facebook/react-native" target="_self">GitHub</a></li><li class=""><a href="//zh-hans.reactjs.org/" target="_blank">React</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>API</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">入门基础<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/getting-started">搭建开发环境</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/tutorial">编写Hello World</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/props">Props（属性）</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/state">State（状态）</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/style">样式</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/height-and-width">高度与宽度</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/layout-with-flexbox">使用Flexbox布局</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/handling-text-input">处理文本输入</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/using-a-scrollview">如何使用ScrollView</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/using-a-listview">如何使用ListView</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/network">网络</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/using-navigators">使用导航器跳转页面</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/more-resources">其他参考资源</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">进阶指南<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/integration-with-existing-apps">嵌入到现有原生应用</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/colors">颜色</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/images">图片</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/handling-touches">处理触摸事件</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/animations">动画</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/accessibility">无障碍功能</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/timers">定时器</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/direct-manipulation">直接操作</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/debugging">调试</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/testing">自动化测试</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/javascript-environment">JavaScript环境</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/navigation">导航器对比</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/performance">性能</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/upgrading">升级</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/platform-specific-code">特定平台代码</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/gesture-responder-system">手势响应系统</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">使用指南(iOS)<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/native-modules-ios">原生模块</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/native-component-ios">原生UI组件</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/linking-libraries-ios">链接原生库</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/running-on-device-ios">在设备上运行</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/running-on-simulator-ios">在模拟器上运行</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/communication-ios">在原生和React Native间通信</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">使用指南(Android)<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/native-modules-android">原生模块</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/native-component-android">原生UI组件</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/headless-js-android">Headless JS（后台任务）</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/running-on-device-android">在设备上运行</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/signed-apk-android">打包APK</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/android-ui-performance">调试Android UI性能</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/android-building-from-source">从源代码编译React Native</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">组件<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/activityindicator">ActivityIndicator</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/button">Button</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/datepickerios">DatePickerIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/drawerlayoutandroid">DrawerLayoutAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/image">Image</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/keyboardavoidingview">KeyboardAvoidingView</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/listview">ListView</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/listviewdatasource">ListView.DataSource</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/mapview">MapView</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/modal">Modal</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/navigator">Navigator</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/navigatorios">NavigatorIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/picker">Picker</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/pickerios">PickerIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/progressbarandroid">ProgressBarAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/progressviewios">ProgressViewIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/refreshcontrol">RefreshControl</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/scrollview">ScrollView</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/segmentedcontrolios">SegmentedControlIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/slider">Slider</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/statusbar">StatusBar</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/switch">Switch</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/tabbarios">TabBarIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/tabbarios-item">TabBarIOS.Item</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/text">Text</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/textinput">TextInput</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/toolbarandroid">ToolbarAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/touchablehighlight">TouchableHighlight</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/touchablenativefeedback">TouchableNativeFeedback</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/touchableopacity">TouchableOpacity</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/touchablewithoutfeedback">TouchableWithoutFeedback</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/view">View</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/viewpagerandroid">ViewPagerAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/webview">WebView</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">API<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/actionsheetios">ActionSheetIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/adsupportios">AdSupportIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/alert">Alert</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/alertios">AlertIOS</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/react-native-website/docs/0.41/animated">Animated</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/appregistry">AppRegistry</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/appstate">AppState</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/asyncstorage">AsyncStorage</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/backandroid">BackAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/cameraroll">CameraRoll</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/clipboard">Clipboard</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/datepickerandroid">DatePickerAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/dimensions">Dimensions</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/easing">Easing</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/geolocation">Geolocation</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/imageeditor">ImageEditor</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/imagepickerios">ImagePickerIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/imagestore">ImageStore</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/interactionmanager">InteractionManager</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/keyboard">Keyboard</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/layoutanimation">LayoutAnimation</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/linking">Linking</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/nativemethodsmixin">NativeMethodsMixin</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/netinfo">NetInfo</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/panresponder">PanResponder</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/permissionsandroid">PermissionsAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/pixelratio">PixelRatio</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/pushnotificationios">PushNotificationIOS</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/share">Share</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/stylesheet">StyleSheet</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/systrace">Systrace</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/timepickerandroid">TimePickerAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/toastandroid">ToastAndroid</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/vibration">Vibration</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/layout-props">布局样式属性</a></li><li class="navListItem"><a class="navItem" href="/react-native-website/docs/0.41/shadow-props">阴影样式属性</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="//github.com/reactnativecn/react-native-website/blob/production/cndocs/animated.md" target="_blank" rel="noreferrer noopener">帮助改进此文档</a><h1 id="__docusaurus" class="postHeaderTitle">Animated</h1></header><article><div><span><p>动画是现代用户体验中非常重要的一个部分，<code>Animated</code>库就是用来创造流畅、强大、并且易于构建和维护的动画。</p>
+<p>最简单的工作流程就是创建一个<code>Animated.Value</code>，把它绑定到组件的一个或多个样式属性上。然后可以通过动画驱动它，譬如<code>Animated.timing</code>，或者通过<code>Animated.event</code>把它关联到一个手势上，譬如拖动或者滑动操作。除了样式，<code>Animated.value</code>还可以绑定到props上，并且一样可以被插值。这里有一个简单的例子，一个容器视图会在加载的时候淡入显示：</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FadeInView</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+   <span class="hljs-keyword">constructor</span>(props) {
+     <span class="hljs-keyword">super</span>(props);
+     <span class="hljs-keyword">this</span>.state = {
+       <span class="hljs-attr">fadeAnim</span>: <span class="hljs-keyword">new</span> Animated.Value(<span class="hljs-number">0</span>), <span class="hljs-comment">// init opacity 0</span>
+     };
+   }
+   componentDidMount() {
+     Animated.timing(          <span class="hljs-comment">// Uses easing functions</span>
+       <span class="hljs-keyword">this</span>.state.fadeAnim,    <span class="hljs-comment">// The value to drive</span>
+       {<span class="hljs-attr">toValue</span>: <span class="hljs-number">1</span>},           <span class="hljs-comment">// Configuration</span>
+     ).start();                <span class="hljs-comment">// Don't forget start!</span>
+   }
+   render() {
+     <span class="hljs-keyword">return</span> (
+       <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Animated.View</span>          // <span class="hljs-attr">Special</span> <span class="hljs-attr">animatable</span> <span class="hljs-attr">View</span>
+         <span class="hljs-attr">style</span>=<span class="hljs-string">{{opacity:</span> <span class="hljs-attr">this.state.fadeAnim</span>}}&gt;</span> // Binds
+         {this.props.children}
+       <span class="hljs-tag">&lt;/<span class="hljs-name">Animated.View</span>&gt;</span></span>
+     );
+   }
+ }
+</code></pre>
+<p>注意只有声明为可动画化的组件才能被关联动画。<code>View</code>、<code>Text</code>，还有<code>Image</code>都是可动画化的。如果你想让自定义组件可动画化，可以用<code>createAnimatedComponent</code>。这些特殊的组件里面用了一些黑魔法，来把动画数值绑定到属性上，然后在每帧去执行原生更新，来避免每次render和同步过程的开销。他们还处理了在节点卸载时的清理工作以确保使用安全。</p>
+<p>动画具备很强的可配置性。自定义或者预定义的过渡函数、延迟、时间、衰减比例、刚度等等。取决于动画类型的不同，你还可以配置更多的参数。</p>
+<p>一个<code>Animated.Value</code>可以驱动任意数量的属性，并且每个属性可以配置一个不同的插值函数。插值函数把一个输入的范围映射到输出的范围，通常我们用线性插值，不过你也可以使用其他的过渡函数。默认情况下，当输入超出范围时，它也会对应的进行转换，不过你也可以把输出约束到范围之内。</p>
+<p>举个例子，你可能希望你的<code>Animated.Value</code>从0变化到1时，把组件的位置从150px移动到0px，不透明度从0到1。可以通过以下的方法修改<code>style</code>属性来实现：</p>
+<pre><code class="hljs css language-jsx">style={{
+  <span class="hljs-attr">opacity</span>: <span class="hljs-keyword">this</span>.state.fadeAnim, <span class="hljs-comment">// Binds directly</span>
+  <span class="hljs-attr">transform</span>: [{
+    <span class="hljs-attr">translateY</span>: <span class="hljs-keyword">this</span>.state.fadeAnim.interpolate({
+      <span class="hljs-attr">inputRange</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>],
+      <span class="hljs-attr">outputRange</span>: [<span class="hljs-number">150</span>, <span class="hljs-number">0</span>]  <span class="hljs-comment">// 0 : 150, 0.5 : 75, 1 : 0</span>
+    }),
+  }],
+}}&gt;
+</code></pre>
+<p>动画还可以被更复杂地组合，通过一些辅助函数例如<code>sequence</code>或者<code>parallel</code>（它们分别用于先后执行多个动画和同时执行多个动画），而且还可以通过把toValue设置为另一个Animated.Value来产生一个动画序列。</p>
+<p><code>Animated.ValueXY</code>则用来处理一些2D动画，譬如滑动。并且还有一些辅助功能譬如<code>setOffset</code>和<code>getLayout</code>来帮助实现一些常见的交互效果，譬如拖放操作(Drag and drop)。</p>
+<p>你可以在<code>AnimationExample.js</code>中找到一些更复杂的例子。你还可以看看Gratuitous Animation App，以及<a href="animations.html">动画指南文档</a>。</p>
+<p>注意<code>Animated</code>模块被设计为可完全序列化的，这样动画可以脱离JavaScript事件循环，以一种高性能的方式运行。这可能会导致API看起来比较难懂，与一个完全同步的动画系统相比稍微有一些奇怪。<code>Animated.Value.addListener</code>可以帮助你解决一些相关限制，不过使用它的时候需要小心，因为将来的版本中它可能会牵扯到性能问题。</p>
+<h3><a class="anchor" aria-hidden="true" id="方法"></a><a href="#方法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>方法</h3>
+<div class="props">
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="decay"></a><span class="propType">static </span>decay<span class="propType">(value: AnimatedValue | AnimatedValueXY, config: DecayAnimationConfig)</span> <a class="hash-link" href="#decay">#</a></h4>
+        <div>
+            <p>推动一个值以一个初始的速度和一个衰减系数逐渐变为0。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="timing"></a><span class="propType">static </span>timing<span class="propType">(value: AnimatedValue | AnimatedValueXY, config: TimingAnimationConfig)</span> <a class="hash-link" href="#timing">#</a></h4>
+        <div>
+            <p>推动一个值按照一个过渡曲线而随时间变化。<code>Easing</code>模块定义了一大堆曲线，你也可以使用你自己的函数。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="spring"></a><span class="propType">static </span>spring<span class="propType">(value: AnimatedValue | AnimatedValueXY, config: SpringAnimationConfig)</span> <a class="hash-link" href="#spring">#</a></h4>
+        <div>
+            <p>产生一个基于Rebound和Origami实现的Spring动画。它会在<code>toValue</code>值更新的同时跟踪当前的速度状态，以确保动画连贯。可以链式调用。</p>
+        </div>
+    </div>
+    <div class="prop"><h4 class="propTitle"><a class="anchor" name="add"></a><span class="propType">static </span>add<span class="propType">(a: Animated, b: Animated)</span> <a class="hash-link" href="#add">#</a></h4><div>
+    <p>将两个动画值相加计算，创建一个新的动画值。</p></div></div>
+<div class="prop"><h4 class="propTitle"><a class="anchor" name="multiply"></a><span class="propType">static </span>multiply<span class="propType">(a: Animated, b: Animated)</span> <a class="hash-link" href="#multiply">#</a></h4><div>
+<p>将两个动画值相乘计算，创建一个新的动画值。</p></div></div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="delay"></a><span class="propType">static </span>delay<span class="propType">(time: number)</span> <a class="hash-link" href="#delay">#</a></h4>
+        <div>
+            <p>在指定的延迟之后开始动画。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="sequence"></a><span class="propType">static </span>sequence<span class="propType">(animations: Array&lt;CompositeAnimation&gt;)</span> <a class="hash-link" href="#sequence">#</a></h4>
+        <div>
+            <p>按顺序执行一个动画数组里的动画，等待一个完成后再执行下一个。如果当前的动画被中止，后面的动画则不会继续执行。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="parallel"></a><span class="propType">static </span>parallel<span class="propType">(animations: Array&lt;CompositeAnimation&gt;, config?: ParallelConfig)</span> <a class="hash-link" href="#parallel">#</a></h4>
+        <div>
+            <p>同时开始一个动画数组里的全部动画。默认情况下，如果有任何一个动画停止了，其余的也会被停止。你可以通过<code>stopTogether</code>选项来改变这个效果。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="stagger"></a><span class="propType">static </span>stagger<span class="propType">(time: number, animations: Array&lt;CompositeAnimation&gt;)</span> <a class="hash-link" href="#stagger">#</a></h4>
+        <div>
+            <p>一个动画数组，里面的动画有可能会同时执行（重叠），不过会以指定的延迟来开始。用来制作拖尾效果非常合适。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="event"></a><span class="propType">static </span>event<span class="propType">(argMapping: Array&lt;Mapping&gt;, config?: EventConfig)</span> <a class="hash-link" href="#event">#</a></h4>
+        <div>
+            <p>接受一个映射的数组，对应的解开每个值，然后调用所有对应的输出的<code>setValue</code>方法。例如：</p>
+            <pre><code class="lang-javascript"> onScroll={<span class="hljs-keyword">this</span>.AnimatedEvent(
+   [{nativeEvent: {contentOffset: {x: <span class="hljs-keyword">this</span>._scrollX}}}]
+   {listener},          <span class="hljs-comment">// 可选的异步监听函数</span>
+ )
+ ...
+ onPanResponderMove: <span class="hljs-keyword">this</span>.AnimatedEvent([
+   <span class="hljs-literal">null</span>,                <span class="hljs-comment">// 忽略原始事件</span>
+   {dx: <span class="hljs-keyword">this</span>._panX},    <span class="hljs-comment">// 手势状态参数</span>
+ ]),
+</code></pre>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="createanimatedcomponent"></a><span class="propType">static </span>createAnimatedComponent<span class="propType">(Component: any)</span> <a class="hash-link" href="#createanimatedcomponent">#</a></h4>
+        <div>
+            <p>使得任何一个React组件支持动画。用它来创建<code>Animated.View</code>等等。</p>
+        </div>
+    </div>
+</div>
+<h3><a class="anchor" aria-hidden="true" id="属性"></a><a href="#属性" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>属性</h3>
+<div class="props">
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="value"></a>Value<span class="propType">: AnimatedValue</span> <a class="hash-link" href="#value">#</a></h4>
+        <div>
+            <p>表示一个数值的类，用于驱动动画。通常用<code>new Animated.Value(0);</code>来初始化。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="valuexy"></a>ValueXY<span class="propType">: AnimatedValueXY</span> <a class="hash-link" href="#valuexy">#</a></h4>
+        <div>
+            <p>表示一个2D值的类，用来驱动2D动画，例如拖动操作等。</p>
+        </div>
+    </div>
+</div>
+<h2><a class="anchor" aria-hidden="true" id="class-animatedvalue"></a><a href="#class-animatedvalue" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>class AnimatedValue</h2>
+<p>用于驱动动画的标准值。一个<code>Animated.Value</code>可以用一种同步的方式驱动多个属性，但同时只能被一个行为所驱动。启用一个新的行为（譬如开始一个新的动画，或者运行<code>setValue</code>）会停止任何之前的动作。</p>
+<h3><a class="anchor" aria-hidden="true" id="方法-1"></a><a href="#方法-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>方法</h3>
+<div class="props">
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="constructor"></a>constructor<span class="propType">(value: number)</span> <a class="hash-link" href="#constructor">#</a></h4>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="setvalue"></a>setValue<span class="propType">(value: number)</span> <a class="hash-link" href="#setvalue">#</a></h4>
+        <div>
+            <p>直接设置它的值。这个会停止任何正在进行的动画，然后更新所有绑定的属性。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="setoffset"></a>setOffset<span class="propType">(offset: number)</span> <a class="hash-link" href="#setoffset">#</a></h4>
+        <div>
+            <p>设置一个相对值，不论接下来的值是由<code>setValue</code>、一个动画，还是<code>Animated.event</code>产生的，都会加上这个值。常用来在拖动操作一开始的时候用来记录一个修正值（譬如当前手指位置和View位置）。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="flattenoffset"></a>flattenOffset<span class="propType">()</span> <a class="hash-link" href="#flattenoffset">#</a></h4>
+        <div>
+            <p>把当前的相对值合并到值里，并且将相对值设为0。最终输出的值不会变化。常在拖动操作结束后调用。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="addlistener"></a>addListener<span class="propType">(callback: ValueListenerCallback)</span> <a class="hash-link" href="#addlistener">#</a></h4>
+        <div>
+            <p>添加一个异步监听函数，这样你就可以监听动画值的变更。这有时候很有用，因为你没办法同步的读取动画的当前值，因为有时候动画会在原生层次运行。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="removelistener"></a>removeListener<span class="propType">(id: string)</span> <a class="hash-link" href="#removelistener">#</a></h4>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="removealllisteners"></a>removeAllListeners<span class="propType">()</span> <a class="hash-link" href="#removealllisteners">#</a></h4>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="stopanimation"></a>stopAnimation<span class="propType">(callback?: ?(value: number) =&gt; void)</span> <a class="hash-link" href="#stopanimation">#</a></h4>
+        <div>
+            <p>停止任何正在运行的动画或跟踪值。<code>callback</code>会被调用，参数是动画结束后的最终值，这个值可能会用于同步更新状态与动画位置。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="interpolate"></a>interpolate<span class="propType">(config: InterpolationConfigType)</span> <a class="hash-link" href="#interpolate">#</a></h4>
+        <div>
+            <p>在更新属性之前对值进行插值。譬如：把0-1映射到0-10。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="animate"></a>animate<span class="propType">(animation: Animation, callback: EndCallback)</span> <a class="hash-link" href="#animate">#</a></h4>
+        <div>
+            <p>一般仅供内部使用。不过有可能一个自定义的动画类会用到此方法。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="stoptracking"></a>stopTracking<span class="propType">()</span> <a class="hash-link" href="#stoptracking">#</a></h4>
+        <div>
+            <p>仅供内部使用。</p>
+        </div>
+    </div>
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="track"></a>track<span class="propType">(tracking: Animated)</span> <a class="hash-link" href="#track">#</a></h4>
+        <div>
+            <p>仅供内部使用。</p>
+        </div>
+    </div>
+</div>
+<h2><a class="anchor" aria-hidden="true" id="class-animatedvaluexy"></a><a href="#class-animatedvaluexy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>class AnimatedValueXY</h2>
+<p>用来驱动2D动画的2D值，譬如滑动操作等。API和普通的<code>Animated.Value</code>几乎一样，只不过是个复合结构。它实际上包含两个普通的<code>Animated.Value</code>。</p>
+<p>例子：</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DraggableView</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+   <span class="hljs-keyword">constructor</span>(props) {
+     <span class="hljs-keyword">super</span>(props);
+     <span class="hljs-keyword">this</span>.state = {
+       <span class="hljs-attr">pan</span>: <span class="hljs-keyword">new</span> Animated.ValueXY(), <span class="hljs-comment">// inits to zero</span>
+     };
+     <span class="hljs-keyword">this</span>.state.panResponder = PanResponder.create({
+       <span class="hljs-attr">onStartShouldSetPanResponder</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-literal">true</span>,
+       <span class="hljs-attr">onPanResponderMove</span>: Animated.event([<span class="hljs-literal">null</span>, {
+         <span class="hljs-attr">dx</span>: <span class="hljs-keyword">this</span>.state.pan.x, <span class="hljs-comment">// x,y are Animated.Value</span>
+         <span class="hljs-attr">dy</span>: <span class="hljs-keyword">this</span>.state.pan.y,
+       }]),
+       <span class="hljs-attr">onPanResponderRelease</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+         Animated.spring(
+           <span class="hljs-keyword">this</span>.state.pan,         <span class="hljs-comment">// Auto-multiplexed</span>
+           {<span class="hljs-attr">toValue</span>: {<span class="hljs-attr">x</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">0</span>}} <span class="hljs-comment">// Back to zero</span>
+         ).start();
+       },
+     });
+   }
+   render() {
+     <span class="hljs-keyword">return</span> (
+       <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Animated.View</span>
+         {<span class="hljs-attr">...this.state.panResponder.panHandlers</span>}
+         <span class="hljs-attr">style</span>=<span class="hljs-string">{this.state.pan.getLayout()}</span>&gt;</span>
+         {this.props.children}
+       <span class="hljs-tag">&lt;/<span class="hljs-name">Animated.View</span>&gt;</span></span>
+     );
+   }
+ }
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="方法-2"></a><a href="#方法-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>方法</h3>
+<div class="props">
+    <div class="prop">
+        <h4 class="propTitle"><a class="anchor" name="constructor"></a>constructor<span class="propType">(valueIn?: ?{x: number | AnimatedValue; y: number | AnimatedValue})</span> <a class="hash-link" href="#constructor">#</a></h4>
+<pre><code class="hljs">&lt;/div&gt;
+&lt;div class=&quot;prop&quot;&gt;
+    &lt;h4 class=&quot;propTitle&quot;&gt;&lt;a class=&quot;anchor&quot; name=&quot;setvalue&quot;&gt;&lt;/a&gt;setValue&lt;span class=&quot;propType&quot;&gt;(value: {x: number; y: number})&lt;/span&gt; &lt;a class=&quot;hash-link&quot; href=&quot;#setvalue&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;prop&quot;&gt;
+    &lt;h4 class=&quot;propTitle&quot;&gt;&lt;a class=&quot;anchor&quot; name=&quot;setoffset&quot;&gt;&lt;/a&gt;setOffset&lt;span class=&quot;propType&quot;&gt;(offset: {x: number; y: number})&lt;/span&gt; &lt;a class=&quot;hash-link&quot; href=&quot;#setoffset&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;prop&quot;&gt;
+    &lt;h4 class=&quot;propTitle&quot;&gt;&lt;a class=&quot;anchor&quot; name=&quot;flattenoffset&quot;&gt;&lt;/a&gt;flattenOffset&lt;span class=&quot;propType&quot;&gt;()&lt;/span&gt; &lt;a class=&quot;hash-link&quot; href=&quot;#flattenoffset&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;prop&quot;&gt;
+    &lt;h4 class=&quot;propTitle&quot;&gt;&lt;a class=&quot;anchor&quot; name=&quot;stopanimation&quot;&gt;&lt;/a&gt;stopAnimation&lt;span class=&quot;propType&quot;&gt;(callback?: ?() =&amp;gt; number)&lt;/span&gt; &lt;a class=&quot;hash-link&quot; href=&quot;#stopanimation&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;prop&quot;&gt;
+    &lt;h4 class=&quot;propTitle&quot;&gt;&lt;a class=&quot;anchor&quot; name=&quot;addlistener&quot;&gt;&lt;/a&gt;addListener&lt;span class=&quot;propType&quot;&gt;(callback: ValueXYListenerCallback)&lt;/span&gt; &lt;a class=&quot;hash-link&quot; href=&quot;#addlistener&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;prop&quot;&gt;
+    &lt;h4 class=&quot;propTitle&quot;&gt;&lt;a class=&quot;anchor&quot; name=&quot;removelistener&quot;&gt;&lt;/a&gt;removeListener&lt;span class=&quot;propType&quot;&gt;(id: string)&lt;/span&gt; &lt;a class=&quot;hash-link&quot; href=&quot;#removelistener&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;prop&quot;&gt;
+    &lt;h4 class=&quot;propTitle&quot;&gt;&lt;a class=&quot;anchor&quot; name=&quot;getlayout&quot;&gt;&lt;/a&gt;getLayout&lt;span class=&quot;propType&quot;&gt;()&lt;/span&gt; &lt;a class=&quot;hash-link&quot; href=&quot;#getlayout&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+    &lt;div&gt;
+        &lt;p&gt;将一个&lt;code&gt;{x, y}&lt;/code&gt;组合转换为&lt;code&gt;{left, top}&lt;/code&gt;以用于样式。例如：&lt;/p&gt;
+        &lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt; style={&lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.state.anim.getLayout()}
+</code></pre>
+<p></code></pre>
+</div>
+</div>
+<div class="prop">
+<h4 class="propTitle"><a class="anchor" name="gettranslatetransform"></a>getTranslateTransform<span class="propType">()</span> <a class="hash-link" href="#gettranslatetransform">#</a></h4>
+<div>
+<p>将一个<code>{x, y}</code> 组合转换为一个可用的位移变换(translation transform)，例如：</p>
+<pre><code class="lang-javascript"> style={{
+transform: <span class="hljs-keyword">this</span>.state.anim.getTranslateTransform()
+}}
+</code></pre>
+</div>
+</div></p>
+</div>
+<h3><a class="anchor" aria-hidden="true" id="例子"></a><a href="#例子" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h3>
+<pre><code class="hljs css language-jsx"><span class="hljs-meta">'use strict'</span>;
+
+<span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
+<span class="hljs-keyword">var</span> ReactNative = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-native'</span>);
+<span class="hljs-keyword">var</span> {
+ Animated,
+ Easing,
+ StyleSheet,
+ Text,
+ View,
+} = ReactNative;
+<span class="hljs-keyword">var</span> UIExplorerButton = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./UIExplorerButton'</span>);
+
+exports.framework = <span class="hljs-string">'React'</span>;
+exports.title = <span class="hljs-string">'Animated - Examples'</span>;
+exports.description = <span class="hljs-string">'Animated provides a powerful '</span> +
+ <span class="hljs-string">'and easy-to-use API for building modern, '</span> +
+ <span class="hljs-string">'interactive user experiences.'</span>;
+
+exports.examples = [
+ {
+   <span class="hljs-attr">title</span>: <span class="hljs-string">'FadeInView'</span>,
+   <span class="hljs-attr">description</span>: <span class="hljs-string">'Uses a simple timing animation to '</span> +
+     <span class="hljs-string">'bring opacity from 0 to 1 when the component '</span> +
+     <span class="hljs-string">'mounts.'</span>,
+   <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+     <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FadeInView</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+       <span class="hljs-attr">state</span>: any;
+
+       <span class="hljs-keyword">constructor</span>(props) {
+         <span class="hljs-keyword">super</span>(props);
+         <span class="hljs-keyword">this</span>.state = {
+           <span class="hljs-attr">fadeAnim</span>: <span class="hljs-keyword">new</span> Animated.Value(<span class="hljs-number">0</span>), <span class="hljs-comment">// opacity 0</span>
+         };
+       }
+       componentDidMount() {
+         Animated.timing(       <span class="hljs-comment">// Uses easing functions</span>
+           <span class="hljs-keyword">this</span>.state.fadeAnim, <span class="hljs-comment">// The value to drive</span>
+           {
+             <span class="hljs-attr">toValue</span>: <span class="hljs-number">1</span>,        <span class="hljs-comment">// Target</span>
+             <span class="hljs-attr">duration</span>: <span class="hljs-number">2000</span>,    <span class="hljs-comment">// Configuration</span>
+           },
+         ).start();             <span class="hljs-comment">// Don't forget start!</span>
+       }
+       render() {
+         <span class="hljs-keyword">return</span> (
+           <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Animated.View</span>   // <span class="hljs-attr">Special</span> <span class="hljs-attr">animatable</span> <span class="hljs-attr">View</span>
+             <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
+               <span class="hljs-attr">opacity:</span> <span class="hljs-attr">this.state.fadeAnim</span>,  // <span class="hljs-attr">Binds</span>
+             }}&gt;</span>
+             {this.props.children}
+           <span class="hljs-tag">&lt;/<span class="hljs-name">Animated.View</span>&gt;</span></span>
+         );
+       }
+     }
+     <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FadeInExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+       <span class="hljs-attr">state</span>: any;
+
+       <span class="hljs-keyword">constructor</span>(props) {
+         <span class="hljs-keyword">super</span>(props);
+         <span class="hljs-keyword">this</span>.state = {
+           <span class="hljs-attr">show</span>: <span class="hljs-literal">true</span>,
+         };
+       }
+       render() {
+         <span class="hljs-keyword">return</span> (
+           <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+             <span class="hljs-tag">&lt;<span class="hljs-name">UIExplorerButton</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> {
+                 this.setState((state) =&gt; (
+                   {show: !state.show}
+                 ));
+               }}&gt;
+               Press to {this.state.show ?
+                 'Hide' : 'Show'}
+             <span class="hljs-tag">&lt;/<span class="hljs-name">UIExplorerButton</span>&gt;</span>
+             {this.state.show &amp;&amp; <span class="hljs-tag">&lt;<span class="hljs-name">FadeInView</span>&gt;</span>
+               <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.content}</span>&gt;</span>
+                 <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>FadeInView<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+               <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+             <span class="hljs-tag">&lt;/<span class="hljs-name">FadeInView</span>&gt;</span>}
+           <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+         );
+       }
+     }
+     <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">FadeInExample</span> /&gt;</span></span>;
+   },
+ },
+ {
+   <span class="hljs-attr">title</span>: <span class="hljs-string">'Transform Bounce'</span>,
+   <span class="hljs-attr">description</span>: <span class="hljs-string">'One `Animated.Value` is driven by a '</span> +
+     <span class="hljs-string">'spring with custom constants and mapped to an '</span> +
+     <span class="hljs-string">'ordered set of transforms.  Each transform has '</span> +
+     <span class="hljs-string">'an interpolation to convert the value into the '</span> +
+     <span class="hljs-string">'right range and units.'</span>,
+   <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+     <span class="hljs-keyword">this</span>.anim = <span class="hljs-keyword">this</span>.anim || <span class="hljs-keyword">new</span> Animated.Value(<span class="hljs-number">0</span>);
+     <span class="hljs-keyword">return</span> (
+       <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">UIExplorerButton</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> {
+           Animated.spring(this.anim, {
+             toValue: 0,   // Returns to the start
+             velocity: 3,  // Velocity makes it move
+             tension: -10, // Slow
+             friction: 1,  // Oscillate a lot
+           }).start(); }}&gt;
+           Press to Fling it!
+         <span class="hljs-tag">&lt;/<span class="hljs-name">UIExplorerButton</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">Animated.View</span>
+           <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.content,</span> {
+             <span class="hljs-attr">transform:</span> [   // <span class="hljs-attr">Array</span> <span class="hljs-attr">order</span> <span class="hljs-attr">matters</span>
+               {<span class="hljs-attr">scale:</span> <span class="hljs-attr">this.anim.interpolate</span>({
+                 <span class="hljs-attr">inputRange:</span> [<span class="hljs-attr">0</span>, <span class="hljs-attr">1</span>],
+                 <span class="hljs-attr">outputRange:</span> [<span class="hljs-attr">1</span>, <span class="hljs-attr">4</span>],
+               })},
+               {<span class="hljs-attr">translateX:</span> <span class="hljs-attr">this.anim.interpolate</span>({
+                 <span class="hljs-attr">inputRange:</span> [<span class="hljs-attr">0</span>, <span class="hljs-attr">1</span>],
+                 <span class="hljs-attr">outputRange:</span> [<span class="hljs-attr">0</span>, <span class="hljs-attr">500</span>],
+               })},
+               {<span class="hljs-attr">rotate:</span> <span class="hljs-attr">this.anim.interpolate</span>({
+                 <span class="hljs-attr">inputRange:</span> [<span class="hljs-attr">0</span>, <span class="hljs-attr">1</span>],
+                 <span class="hljs-attr">outputRange:</span> [
+                   '<span class="hljs-attr">0deg</span>', '<span class="hljs-attr">360deg</span>' // '<span class="hljs-attr">deg</span>' <span class="hljs-attr">or</span> '<span class="hljs-attr">rad</span>'
+                 ],
+               })},
+             ]}
+           ]}&gt;</span>
+           <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>Transforms!<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+         <span class="hljs-tag">&lt;/<span class="hljs-name">Animated.View</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+     );
+   },
+ },
+ {
+   <span class="hljs-attr">title</span>: <span class="hljs-string">'Composite Animations with Easing'</span>,
+   <span class="hljs-attr">description</span>: <span class="hljs-string">'Sequence, parallel, delay, and '</span> +
+     <span class="hljs-string">'stagger with different easing functions.'</span>,
+   <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+     <span class="hljs-keyword">this</span>.anims = <span class="hljs-keyword">this</span>.anims || [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].map(
+       <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">new</span> Animated.Value(<span class="hljs-number">0</span>)
+     );
+     <span class="hljs-keyword">return</span> (
+       <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">UIExplorerButton</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> {
+           var timing = Animated.timing;
+           Animated.sequence([ // One after the other
+             timing(this.anims[0], {
+               toValue: 200,
+               easing: Easing.linear,
+             }),
+             Animated.delay(400), // Use with sequence
+             timing(this.anims[0], {
+               toValue: 0,
+               easing: Easing.elastic(2), // Springy
+             }),
+             Animated.delay(400),
+             Animated.stagger(200,
+               this.anims.map((anim) =&gt; timing(
+                 anim, {toValue: 200}
+               )).concat(
+               this.anims.map((anim) =&gt; timing(
+                 anim, {toValue: 0}
+               ))),
+             ),
+             Animated.delay(400),
+             Animated.parallel([
+               Easing.inOut(Easing.quad), // Symmetric
+               Easing.back(1.5),  // Goes backwards first
+               Easing.ease        // Default bezier
+             ].map((easing, ii) =&gt; (
+               timing(this.anims[ii], {
+                 toValue: 320, easing, duration: 3000,
+               })
+             ))),
+             Animated.delay(400),
+             Animated.stagger(200,
+               this.anims.map((anim) =&gt; timing(anim, {
+                 toValue: 0,
+                 easing: Easing.bounce, // Like a ball
+                 duration: 2000,
+               })),
+             ),
+           ]).start(); }}&gt;
+           Press to Animate
+         <span class="hljs-tag">&lt;/<span class="hljs-name">UIExplorerButton</span>&gt;</span>
+         {['Composite', 'Easing', 'Animations!'].map(
+           (text, ii) =&gt; (
+             <span class="hljs-tag">&lt;<span class="hljs-name">Animated.View</span>
+               <span class="hljs-attr">key</span>=<span class="hljs-string">{text}</span>
+               <span class="hljs-attr">style</span>=<span class="hljs-string">{[styles.content,</span> {
+                 <span class="hljs-attr">left:</span> <span class="hljs-attr">this.anims</span>[<span class="hljs-attr">ii</span>]
+               }]}&gt;</span>
+               <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>{text}<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+             <span class="hljs-tag">&lt;/<span class="hljs-name">Animated.View</span>&gt;</span>
+           )
+         )}
+       <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+     );
+   },
+ },
+ {
+   <span class="hljs-attr">title</span>: <span class="hljs-string">'Continuous Interactions'</span>,
+   <span class="hljs-attr">description</span>: <span class="hljs-string">'Gesture events, chaining, 2D '</span> +
+     <span class="hljs-string">'values, interrupting and transitioning '</span> +
+     <span class="hljs-string">'animations, etc.'</span>,
+   <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>Checkout the Gratuitous Animation App!<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
+   ),
+ }
+];
+
+<span class="hljs-keyword">var</span> styles = StyleSheet.create({
+ <span class="hljs-attr">content</span>: {
+   <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">'deepskyblue'</span>,
+   <span class="hljs-attr">borderWidth</span>: <span class="hljs-number">1</span>,
+   <span class="hljs-attr">borderColor</span>: <span class="hljs-string">'dodgerblue'</span>,
+   <span class="hljs-attr">padding</span>: <span class="hljs-number">20</span>,
+   <span class="hljs-attr">margin</span>: <span class="hljs-number">20</span>,
+   <span class="hljs-attr">borderRadius</span>: <span class="hljs-number">10</span>,
+   <span class="hljs-attr">alignItems</span>: <span class="hljs-string">'center'</span>,
+ },
+});
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/react-native-website/docs/0.41/alertios"><span class="arrow-prev">← </span><span class="function-name-prevnext">AlertIOS</span></a><a class="docs-next button" href="/react-native-website/docs/0.41/appregistry"><span class="function-name-prevnext">AppRegistry</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#class-animatedvalue">class AnimatedValue</a><ul class="toc-headings"><li><a href="#方法-1">方法</a></li></ul></li><li><a href="#class-animatedvaluexy">class AnimatedValueXY</a><ul class="toc-headings"><li><a href="#方法-2">方法</a></li><li><a href="#例子">例子</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright"><p style="color:inherit">React Native中文网 © 2020 杭州欧石南网络科技有限公司</p><p style="color:inherit"><a href="http://beian.miit.gov.cn/">浙ICP备15023664号-3</a><img src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" alt="浙公网安备 33010602005511号"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602005511">浙公网安备 33010602005511号</a></p></section><script>
+        (function(){
+          var c = document.createElement("div");
+          c.setAttribute("id", "lv-container");
+          c.setAttribute("data-id", "city");
+          c.setAttribute("data-uid", "MTAyMC8zODM4NS8xNDkxMw==");
+          var container = document.querySelector(".mainContainer")
+          container && container.appendChild(c);
+        })()
+        </script><script src="https://cdn-city.livere.com/js/embed.dist.js"></script></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '7ab53ed26928639bae06ef0f6165f68b',
+                indexName: 'reactnative_cn',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {"hitsPerPage":5}
+              });
+            </script></body></html>
