@@ -135,7 +135,7 @@ npm start <span class="hljs-comment"># you can also use: expo start</span>
 <blockquote><p>苹果公司目前只允许在Mac电脑上开发iOS应用。如果你没有Mac电脑，那么只能考虑使用<a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">沙盒环境</a>，或者先开发Android应用了。</blockquote>
 <p><block class="native mac ios" /></p>
 <h2><a class="anchor" aria-hidden="true" id="安装依赖"></a><a href="#安装依赖" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>安装依赖</h2>
-<p>必须安装的依赖有：Node、Watchman 和 Xcode。</p>
+<p>必须安装的依赖有：Node、Watchman、Xcode和CocoaPods。</p>
 <p>虽然你可以使用<code>任何编辑器</code>来开发应用（编写 js 代码），但你仍然必须安装 Xcode 来获得编译 iOS 应用所需的工具和环境。</p>
 <p><block class="native mac android" /></p>
 <h2><a class="anchor" aria-hidden="true" id="安装依赖-1"></a><a href="#安装依赖-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>安装依赖</h2>
@@ -196,9 +196,23 @@ npx nrm <span class="hljs-keyword">use</span> npm
 <p><block class="native mac ios" /></p>
 <h3><a class="anchor" aria-hidden="true" id="xcode"></a><a href="#xcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Xcode</h3>
 <p>React Native 目前需要<a href="https://developer.apple.com/xcode/downloads/">Xcode</a> 10 或更高版本。你可以通过 App Store 或是到<a href="https://developer.apple.com/xcode/downloads/">Apple 开发者官网</a>上下载。这一步骤会同时安装 Xcode IDE、Xcode 的命令行工具和 iOS 模拟器。</p>
-<h4><a class="anchor" aria-hidden="true" id="xcode-的命令行工具"></a><a href="#xcode-的命令行工具" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Xcode 的命令行工具</h4>
+<p><h4>Xcode 的命令行工具</h4></p>
 <p>启动 Xcode，并在<code>Xcode | Preferences | Locations</code>菜单中检查一下是否装有某个版本的<code>Command Line Tools</code>。Xcode 的命令行工具中包含一些必须的工具，比如<code>git</code>等。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/GettingStartedXcodeCommandLineTools.png" alt="Xcode Command Line Tools"></p>
+<p><h4>CocoaPods</h4></p>
+<p><a href="https://cocoapods.org/">CocoaPods</a>是用Ruby编写的包管理器。从0.60版本开始react native的iOS版本需要使用CocoaPods来管理依赖。你可以使用下面的命令来安装cocoapods。</p>
+<blockquote>
+<p>当然安装可能也不顺利，请尝试翻墙或寻找一些国内可用的镜像源。</p>
+</blockquote>
+<pre><code class="hljs css language-sh">sudo gem install cocoapods
+</code></pre>
+<p>或者可以使用brew来安装</p>
+<pre><code class="hljs css language-sh">brew install cocoapods
+</code></pre>
+<blockquote>
+<p>另外目前最新版本似乎不能在ruby2.6版本以下安装，意味着如果你使用的macOS版本低于10.15 (Catalina) 则无法直接安装。可以尝试安装较旧一些的版本。如<code>sudo gem install cocoapods -v 1.8.4</code>，参考issue链接 <a href="https://github.com/CocoaPods/CocoaPods/issues/9568">https://github.com/CocoaPods/CocoaPods/issues/9568</a></p>
+</blockquote>
+<p>要了解更多信息，可以访问<a href="https://guides.cocoapods.org/using/getting-started.html">CocoaPods的官网</a>。</p>
 <p><block class="native mac linux android" /></p>
 <h3><a class="anchor" aria-hidden="true" id="java-development-kit"></a><a href="#java-development-kit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Java Development Kit</h3>
 <p>React Native 需要 Java Development Kit [JDK] 1.8（暂不支持 1.9 及更高版本）。你可以在命令行中输入</p>
