@@ -6,7 +6,7 @@
 
               ga('create', 'UA-63485149-4', 'auto');
               ga('send', 'pageview');
-            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/codeblocks.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/tabs.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/doccode0325.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/codeblocks.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/tabs.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/doccode0325.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/snack.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
         document.addEventListener('DOMContentLoaded', function() {
           addBackToTop(
             {"zIndex":100}
@@ -74,87 +74,113 @@
 <p><code>FlatList</code>更适于长列表数据，且元素个数可以增删。和<a href="/docs/0.59/using-a-scrollview"><code>ScrollView</code></a>不同的是，<code>FlatList</code>并不立即渲染所有元素，而是优先渲染屏幕上可见的元素。</p>
 <p><code>FlatList</code>组件必须的两个属性是<code>data</code>和<code>renderItem</code>。<code>data</code>是列表的数据源，而<code>renderItem</code>则从数据源中逐个解析数据，然后返回一个设定好格式的组件来渲染。</p>
 <p>下面的例子创建了一个简单的<code>FlatList</code>，并预设了一些模拟数据。首先是初始化<code>FlatList</code>所需的<code>data</code>，其中的每一项（行）数据之后都在<code>renderItem</code>中被渲染成了<code>Text</code>组件，最后构成整个<code>FlatList</code>。</p>
-<pre><code class="hljs css language-SnackPlayer name=FlatList%20Basics"><span class="hljs-keyword">import</span> <span class="hljs-type">React</span>, { <span class="hljs-type">Component</span> } from <span class="hljs-symbol">'reac</span>t';
-<span class="hljs-keyword">import</span> { <span class="hljs-type">FlatList</span>, <span class="hljs-type">StyleSheet</span>, <span class="hljs-type">Text</span>, <span class="hljs-type">View</span> } from <span class="hljs-symbol">'react</span>-native';
+<div class="snack-player"><div class="mobile-friendly-snack" style="display: none"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { FlatList, StyleSheet, Text, View } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 
-export <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FlatListBasics</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FlatListBasics</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
   render() {
     <span class="hljs-keyword">return</span> (
-      &lt;<span class="hljs-type">View</span> style={styles.container}&gt;
-        &lt;<span class="hljs-type">FlatList</span>
-          data={[
-            {key: <span class="hljs-symbol">'Devi</span>n'},
-            {key: <span class="hljs-symbol">'Jackso</span>n'},
-            {key: <span class="hljs-symbol">'Jame</span>s'},
-            {key: <span class="hljs-symbol">'Joe</span>l'},
-            {key: <span class="hljs-symbol">'Joh</span>n'},
-            {key: <span class="hljs-symbol">'Jillia</span>n'},
-            {key: <span class="hljs-symbol">'Jimm</span>y'},
-            {key: <span class="hljs-symbol">'Juli</span>e'},
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.container}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">FlatList</span>
+          <span class="hljs-attr">data</span>=<span class="hljs-string">{[</span>
+            {<span class="hljs-attr">key:</span> '<span class="hljs-attr">Devin</span>'},
+            {<span class="hljs-attr">key:</span> '<span class="hljs-attr">Jackson</span>'},
+            {<span class="hljs-attr">key:</span> '<span class="hljs-attr">James</span>'},
+            {<span class="hljs-attr">key:</span> '<span class="hljs-attr">Joel</span>'},
+            {<span class="hljs-attr">key:</span> '<span class="hljs-attr">John</span>'},
+            {<span class="hljs-attr">key:</span> '<span class="hljs-attr">Jillian</span>'},
+            {<span class="hljs-attr">key:</span> '<span class="hljs-attr">Jimmy</span>'},
+            {<span class="hljs-attr">key:</span> '<span class="hljs-attr">Julie</span>'},
           ]}
-          renderItem={({item}) =&gt; &lt;<span class="hljs-type">Text</span> style={styles.item}&gt;{item.key}&lt;/<span class="hljs-type">Text</span>&gt;}
+          <span class="hljs-attr">renderItem</span>=<span class="hljs-string">{({item})</span> =&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.item}</span>&gt;</span>{item.key}<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>}
         /&gt;
-      &lt;/<span class="hljs-type">View</span>&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
     );
   }
 }
 
-const styles = <span class="hljs-type">StyleSheet</span>.create({
-  container: {
-   flex: <span class="hljs-number">1</span>,
-   paddingTop: <span class="hljs-number">22</span>
+<span class="hljs-keyword">const</span> styles = StyleSheet.create({
+  <span class="hljs-attr">container</span>: {
+   <span class="hljs-attr">flex</span>: <span class="hljs-number">1</span>,
+   <span class="hljs-attr">paddingTop</span>: <span class="hljs-number">22</span>
   },
-  item: {
-    padding: <span class="hljs-number">10</span>,
-    fontSize: <span class="hljs-number">18</span>,
-    height: <span class="hljs-number">44</span>,
+  <span class="hljs-attr">item</span>: {
+    <span class="hljs-attr">padding</span>: <span class="hljs-number">10</span>,
+    <span class="hljs-attr">fontSize</span>: <span class="hljs-number">18</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">44</span>,
   },
 })
-</code></pre>
-<p>如果要渲染的是一组需要分组的数据，也许还带有分组标签的，那么<code>SectionList</code>将是个不错的选择</p>
-<pre><code class="hljs css language-SnackPlayer name=SectionList%20Basics"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> { SectionList, StyleSheet, <span class="hljs-type">Text</span>, <span class="hljs-keyword">View</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+</code></pre></div><div class="desktop-friendly-snack" style="margin-top: 15px; margin-bottom: 15px"><div
+        data-snack-name="FlatList Basics"
+        data-snack-description="Example usage"
+        data-snack-code="import%20React%2C%20%7B%20Component%20%7D%20from%20'react'%3B%0Aimport%20%7B%20FlatList%2C%20StyleSheet%2C%20Text%2C%20View%20%7D%20from%20'react-native'%3B%0A%0Aexport%20default%20class%20FlatListBasics%20extends%20Component%20%7B%0A%20%20render()%20%7B%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CView%20style%3D%7Bstyles.container%7D%3E%0A%20%20%20%20%20%20%20%20%3CFlatList%0A%20%20%20%20%20%20%20%20%20%20data%3D%7B%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7Bkey%3A%20'Devin'%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7Bkey%3A%20'Jackson'%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7Bkey%3A%20'James'%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7Bkey%3A%20'Joel'%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7Bkey%3A%20'John'%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7Bkey%3A%20'Jillian'%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7Bkey%3A%20'Jimmy'%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7Bkey%3A%20'Julie'%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%5D%7D%0A%20%20%20%20%20%20%20%20%20%20renderItem%3D%7B(%7Bitem%7D)%20%3D%3E%20%3CText%20style%3D%7Bstyles.item%7D%3E%7Bitem.key%7D%3C%2FText%3E%7D%0A%20%20%20%20%20%20%20%20%2F%3E%0A%20%20%20%20%20%20%3C%2FView%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A%0Aconst%20styles%20%3D%20StyleSheet.create(%7B%0A%20%20container%3A%20%7B%0A%20%20%20flex%3A%201%2C%0A%20%20%20paddingTop%3A%2022%0A%20%20%7D%2C%0A%20%20item%3A%20%7B%0A%20%20%20%20padding%3A%2010%2C%0A%20%20%20%20fontSize%3A%2018%2C%0A%20%20%20%20height%3A%2044%2C%0A%20%20%7D%2C%0A%7D)%0A"
+        data-snack-platform="web"
+        data-snack-preview="true"
+        style="
+          overflow: hidden;
+          background: #fafafa;
+          border: 1px solid rgba(0,0,0,.16);
+          border-radius: 4px;
+          height: 514px;
+          width: 100%;
+        "
+      ></div></div></div><p>如果要渲染的是一组需要分组的数据，也许还带有分组标签的，那么<code>SectionList</code>将是个不错的选择</p>
+<div class="snack-player"><div class="mobile-friendly-snack" style="display: none"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { SectionList, StyleSheet, Text, View } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 
-export <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> SectionListBasics extends Component {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SectionListBasics</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
   render() {
     <span class="hljs-keyword">return</span> (
-      &lt;<span class="hljs-keyword">View</span> style={styles.container}&gt;
-        &lt;SectionList
-          sections={[
-            {title: <span class="hljs-string">'D'</span>, data: [<span class="hljs-string">'Devin'</span>]},
-            {title: <span class="hljs-string">'J'</span>, data: [<span class="hljs-string">'Jackson'</span>, <span class="hljs-string">'James'</span>, <span class="hljs-string">'Jillian'</span>, <span class="hljs-string">'Jimmy'</span>, <span class="hljs-string">'Joel'</span>, <span class="hljs-string">'John'</span>, <span class="hljs-string">'Julie'</span>]},
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.container}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">SectionList</span>
+          <span class="hljs-attr">sections</span>=<span class="hljs-string">{[</span>
+            {<span class="hljs-attr">title:</span> '<span class="hljs-attr">D</span>', <span class="hljs-attr">data:</span> ['<span class="hljs-attr">Devin</span>']},
+            {<span class="hljs-attr">title:</span> '<span class="hljs-attr">J</span>', <span class="hljs-attr">data:</span> ['<span class="hljs-attr">Jackson</span>', '<span class="hljs-attr">James</span>', '<span class="hljs-attr">Jillian</span>', '<span class="hljs-attr">Jimmy</span>', '<span class="hljs-attr">Joel</span>', '<span class="hljs-attr">John</span>', '<span class="hljs-attr">Julie</span>']},
           ]}
-          renderItem={({item}) =&gt; &lt;<span class="hljs-type">Text</span> style={styles.item}&gt;{item}&lt;/<span class="hljs-type">Text</span>&gt;}
-          renderSectionHeader={({section}) =&gt; &lt;<span class="hljs-type">Text</span> style={styles.sectionHeader}&gt;{section.title}&lt;/<span class="hljs-type">Text</span>&gt;}
-          keyExtractor={(item, <span class="hljs-keyword">index</span>) =&gt; <span class="hljs-keyword">index</span>}
+          <span class="hljs-attr">renderItem</span>=<span class="hljs-string">{({item})</span> =&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.item}</span>&gt;</span>{item}<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>}
+          renderSectionHeader={({section}) =&gt; <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.sectionHeader}</span>&gt;</span>{section.title}<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>}
+          keyExtractor={(item, index) =&gt; index}
         /&gt;
-      &lt;/<span class="hljs-keyword">View</span>&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
     );
   }
 }
 
-const styles = StyleSheet.<span class="hljs-keyword">create</span>({
-  container: {
-   flex: <span class="hljs-number">1</span>,
-   paddingTop: <span class="hljs-number">22</span>
+<span class="hljs-keyword">const</span> styles = StyleSheet.create({
+  <span class="hljs-attr">container</span>: {
+   <span class="hljs-attr">flex</span>: <span class="hljs-number">1</span>,
+   <span class="hljs-attr">paddingTop</span>: <span class="hljs-number">22</span>
   },
-  sectionHeader: {
-    paddingTop: <span class="hljs-number">2</span>,
-    paddingLeft: <span class="hljs-number">10</span>,
-    paddingRight: <span class="hljs-number">10</span>,
-    paddingBottom: <span class="hljs-number">2</span>,
-    fontSize: <span class="hljs-number">14</span>,
-    fontWeight: <span class="hljs-string">'bold'</span>,
-    backgroundColor: <span class="hljs-string">'rgba(247,247,247,1.0)'</span>,
+  <span class="hljs-attr">sectionHeader</span>: {
+    <span class="hljs-attr">paddingTop</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">paddingLeft</span>: <span class="hljs-number">10</span>,
+    <span class="hljs-attr">paddingRight</span>: <span class="hljs-number">10</span>,
+    <span class="hljs-attr">paddingBottom</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">fontSize</span>: <span class="hljs-number">14</span>,
+    <span class="hljs-attr">fontWeight</span>: <span class="hljs-string">'bold'</span>,
+    <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">'rgba(247,247,247,1.0)'</span>,
   },
-  item: {
-    padding: <span class="hljs-number">10</span>,
-    fontSize: <span class="hljs-number">18</span>,
-    height: <span class="hljs-number">44</span>,
+  <span class="hljs-attr">item</span>: {
+    <span class="hljs-attr">padding</span>: <span class="hljs-number">10</span>,
+    <span class="hljs-attr">fontSize</span>: <span class="hljs-number">18</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">44</span>,
   },
 })
-</code></pre>
-<p>列表的一个常用场景就是从服务器端取回列表数据然后显示，要实现这一过程，你可能还需要学习<a href="/docs/0.59/network">React Native 的网络相关用法</a>.</p>
+</code></pre></div><div class="desktop-friendly-snack" style="margin-top: 15px; margin-bottom: 15px"><div
+        data-snack-name="SectionList Basics"
+        data-snack-description="Example usage"
+        data-snack-code="import%20React%2C%20%7B%20Component%20%7D%20from%20'react'%3B%0Aimport%20%7B%20SectionList%2C%20StyleSheet%2C%20Text%2C%20View%20%7D%20from%20'react-native'%3B%0A%0Aexport%20default%20class%20SectionListBasics%20extends%20Component%20%7B%0A%20%20render()%20%7B%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CView%20style%3D%7Bstyles.container%7D%3E%0A%20%20%20%20%20%20%20%20%3CSectionList%0A%20%20%20%20%20%20%20%20%20%20sections%3D%7B%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7Btitle%3A%20'D'%2C%20data%3A%20%5B'Devin'%5D%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7Btitle%3A%20'J'%2C%20data%3A%20%5B'Jackson'%2C%20'James'%2C%20'Jillian'%2C%20'Jimmy'%2C%20'Joel'%2C%20'John'%2C%20'Julie'%5D%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%5D%7D%0A%20%20%20%20%20%20%20%20%20%20renderItem%3D%7B(%7Bitem%7D)%20%3D%3E%20%3CText%20style%3D%7Bstyles.item%7D%3E%7Bitem%7D%3C%2FText%3E%7D%0A%20%20%20%20%20%20%20%20%20%20renderSectionHeader%3D%7B(%7Bsection%7D)%20%3D%3E%20%3CText%20style%3D%7Bstyles.sectionHeader%7D%3E%7Bsection.title%7D%3C%2FText%3E%7D%0A%20%20%20%20%20%20%20%20%20%20keyExtractor%3D%7B(item%2C%20index)%20%3D%3E%20index%7D%0A%20%20%20%20%20%20%20%20%2F%3E%0A%20%20%20%20%20%20%3C%2FView%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A%0Aconst%20styles%20%3D%20StyleSheet.create(%7B%0A%20%20container%3A%20%7B%0A%20%20%20flex%3A%201%2C%0A%20%20%20paddingTop%3A%2022%0A%20%20%7D%2C%0A%20%20sectionHeader%3A%20%7B%0A%20%20%20%20paddingTop%3A%202%2C%0A%20%20%20%20paddingLeft%3A%2010%2C%0A%20%20%20%20paddingRight%3A%2010%2C%0A%20%20%20%20paddingBottom%3A%202%2C%0A%20%20%20%20fontSize%3A%2014%2C%0A%20%20%20%20fontWeight%3A%20'bold'%2C%0A%20%20%20%20backgroundColor%3A%20'rgba(247%2C247%2C247%2C1.0)'%2C%0A%20%20%7D%2C%0A%20%20item%3A%20%7B%0A%20%20%20%20padding%3A%2010%2C%0A%20%20%20%20fontSize%3A%2018%2C%0A%20%20%20%20height%3A%2044%2C%0A%20%20%7D%2C%0A%7D)%0A"
+        data-snack-platform="web"
+        data-snack-preview="true"
+        style="
+          overflow: hidden;
+          background: #fafafa;
+          border: 1px solid rgba(0,0,0,.16);
+          border-radius: 4px;
+          height: 514px;
+          width: 100%;
+        "
+      ></div></div></div><p>列表的一个常用场景就是从服务器端取回列表数据然后显示，要实现这一过程，你可能还需要学习<a href="/docs/0.59/network">React Native 的网络相关用法</a>.</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/0.59/using-a-scrollview"><span class="arrow-prev">← </span><span>使用滚动视图</span></a><a class="docs-next button" href="/docs/0.59/network"><span>网络</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright"><p style="color:inherit">React Native中文网 © 2020 武汉青罗网络科技有限公司</p><p style="color:inherit"><a href="http://beian.miit.gov.cn/">鄂ICP备20002031号</a><img src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" alt="浙公网安备 33010602005511号"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602005511">浙公网安备 33010602005511号</a></p></section><script>
         (function(){
           var c = document.createElement("div");
