@@ -142,15 +142,15 @@ $ ./gradlew assembleRelease
 <p>注意：在 debug 和 release 版本间来回切换安装时可能会报错签名不匹配，此时需要先卸载前一个版本再尝试安装。</p>
 </blockquote>
 <h3><a class="anchor" aria-hidden="true" id="针对不同的-cpu-架构生成-apk-以减小-apk-文件的大小"></a><a href="#针对不同的-cpu-架构生成-apk-以减小-apk-文件的大小" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>针对不同的 CPU 架构生成 APK 以减小 APK 文件的大小</h3>
-<p>默认情况下，生成的 APK 会同时包含针对于 x86 和 ARMv7a 两种 CPU 架构的原生代码。这样可以让我们更方便的向其他人分享这个 APK，因为它几乎可以运行在所有的 Android 设备上。但是，这会导致所有设备上都有一些根本不会运行的代码，白白占据了空间。目前安卓设备绝大多数是 ARM 架构，因此对于大部分应用来说可以考虑去掉 x86 架构的支持。</p>
-<p>你可以在<code>android/app/build.gradle</code>中修改如下代码（false 改为 true）来生成针对不同 CPU 架构的 APK。</p>
+<p>默认情况下，生成的 APK 会同时包含针对于 x86 和 ARMv7a 两种 CPU 架构的原生代码。这样可以让我们更方便的向其他人分享这个 APK，因为它几乎可以运行在所有的 Android 设备上。但是，这会导致所有设备上都有一些根本不会运行的代码，白白占据了空间。目前安卓设备绝大多数是 ARM 架构，因此对于大部分应用来说可以考虑去掉 x86 架构的支持（但是请注意模拟器大部分是 x86 架构，因此去掉 x86 架构后将无法在模拟器上运行）。</p>
+<p>你可以在<code>android/app/build.gradle</code>中修改如下代码（false 改为 true）来生成多个针对不同 CPU 架构的 APK。</p>
 <pre><code class="hljs css language-diff"><span class="hljs-deletion">- ndk {</span>
 <span class="hljs-deletion">-   abiFilters "armeabi-v7a", "x86"</span>
 <span class="hljs-deletion">- }</span>
 <span class="hljs-deletion">- def enableSeparateBuildPerCPUArchitecture = false</span>
 <span class="hljs-addition">+ def enableSeparateBuildPerCPUArchitecture = true</span>
 </code></pre>
-<p>你可以把这上面打包生成的两个 APK 都上传到支持对用户设备 CPU 架构定位的应用程序商店，例如 Google Play 和 Amazon AppStore，用户将自动获得相应的 APK。如果您想上传到其他市场，例如 APKFiles（不支持一个应用有多个 APK 文件），可以修改下面的代码，来额外生成一个适用不同 CPU 架构的通用 APK。</p>
+<p>你可以把这上面打包生成的多个 APK 都上传到支持对用户设备 CPU 架构定位的应用程序商店，例如 Google Play 和 Amazon AppStore，用户将自动获得相应的 APK。如果您想上传到其他市场，例如 APKFiles（不支持一个应用有多个 APK 文件），可以修改下面的代码，来额外生成一个适用不同 CPU 架构的通用 APK。</p>
 <pre><code class="hljs css language-diff"><span class="hljs-deletion">- universalApk false</span>
 <span class="hljs-addition">+ universalApk true  // 额外生成一个适用不同CPU架构的通用APK</span>
 </code></pre>
