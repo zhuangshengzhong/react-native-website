@@ -69,15 +69,15 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="//github.com/reactnativecn/react-native-website/blob/production/cndocs/state.md" target="_blank" rel="noreferrer noopener">帮助改进此文档</a><h1 id="__docusaurus" class="postHeaderTitle">State（状态）</h1></header><article><div><span><p>我们使用两种数据来控制一个组件：<code>props</code>和<code>state</code>。<code>props</code>是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。对于需要改变的数据，我们需要使用<code>state</code>。</p>
-<p>一般来说，你需要在class中声明一个<code>state</code>对象，然后在需要修改时调用<code>setState</code>方法。</p>
+<p>一般来说，你需要在 class 中声明一个<code>state</code>对象，然后在需要修改时调用<code>setState</code>方法。</p>
 <p>假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个<code>prop</code>。而文字的显示或隐藏的状态（快速的显隐切换就产生了闪烁的效果）则是随着时间变化的，因此这一状态应该写到<code>state</code>中。</p>
-<div class="web-player"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<div class="snack-player"><div class="mobile-friendly-snack" style="display: none"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> { Text, View } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Blink</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
   <span class="hljs-comment">// 声明state对象</span>
   state = { <span class="hljs-attr">isShowingText</span>: <span class="hljs-literal">true</span> };
-  
+
   componentDidMount() {
     <span class="hljs-comment">// 每1000毫秒对showText状态做一次取反操作</span>
     setInterval(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
@@ -111,9 +111,21 @@
     );
   }
 }
-</code></pre><iframe style="margin-top: 4" width="100%" height="420" data-src="//dabbott.github.io/react-native-web-player/#code=import%20React%2C%20%7B%20Component%20%7D%20from%20'react'%3B%0Aimport%20%7B%20Text%2C%20View%20%7D%20from%20'react-native'%3B%0A%0Aclass%20Blink%20extends%20Component%20%7B%0A%20%20%2F%2F%20%E5%A3%B0%E6%98%8Estate%E5%AF%B9%E8%B1%A1%0A%20%20state%20%3D%20%7B%20isShowingText%3A%20true%20%7D%3B%0A%20%20%0A%20%20componentDidMount()%20%7B%0A%20%20%20%20%2F%2F%20%E6%AF%8F1000%E6%AF%AB%E7%A7%92%E5%AF%B9showText%E7%8A%B6%E6%80%81%E5%81%9A%E4%B8%80%E6%AC%A1%E5%8F%96%E5%8F%8D%E6%93%8D%E4%BD%9C%0A%20%20%20%20setInterval(()%20%3D%3E%20%7B%0A%20%20%20%20%20%20this.setState(%7B%0A%20%20%20%20%20%20%20%20isShowingText%3A%20!this.state.isShowingText%0A%20%20%20%20%20%20%7D)%3B%0A%20%20%20%20%7D%2C%201000)%3B%0A%20%20%7D%0A%0A%20%20render()%20%7B%0A%20%20%20%20%2F%2F%20%E6%A0%B9%E6%8D%AE%E5%BD%93%E5%89%8DshowText%E7%9A%84%E5%80%BC%E5%86%B3%E5%AE%9A%E6%98%AF%E5%90%A6%E6%98%BE%E7%A4%BAtext%E5%86%85%E5%AE%B9%0A%20%20%20%20if%20(!this.state.isShowingText)%20%7B%0A%20%20%20%20%20%20return%20null%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CText%3E%7Bthis.props.text%7D%3C%2FText%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A%0Aexport%20default%20class%20BlinkApp%20extends%20Component%20%7B%0A%20%20render()%20%7B%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CView%3E%0A%20%20%20%20%20%20%20%20%3CBlink%20text%3D'I%20love%20to%20blink'%20%2F%3E%0A%20%20%20%20%20%20%20%20%3CBlink%20text%3D'Yes%20blinking%20is%20so%20great'%20%2F%3E%0A%20%20%20%20%20%20%20%20%3CBlink%20text%3D'Why%20did%20they%20ever%20take%20this%20out%20of%20HTML'%20%2F%3E%0A%20%20%20%20%20%20%20%20%3CBlink%20text%3D'Look%20at%20me%20look%20at%20me%20look%20at%20me'%20%2F%3E%0A%20%20%20%20%20%20%3C%2FView%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A" frame-border="0"></iframe></div>
-
-<p>实际开发中，我们一般不会在定时器函数（setInterval、setTimeout 等）中来操作 state。典型的场景是在接收到服务器返回的新数据，或者在用户输入数据之后。你也可以使用一些“状态容器”比如<a href="http://redux.js.org/index.html">Redux</a>来统一管理数据流。</p>
+</code></pre></div><div class="desktop-friendly-snack" style="margin-top: 15px; margin-bottom: 15px"><div
+        data-snack-name="Example"
+        data-snack-description="Example usage"
+        data-snack-code="import%20React%2C%20%7B%20Component%20%7D%20from%20'react'%3B%0Aimport%20%7B%20Text%2C%20View%20%7D%20from%20'react-native'%3B%0A%0Aclass%20Blink%20extends%20Component%20%7B%0A%20%20%2F%2F%20%E5%A3%B0%E6%98%8Estate%E5%AF%B9%E8%B1%A1%0A%20%20state%20%3D%20%7B%20isShowingText%3A%20true%20%7D%3B%0A%0A%20%20componentDidMount()%20%7B%0A%20%20%20%20%2F%2F%20%E6%AF%8F1000%E6%AF%AB%E7%A7%92%E5%AF%B9showText%E7%8A%B6%E6%80%81%E5%81%9A%E4%B8%80%E6%AC%A1%E5%8F%96%E5%8F%8D%E6%93%8D%E4%BD%9C%0A%20%20%20%20setInterval(()%20%3D%3E%20%7B%0A%20%20%20%20%20%20this.setState(%7B%0A%20%20%20%20%20%20%20%20isShowingText%3A%20!this.state.isShowingText%0A%20%20%20%20%20%20%7D)%3B%0A%20%20%20%20%7D%2C%201000)%3B%0A%20%20%7D%0A%0A%20%20render()%20%7B%0A%20%20%20%20%2F%2F%20%E6%A0%B9%E6%8D%AE%E5%BD%93%E5%89%8DshowText%E7%9A%84%E5%80%BC%E5%86%B3%E5%AE%9A%E6%98%AF%E5%90%A6%E6%98%BE%E7%A4%BAtext%E5%86%85%E5%AE%B9%0A%20%20%20%20if%20(!this.state.isShowingText)%20%7B%0A%20%20%20%20%20%20return%20null%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CText%3E%7Bthis.props.text%7D%3C%2FText%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A%0Aexport%20default%20class%20BlinkApp%20extends%20Component%20%7B%0A%20%20render()%20%7B%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CView%3E%0A%20%20%20%20%20%20%20%20%3CBlink%20text%3D'I%20love%20to%20blink'%20%2F%3E%0A%20%20%20%20%20%20%20%20%3CBlink%20text%3D'Yes%20blinking%20is%20so%20great'%20%2F%3E%0A%20%20%20%20%20%20%20%20%3CBlink%20text%3D'Why%20did%20they%20ever%20take%20this%20out%20of%20HTML'%20%2F%3E%0A%20%20%20%20%20%20%20%20%3CBlink%20text%3D'Look%20at%20me%20look%20at%20me%20look%20at%20me'%20%2F%3E%0A%20%20%20%20%20%20%3C%2FView%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A"
+        data-snack-platform="web"
+        data-snack-preview="true"
+        style="
+          overflow: hidden;
+          background: #fafafa;
+          border: 1px solid rgba(0,0,0,.16);
+          border-radius: 4px;
+          height: 514px;
+          width: 100%;
+        "
+      ></div></div></div><p>实际开发中，我们一般不会在定时器函数（setInterval、setTimeout 等）中来操作 state。典型的场景是在接收到服务器返回的新数据，或者在用户输入数据之后。你也可以使用一些“状态容器”比如<a href="http://redux.js.org/index.html">Redux</a>来统一管理数据流。</p>
 <p>每次调用<code>setState</code>时，BlinkApp 都会重新执行 render 方法重新渲染。这里我们使用定时器来不停调用<code>setState</code>，于是组件就会随着时间变化不停地重新渲染。</p>
 <p>State 的工作原理和 React.js 完全一致，所以对于处理 state 的一些更深入的细节，你可以参阅<a href="https://reactjs.org/docs/react-component.html#setstate">React.Component API</a>。</p>
 <p>译注：提示一些初学者应该牢记的要点：</p>

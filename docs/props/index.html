@@ -71,7 +71,7 @@
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="//github.com/reactnativecn/react-native-website/blob/production/cndocs/props.md" target="_blank" rel="noreferrer noopener">帮助改进此文档</a><h1 id="__docusaurus" class="postHeaderTitle">Props（属性）</h1></header><article><div><span><h5><a class="anchor" aria-hidden="true" id="本文档贡献者：sunnylqmhttpsgithubcomsearchqsunnylqm40qqcomin3aemailtypeusers10000"></a><a href="#本文档贡献者：sunnylqmhttpsgithubcomsearchqsunnylqm40qqcomin3aemailtypeusers10000" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>本文档贡献者：<a href="https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&amp;type=Users">sunnylqm</a>(100.00%)</h5>
 <p>大多数组件在创建时就可以使用各种参数来进行定制。用于定制的这些参数就称为<code>props</code>（属性）。</p>
 <p>以常见的基础组件<code>Image</code>为例，在创建一个图片时，可以传入一个名为<code>source</code>的 prop 来指定要显示的图片的地址，以及使用名为<code>style</code>的 prop 来控制其尺寸。</p>
-<div class="web-player"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<div class="snack-player"><div class="mobile-friendly-snack" style="display: none"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> { Image } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bananas</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
@@ -84,12 +84,24 @@
     );
   }
 }
-</code></pre><iframe style="margin-top: 4" width="100%" height="420" data-src="//dabbott.github.io/react-native-web-player/#code=import%20React%2C%20%7B%20Component%20%7D%20from%20'react'%3B%0Aimport%20%7B%20Image%20%7D%20from%20'react-native'%3B%0A%0Aexport%20default%20class%20Bananas%20extends%20Component%20%7B%0A%20%20render()%20%7B%0A%20%20%20%20let%20pic%20%3D%20%7B%0A%20%20%20%20%20%20uri%3A%20'https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fd%2Fde%2FBananavarieties.jpg'%0A%20%20%20%20%7D%3B%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CImage%20source%3D%7Bpic%7D%20style%3D%7B%7Bwidth%3A%20193%2C%20height%3A%20110%7D%7D%20%2F%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A" frame-border="0"></iframe></div>
-
-<p>译注：在 iOS 上使用 http 链接的图片地址可能不会显示，参见<a href="https://segmentfault.com/a/1190000002933776">这篇说明修改</a>。从 Android9 开始，也会默认阻止 http 请求，请参考<a href="https://blog.csdn.net/qq_40347548/article/details/86766932">相关配置</a></p>
+</code></pre></div><div class="desktop-friendly-snack" style="margin-top: 15px; margin-bottom: 15px"><div
+        data-snack-name="Example"
+        data-snack-description="Example usage"
+        data-snack-code="import%20React%2C%20%7B%20Component%20%7D%20from%20'react'%3B%0Aimport%20%7B%20Image%20%7D%20from%20'react-native'%3B%0A%0Aexport%20default%20class%20Bananas%20extends%20Component%20%7B%0A%20%20render()%20%7B%0A%20%20%20%20let%20pic%20%3D%20%7B%0A%20%20%20%20%20%20uri%3A%20'https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fd%2Fde%2FBananavarieties.jpg'%0A%20%20%20%20%7D%3B%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CImage%20source%3D%7Bpic%7D%20style%3D%7B%7Bwidth%3A%20193%2C%20height%3A%20110%7D%7D%20%2F%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A"
+        data-snack-platform="web"
+        data-snack-preview="true"
+        style="
+          overflow: hidden;
+          background: #fafafa;
+          border: 1px solid rgba(0,0,0,.16);
+          border-radius: 4px;
+          height: 514px;
+          width: 100%;
+        "
+      ></div></div></div><p>译注：在 iOS 上使用 http 链接的图片地址可能不会显示，参见<a href="https://segmentfault.com/a/1190000002933776">这篇说明修改</a>。从 Android9 开始，也会默认阻止 http 请求，请参考<a href="https://blog.csdn.net/qq_40347548/article/details/86766932">相关配置</a></p>
 <p>请注意<code>{pic}</code>外围有一层括号，我们需要用括号来把<code>pic</code>这个变量嵌入到 JSX 语句中。括号的意思是括号内部为一个 js 变量或表达式，需要执行后取值。因此我们可以把任意合法的 JavaScript 表达式通过括号嵌入到 JSX 语句中。</p>
 <p>自定义的组件也可以使用<code>props</code>。通过在不同的场景使用不同的属性定制，可以尽量提高自定义组件的复用范畴。只需在<code>render</code>函数中引用<code>this.props</code>，然后按需处理即可。下面是一个例子：</p>
-<div class="web-player"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<div class="snack-player"><div class="mobile-friendly-snack" style="display: none"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> { Text, View } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Greeting</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
@@ -113,9 +125,21 @@
     );
   }
 }
-</code></pre><iframe style="margin-top: 4" width="100%" height="420" data-src="//dabbott.github.io/react-native-web-player/#code=import%20React%2C%20%7B%20Component%20%7D%20from%20'react'%3B%0Aimport%20%7B%20Text%2C%20View%20%7D%20from%20'react-native'%3B%0A%0Aclass%20Greeting%20extends%20Component%20%7B%0A%20%20render()%20%7B%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CView%20style%3D%7B%7BalignItems%3A%20'center'%2C%20marginTop%3A%2050%7D%7D%3E%0A%20%20%20%20%20%20%20%20%3CText%3EHello%20%7Bthis.props.name%7D!%3C%2FText%3E%0A%20%20%20%20%20%20%3C%2FView%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A%0Aexport%20default%20class%20LotsOfGreetings%20extends%20Component%20%7B%0A%20%20render()%20%7B%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CView%20style%3D%7B%7BalignItems%3A%20'center'%7D%7D%3E%0A%20%20%20%20%20%20%20%20%3CGreeting%20name%3D'Rexxar'%20%2F%3E%0A%20%20%20%20%20%20%20%20%3CGreeting%20name%3D'Jaina'%20%2F%3E%0A%20%20%20%20%20%20%20%20%3CGreeting%20name%3D'Valeera'%20%2F%3E%0A%20%20%20%20%20%20%3C%2FView%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A" frame-border="0"></iframe></div>
-
-<p>我们在<code>Greeting</code>组件中将<code>name</code>作为一个属性来定制，这样可以复用这一组件来制作各种不同的“问候语”。上面的例子把<code>Greeting</code>组件写在 JSX 语句中，用法和内置组件并无二致——这正是 React 体系的魅力所在——如果你想搭建一套自己的基础 UI 框架，那就放手做吧！</p>
+</code></pre></div><div class="desktop-friendly-snack" style="margin-top: 15px; margin-bottom: 15px"><div
+        data-snack-name="Example"
+        data-snack-description="Example usage"
+        data-snack-code="import%20React%2C%20%7B%20Component%20%7D%20from%20'react'%3B%0Aimport%20%7B%20Text%2C%20View%20%7D%20from%20'react-native'%3B%0A%0Aclass%20Greeting%20extends%20Component%20%7B%0A%20%20render()%20%7B%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CView%20style%3D%7B%7BalignItems%3A%20'center'%2C%20marginTop%3A%2050%7D%7D%3E%0A%20%20%20%20%20%20%20%20%3CText%3EHello%20%7Bthis.props.name%7D!%3C%2FText%3E%0A%20%20%20%20%20%20%3C%2FView%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A%0Aexport%20default%20class%20LotsOfGreetings%20extends%20Component%20%7B%0A%20%20render()%20%7B%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CView%20style%3D%7B%7BalignItems%3A%20'center'%7D%7D%3E%0A%20%20%20%20%20%20%20%20%3CGreeting%20name%3D'Rexxar'%20%2F%3E%0A%20%20%20%20%20%20%20%20%3CGreeting%20name%3D'Jaina'%20%2F%3E%0A%20%20%20%20%20%20%20%20%3CGreeting%20name%3D'Valeera'%20%2F%3E%0A%20%20%20%20%20%20%3C%2FView%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A"
+        data-snack-platform="web"
+        data-snack-preview="true"
+        style="
+          overflow: hidden;
+          background: #fafafa;
+          border: 1px solid rgba(0,0,0,.16);
+          border-radius: 4px;
+          height: 514px;
+          width: 100%;
+        "
+      ></div></div></div><p>我们在<code>Greeting</code>组件中将<code>name</code>作为一个属性来定制，这样可以复用这一组件来制作各种不同的“问候语”。上面的例子把<code>Greeting</code>组件写在 JSX 语句中，用法和内置组件并无二致——这正是 React 体系的魅力所在——如果你想搭建一套自己的基础 UI 框架，那就放手做吧！</p>
 <p>上面的例子出现了一样新的名为<a href="/docs/view"><code>View</code></a>的组件。<a href="/docs/view"><code>View</code></a> 常用作其他组件的容器，来帮助控制布局和样式。</p>
 <p>仅仅使用<code>props</code>和基础的<a href="/docs/text"><code>Text</code></a>、<a href="/docs/image"><code>Image</code></a>以及<a href="/docs/view"><code>View</code></a>组件，你就已经足以编写各式各样的 UI 组件了。要学习如何动态修改你的界面，那就需要进一步<a href="/docs/state">学习 State（状态）的概念</a>。</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/tutorial"><span class="arrow-prev">← </span><span>示例教程：Hello World</span></a><a class="docs-next button" href="/docs/state"><span>State（状态）</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright"><p style="color:inherit">React Native中文网 © 2020 武汉青罗网络科技有限公司</p><p style="color:inherit"><a href="http://beian.miit.gov.cn/">鄂ICP备20002031号</a><img src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" alt="浙公网安备 33010602005511号"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602005511">浙公网安备 33010602005511号</a></p></section><script>
