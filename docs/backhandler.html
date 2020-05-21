@@ -73,7 +73,7 @@
 <p>Android：监听后退按钮事件。如果没有添加任何监听函数，或者所有的监听函数都返回 false，则会执行默认行为，退出应用。</p>
 <p>tvOS(即 Apple TV 机顶盒)：监听遥控器上的后退按钮事件（阻止应用退出的功能尚未实现）。</p>
 <p>iOS：尚无作用。</p>
-<p>监听函数是按倒序的顺序执行（即后添加的函数先执行）。如果某一个函数返回 true，则后续的函数都不会被调用。Beware: If your app shows an opened <code>Modal</code>, BackHandler will not publish any events (<a href="/docs/modal#onrequestclose">see <code>Modal</code> docs</a>).</p>
+<p>监听函数是按倒序的顺序执行（即后添加的函数先执行）。如果某一个函数返回 true，则后续的函数都不会被调用。注意：如果app当前打开了一个<code>Modal</code>窗口，则BackHandler不会触发事件。(<a href="/docs/modal#onrequestclose">查看<code>Modal</code>的文档</a>).</p>
 <p>示例：</p>
 <pre><code class="hljs css language-jsx">BackHandler.addEventListener(<span class="hljs-string">"hardwareBackPress"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-comment">// this.onMainScreen()和this.goBack()两个方法都只是伪方法，需要你自己去实现！</span>

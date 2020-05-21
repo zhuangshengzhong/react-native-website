@@ -286,7 +286,7 @@
 <h3><a class="anchor" aria-hidden="true" id="source"></a><a href="#source" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>source</code></h3>
 <p>图片源数据（远程 URL 地址或本地数据）。</p>
 <p>This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best <code>uri</code> to display based on the measured size of the image container. A <code>cache</code> property can be added to control how networked request interacts with the local cache. (For more information see <a href="images#cache-control-ios-only">Cache Control for Images</a>).</p>
-<p>目前原生支持的图片格式有<code>png</code>、<code>jpg</code>、<code>jpeg</code>、<code>bmp</code>、<code>gif</code>、<code>webp</code> (仅 Android)、<code>psd</code> (仅 iOS)。In addition, iOS supports several RAW image formats. Refer to Apple's documentation for the current list of supported camera models (for iOS 12, see <a href="https://support.apple.com/en-ca/HT208967">https://support.apple.com/en-ca/HT208967</a>).</p>
+<p>目前原生支持的图片格式有<code>png</code>、<code>jpg</code>、<code>jpeg</code>、<code>bmp</code>、<code>gif</code>、<code>webp</code> (仅 Android)、<code>psd</code> (仅 iOS)。此外iOS还支持几种RAW格式。请参考Apple的官方文档来了解目前支持哪些相机型号的raw格式(对于iOS 13请访问 <a href="https://support.apple.com/en-us/HT210191">https://support.apple.com/en-us/HT210191</a>)。</p>
 <table>
 <thead>
 <tr><th>类型</th><th>必填</th></tr>
@@ -307,7 +307,7 @@
 </tbody>
 </table>
 <blockquote>
-<p>Can accept a number as returned by <code>require('./image.jpg')</code></p>
+<p>可以接受<code>require('./image.jpg')</code></p>
 </blockquote>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="onerror"></a><a href="#onerror" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onError</code></h3>
@@ -427,7 +427,7 @@
 </table>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="fadeduration"></a><a href="#fadeduration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>fadeDuration</code></h3>
-<p>Android only. By default, it is 300ms.</p>
+<p>渐入的动画持续时间。仅Android可用。默认为 300ms.</p>
 <table>
 <thead>
 <tr><th>类型</th><th>必填</th><th>平台</th></tr>
@@ -474,13 +474,13 @@
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
-<tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+<tr><th>名称</th><th>类型</th><th>必填</th><th>说明</th></tr>
 </thead>
 <tbody>
-<tr><td>uri</td><td>string</td><td>Yes</td><td>The location of the image.</td></tr>
-<tr><td>headers</td><td>object</td><td>Yes</td><td>The headers for the request.</td></tr>
-<tr><td>success</td><td>function</td><td>Yes</td><td>The function that will be called if the image was successfully found and width and height retrieved.</td></tr>
-<tr><td>failure</td><td>function</td><td>No</td><td>The function that will be called if there was an error, such as failing toto retrieve the image.</td></tr>
+<tr><td>uri</td><td>string</td><td>是</td><td>图片地址</td></tr>
+<tr><td>headers</td><td>object</td><td>是</td><td>请求的headers</td></tr>
+<tr><td>success</td><td>function</td><td>是</td><td>The function that will be called if the image was successfully found and width and height retrieved.</td></tr>
+<tr><td>failure</td><td>function</td><td>否</td><td>The function that will be called if there was an error, such as failing toto retrieve the image.</td></tr>
 </tbody>
 </table>
 <hr>

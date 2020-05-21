@@ -69,24 +69,24 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="//github.com/reactnativecn/react-native-website/blob/production/cndocs/intro-react.md" target="_blank" rel="noreferrer noopener">帮助改进此文档</a><h1 id="__docusaurus" class="postHeaderTitle">React基础</h1></header><article><div><span><h5><a class="anchor" aria-hidden="true" id="本文档贡献者：sunnylqmhttpsgithubcomsearchqsunnylqm40qqcomin3aemailtypeusers10000"></a><a href="#本文档贡献者：sunnylqmhttpsgithubcomsearchqsunnylqm40qqcomin3aemailtypeusers10000" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>本文档贡献者：<a href="https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&amp;type=Users">sunnylqm</a>(100.00%)</h5>
-<p>React Native runs on <a href="https://reactjs.org/">React</a>, a popular open source library for building user interfaces with JavaScript. To make the most of React Native, it helps to understand React itself. This section can get you started or can serve as a refresher course.</p>
-<p>We’re going to cover the core concepts behind React:</p>
+<p>React Native 的基础是<a href="https://reactjs.org/">React</a>， 是在 web 端非常流行的开源 UI 框架。要想掌握 React Native，先了解 React 框架本身是非常有帮助的。本文旨在为初学者介绍一些 react 的入门知识。</p>
+<p>本文主要会探讨以下几个 React 的核心概念：</p>
 <ul>
-<li>components</li>
+<li>components 组件</li>
 <li>JSX</li>
-<li>props</li>
-<li>state</li>
+<li>props 属性</li>
+<li>state 状态</li>
 </ul>
-<p>If you want to dig deeper, we encourage you to check out <a href="https://reactjs.org/docs/getting-started.html">React’s official documentation</a>.</p>
-<h2><a class="anchor" aria-hidden="true" id="your-first-component"></a><a href="#your-first-component" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Your first component</h2>
-<p>The rest of this introduction to React uses cats in its examples: friendly, approachable creatures that need names and a cafe to work in. Here is your very first Cat component:</p>
+<p>如果你想更深一步学习，我们建议你阅读<a href="https://zh-hans.reactjs.org/">React 的官方文档</a>，它也提供有中文版。</p>
+<h2><a class="anchor" aria-hidden="true" id="尝试编写一个组件"></a><a href="#尝试编写一个组件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>尝试编写一个组件</h2>
+<p>本文档会用“Cat”这种有个名字和咖啡馆就能开始工作的人畜无害的生物来作为例子。下面是我们的第一个 Cat 组件:</p>
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
+      Class组件示例
     </li>
   </ul>
 </div>
@@ -114,7 +114,7 @@
         "
       ></div></div></div><p>Here is how you do it: To define your <code>Cat</code> component, first use JavaScript’s <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"><code>import</code></a> to import React and React Native’s <a href="/react-native/docs/next/text"><code>Text</code></a> Core Component:</p>
 <pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> {Text} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+<span class="hljs-keyword">import</span> { Text } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 </code></pre>
 <p>Your component starts as a function:</p>
 <pre><code class="hljs css language-jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Cat</span>(<span class="hljs-params"></span>) </span>{}
@@ -130,7 +130,7 @@
 }
 </code></pre>
 <p><block class="classical syntax" /></p>
-<p>Class components tend to be a bit more verbose than function components.</p>
+<p>Class 组件比函数组件写起来要繁琐一些。</p>
 <div class="snack-player"><div class="mobile-friendly-snack" style="display: none"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> { Text } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Cat</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
@@ -154,8 +154,8 @@
           height: 514px;
           width: 100%;
         "
-      ></div></div></div><p>You additionally import <code>Component</code> from React:</p>
-<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React, {Component} <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+      ></div></div></div><p>你还需要从 React 中引入<code>Component</code>：</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 </code></pre>
 <p>Your component starts as a class extending <code>Component</code> instead of as a function:</p>
 <pre><code class="hljs css language-jsx"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Cat</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{}
@@ -179,7 +179,7 @@
 <p>This is one of many ways to export your component. This kind of export works well with the Snack Player. However, depending on your app’s file structure, you might need to use a different convention. This <a href="https://medium.com/dailyjs/javascript-module-cheatsheet-7bd474f1d829">handy cheatsheet on JavaScript imports and exports</a> can help. Now take a closer look at that <code>return</code> statement. <code>&lt;Text&gt;Hello, I am your cat!&lt;/Text&gt;</code> is using a kind of JavaScript syntax that makes writing elements convenient: JSX.</p>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="jsx"></a><a href="#jsx" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JSX</h2>
-<p>React and React Native use <strong>JSX,</strong> a syntax that lets you write elements inside JavaScript like so: <code>&lt;Text&gt;Hello, I am your cat!&lt;/Text&gt;</code>. The React docs have <a href="https://reactjs.org/docs/jsx-in-depth.html">a comprehensive guide to JSX</a> you can reference to learn even more. Because JSX is JavaScript, you can use variables inside it. Here you are declaring a name for the cat, <code>name</code>, and embedding it with curly braces inside <code>&lt;Text&gt;</code>.</p>
+<p>React 和 React Native 都使用<strong>JSX 语法</strong>，a syntax that lets you write elements inside JavaScript like so: <code>&lt;Text&gt;Hello, I am your cat!&lt;/Text&gt;</code>. The React docs have <a href="https://reactjs.org/docs/jsx-in-depth.html">a comprehensive guide to JSX</a> you can reference to learn even more. Because JSX is JavaScript, you can use variables inside it. Here you are declaring a name for the cat, <code>name</code>, and embedding it with curly braces inside <code>&lt;Text&gt;</code>.</p>
 <div class="snack-player"><div class="mobile-friendly-snack" style="display: none"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> { Text } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Cat</span>(<span class="hljs-params"></span>) </span>{
@@ -202,7 +202,7 @@
           height: 514px;
           width: 100%;
         "
-      ></div></div></div><p>Any JavaScript expression will work between curly braces, including function calls like <code>{getFullName(&quot;Rum&quot;, Tum&quot;, &quot;Tugger&quot;)}</code>:</p>
+      ></div></div></div><p>括号中可以使用任意 JavaScript 表达式，包括调用函数，例如<code>{getFullName(&quot;Rum&quot;, Tum&quot;, &quot;Tugger&quot;)}</code>：</p>
 <div class="snack-player"><div class="mobile-friendly-snack" style="display: none"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> { Text } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Cat</span>(<span class="hljs-params"></span>) </span>{
@@ -229,11 +229,11 @@
           height: 514px;
           width: 100%;
         "
-      ></div></div></div><p>You can think of curly braces as creating a portal into JS functionality in your JSX!</p>
+      ></div></div></div><p>你可以把括号<code>{}</code>想象成在JSX中打开了一个可以调用JS功能的传送门！</p>
 <blockquote>
-<p>Because JSX is included in the React library, it won’t work if you don’t have <code>import React from 'react'</code> at the top of your file!</p>
+<p>因为 JSX 语法糖的实质是调用<code>React.createElement</code>方法，所以你必须在文件头部引用<code>import React from 'react'</code>。</p>
 </blockquote>
-<h2><a class="anchor" aria-hidden="true" id="custom-components"></a><a href="#custom-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom Components</h2>
+<h2><a class="anchor" aria-hidden="true" id="自定义组件"></a><a href="#自定义组件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>自定义组件</h2>
 <p>You’ve already met <a href="intro-react-native-components">React Native’s Core Components</a>. React lets you nest these components inside each other to create new components. These nestable, reusable components are at the heart of the React paradigm.</p>
 <p>For example, you can nest <a href="text"><code>Text</code></a> and <a href="textinput"><code>TextInput</code></a> inside a <a href="view"><code>View</code></a> below, and React Native will render them together:</p>
 <div class="snack-player"><div class="mobile-friendly-snack" style="display: none"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
@@ -281,7 +281,7 @@
 <blockquote>
 <p>On Android, you usually put your views inside <code>LinearLayout</code>, <code>FrameLayout</code>, <code>RelativeLayout</code>, etc. to define how the view’s children will be arranged on the screen. In React Native, <code>View</code> uses Flexbox for its children’s layout. You can learn more in <a href="flexbox">our guide to layout with Flexbox</a>. <block class="endBlock devNotes" /></p>
 </blockquote>
-<p>You can render this component multiple times and multiple places without repeating your code by using <code>&lt;Cat&gt;</code>:</p>
+<p>这样你就可以在别处通过<code>&lt;Cat&gt;</code>来任意引用这个组件了：</p>
 <div class="snack-player"><div class="mobile-friendly-snack" style="display: none"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> { Text, TextInput, View } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Cat</span>(<span class="hljs-params"></span>) </span>{
@@ -317,8 +317,8 @@
         "
       ></div></div></div><p>Any component that renders other components is a <strong>parent component.</strong> Here, <code>Cafe</code> is the parent component and each <code>Cat</code> is a <strong>child component.</strong></p>
 <p>You can put as many cats in your cafe as you like. Each <code>&lt;Cat&gt;</code> renders a unique element—which you can customize with props.</p>
-<h2><a class="anchor" aria-hidden="true" id="props"></a><a href="#props" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Props</h2>
-<p><strong>Props</strong> is short for “properties.” Props let you customize React components. For example, here you pass each <code>&lt;Cat&gt;</code> a different <code>name</code> for <code>Cat</code> to render:</p>
+<h2><a class="anchor" aria-hidden="true" id="props-属性"></a><a href="#props-属性" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Props 属性</h2>
+<p><strong>Props</strong> 是“properties”（属性）的简写。Props使得我们可以定制组件。.For example, here you pass each <code>&lt;Cat&gt;</code> a different <code>name</code> for <code>Cat</code> to render:</p>
 <div class="snack-player"><div class="mobile-friendly-snack" style="display: none"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> { Text, View } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Cat</span>(<span class="hljs-params">props</span>) </span>{
@@ -351,7 +351,7 @@
           height: 514px;
           width: 100%;
         "
-      ></div></div></div><p>Most of React Native’s Core Components can be customized with props, too. For example, when using <a href="image"><code>Image</code></a>, you pass it a prop named <a href="image#source"><code>source</code></a> to define what image it shows:</p>
+      ></div></div></div><p>React Native 的绝大多数核心组件都提供了可定制的 props。For example, when using <a href="image"><code>Image</code></a>, you pass it a prop named <a href="image#source"><code>source</code></a> to define what image it shows:</p>
 <div class="snack-player"><div class="mobile-friendly-snack" style="display: none"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> { Text, View, Image } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">CatApp</span>(<span class="hljs-params"></span>) </span>{
@@ -379,11 +379,11 @@
           height: 514px;
           width: 100%;
         "
-      ></div></div></div><p><code>Image</code> has <a href="image#props">many different props</a>, including <a href="image#style"><code>style</code></a>, which accepts a JS object of design and layout related property-value pairs.</p>
+      ></div></div></div><p><code>Image</code> 有<a href="image#props">很多不同的props</a>， including <a href="image#style"><code>style</code></a>, which accepts a JS object of design and layout related property-value pairs.</p>
 <blockquote>
 <p>Notice the double curly braces <code>{{ }}</code> surrounding <code>style</code>‘s width and height. In JSX, JavaScript values are referenced with <code>{}</code>. This is handy if you are passing something other than a string as props, like an array or number: <code>&lt;Cat food={[&quot;fish&quot;, &quot;kibble&quot;]} /&gt; age={2}</code>. However, JS objects are <strong><em>also</em></strong> denoted with curly braces: <code>{width: 200, height: 200}</code>. Therefore, to pass a JS object in JSX, you must wrap the object in <strong>another pair</strong> of curly braces: <code>{{width: 200, height: 200}}</code> You can build many things with props and the Core Components <a href="text"><code>Text</code></a>, <a href="image"><code>Image</code></a>, and <a href="view"><code>View</code></a>! But to build something interactive, you’ll need state.</p>
 </blockquote>
-<h2><a class="anchor" aria-hidden="true" id="state"></a><a href="#state" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>State</h2>
+<h2><a class="anchor" aria-hidden="true" id="state-状态"></a><a href="#state-状态" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>State 状态</h2>
 <p>While you can think of props as arguments you use to configure how components render, <strong>state</strong> is like a component’s personal data storage. Sate is useful for handling data that changes over time or that comes from user interaction. State gives your components memory!</p>
 <blockquote>
 <p>As a general rule, use props to configure a component when it renders. Use state to keep track of any component data that you expect to change over time. The following example takes place in a cat cafe where two hungry cats are waiting to be fed. Their hunger, which we expect to change over time (unlike their names), is stored as state. To feed the cats, press their buttons—which will update their state.</p>
@@ -441,8 +441,8 @@
           height: 514px;
           width: 100%;
         "
-      ></div></div></div><p>First, you will want to import <code>useState</code> from React like so:</p>
-<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React, {useState} <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+      ></div></div></div><p>首先要从 react 中引入<code>useState</code>：</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 </code></pre>
 <p>Then you declare the component’s state by calling <code>useState</code> inside its function. In this example, <code>useState</code> creates an <code>isHungry</code> state variable:</p>
 <pre><code class="hljs css language-jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Cat</span>(<span class="hljs-params">props</span>) </span>{
@@ -536,11 +536,11 @@
           width: 100%;
         "
       ></div></div></div><p>As always with class components, you must import the <code>Component</code> class from React:</p>
-<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React, {Component} <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 </code></pre>
-<p>In class components, state is stored in a state object:</p>
+<p>在 class 组件中， state 以对象的形式存放：</p>
 <pre><code class="hljs css language-jsx"><span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Cat</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
-  state = {<span class="hljs-attr">isHungry</span>: <span class="hljs-literal">true</span>};
+  state = { <span class="hljs-attr">isHungry</span>: <span class="hljs-literal">true</span> };
   <span class="hljs-comment">//..</span>
 }
 </code></pre>
@@ -564,7 +564,11 @@
 <pre><code class="hljs css language-jsx">&lt;Button
   <span class="hljs-comment">// ..</span>
   disabled={!<span class="hljs-keyword">this</span>.state.isHungry}
-  title={<span class="hljs-keyword">this</span>.state.isHungry ? <span class="hljs-string">'Pour me some milk, please!'</span> : <span class="hljs-string">'Thank you!'</span>}
+  title={
+    <span class="hljs-keyword">this</span>.state.isHungry
+      ? <span class="hljs-string">'Pour me some milk, please!'</span>
+      : <span class="hljs-string">'Thank you!'</span>
+  }
 /&gt;
 </code></pre>
 <p>Finally, put your cats inside a <code>Cafe</code> component:</p>
@@ -585,7 +589,7 @@
 </blockquote>
 <hr>
 <p>Now that you’ve covered both React and React Native’s Core Components, let’s dive deeper on some of these core components by looking at <a href="handling-text-input">handling <code>&lt;TextInput&gt;</code></a>.</p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/intro-react-native-components"><span class="arrow-prev">← </span><span>核心组件与原生组件</span></a><a class="docs-next button" href="/docs/tutorial"><span>示例教程：Hello World</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#your-first-component">Your first component</a></li><li><a href="#jsx">JSX</a></li><li><a href="#custom-components">Custom Components</a></li><li><a href="#props">Props</a></li><li><a href="#state">State</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright"><p style="color:inherit">React Native中文网 © 2020 武汉青罗网络科技有限公司</p><p style="color:inherit"><a href="http://beian.miit.gov.cn/">鄂ICP备20002031号</a><img src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" alt="鄂公网安备 42011202001821号"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42011202001821">鄂公网安备 42011202001821号</a></p></section><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/intro-react-native-components"><span class="arrow-prev">← </span><span>核心组件与原生组件</span></a><a class="docs-next button" href="/docs/tutorial"><span>示例教程：Hello World</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#尝试编写一个组件">尝试编写一个组件</a></li><li><a href="#jsx">JSX</a></li><li><a href="#自定义组件">自定义组件</a></li><li><a href="#props-属性">Props 属性</a></li><li><a href="#state-状态">State 状态</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright"><p style="color:inherit">React Native中文网 © 2020 武汉青罗网络科技有限公司</p><p style="color:inherit"><a href="http://beian.miit.gov.cn/">鄂ICP备20002031号</a><img src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" alt="鄂公网安备 42011202001821号"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42011202001821">鄂公网安备 42011202001821号</a></p></section><script>
         (function(){
           var c = document.createElement("div");
           c.setAttribute("id", "lv-container");
