@@ -12,24 +12,24 @@
             {"zIndex":100}
           )
         });
-        </script><script src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/scrollSpy.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/css/main.css"/><script src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/img/header_logo.svg" alt="React Native 中文网"/><h2 class="headerTitleWithLogo">React Native 中文网</h2></a><a href="/versions"><h3>0.58</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/0.58/getting-started" target="_self">文档</a></li><li class=""><a href="/docs/0.58/activityindicator" target="_self">API</a></li><li class=""><a href="//github.com/reactnativecn/react-native-website/issues" target="_blank">讨论</a></li><li class=""><a href="//pushy.reactnative.cn" target="_blank">热更新</a></li><li class=""><a href="/about" target="_self">关于</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://github.com/facebook/react-native" target="_self">GitHub</a></li><li class=""><a href="//zh-hans.reactjs.org/" target="_blank">React</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="//github.com/reactnativecn/react-native-website/blob/production/cndocs/listview.md" target="_blank" rel="noreferrer noopener">帮助改进此文档</a><h1 id="__docusaurus" class="postHeaderTitle">ListView</h1></header><article><div><span><p><strong>此组件已过期</strong> - 请使用<a href="flatlist.html"><code>FlatList</code></a>或<a href="sectionlist.html"><code>SectionList</code></a>代替。</p>
+        </script><script src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/scrollSpy.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/css/prism.css"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/css/main.css"/><script src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/img/header_logo.svg" alt="React Native 中文网"/><h2 class="headerTitleWithLogo">React Native 中文网</h2></a><a href="/versions"><h3>0.58</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/0.58/getting-started" target="_self">文档</a></li><li class=""><a href="/docs/0.58/activityindicator" target="_self">API</a></li><li class=""><a href="//github.com/reactnativecn/react-native-website/issues" target="_blank">讨论</a></li><li class=""><a href="//pushy.reactnative.cn" target="_blank">热更新</a></li><li class=""><a href="/about" target="_self">关于</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://github.com/facebook/react-native" target="_self">GitHub</a></li><li class=""><a href="//zh-hans.reactjs.org/" target="_blank">React</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="//github.com/reactnativecn/react-native-website/blob/production/cndocs/listview.md" target="_blank" rel="noreferrer noopener">帮助改进此文档</a><h1 id="__docusaurus" class="postHeaderTitle">ListView</h1></header><article><div><span><p><strong>此组件已过期</strong> - 请使用<a href="flatlist.html"><code>FlatList</code></a>或<a href="sectionlist.html"><code>SectionList</code></a>代替。</p>
 <p>ListView - 一个核心组件，用于高效地显示一个可以垂直滚动的变化的数据列表。最基本的使用方式就是创建一个<code>ListView.DataSource</code>数据源，然后给它传递一个普通的数据数组，再使用数据源来实例化一个<code>ListView</code>组件，并且定义它的<code>renderRow</code>回调函数，这个函数会接受数组中的每个数据作为参数，返回一个可渲染的组件（作为listview的每一行）。</p>
 <p>最简单的例子：</p>
-<pre><code class="hljs css language-jsx"><span class="hljs-keyword">constructor</span>(props) {
-  <span class="hljs-keyword">super</span>(props);
-  <span class="hljs-keyword">var</span> ds = <span class="hljs-keyword">new</span> ListView.DataSource({<span class="hljs-attr">rowHasChanged</span>: <span class="hljs-function">(<span class="hljs-params">r1, r2</span>) =&gt;</span> r1 !== r2});
-  <span class="hljs-keyword">this</span>.state = {
-    <span class="hljs-attr">dataSource</span>: ds.cloneWithRows([<span class="hljs-string">'row 1'</span>, <span class="hljs-string">'row 2'</span>]),
-  };
-}
-render() {
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ListView</span>
-      <span class="hljs-attr">dataSource</span>=<span class="hljs-string">{this.state.dataSource}</span>
-      <span class="hljs-attr">renderRow</span>=<span class="hljs-string">{(rowData)</span> =&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>{rowData}<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>}
-    /&gt;</span>
-  );
-}
+<pre><code class="hljs css language-jsx"><span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> ds <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListView<span class="token punctuation">.</span>DataSource</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token function-variable function">rowHasChanged</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter">r1<span class="token punctuation">,</span> r2</span><span class="token punctuation">)</span> <span class="token operator">=></span> r1 <span class="token operator">!==</span> r2<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+    dataSource<span class="token punctuation">:</span> ds<span class="token punctuation">.</span><span class="token function">cloneWithRows</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'row 1'</span><span class="token punctuation">,</span> <span class="token string">'row 2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">ListView</span></span>
+      <span class="token attr-name">dataSource</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">}</span></span>
+      <span class="token attr-name">renderRow</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">rowData</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Text</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>rowData<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Text</span></span><span class="token punctuation">></span></span><span class="token punctuation">}</span></span>
+    <span class="token punctuation">/></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>ListView还支持一些高级特性，譬如给每段/组(section)数据添加一个带有粘性的头部（类似iPhone的通讯录，其首字母会在滑动过程中吸附在屏幕上方）；在列表头部和尾部增加单独的内容；在到达列表尾部的时候调用回调函数(<code>onEndReached</code>)，还有在视野内可见的数据变化时调用回调函数(<code>onChangeVisibleRows</code>)，以及一些性能方面的优化。</p>
 <p>有一些性能优化使得ListView可以滚动的更加平滑，尤其是在动态加载可能很大（或者概念上无限长的）数据集的时候：</p>
@@ -170,104 +170,104 @@ render() {
     </div>
 </div>
 <h3><a class="anchor" aria-hidden="true" id="例子"></a><a href="#例子" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h3>
-<pre><code class="hljs css language-jsx"><span class="hljs-meta">'use strict'</span>;
+<pre><code class="hljs css language-jsx"><span class="token string">'use strict'</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
-<span class="hljs-keyword">var</span> ReactNative = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-native'</span>);
-<span class="hljs-keyword">var</span> {
-  Image,
-  ListView,
-  TouchableHighlight,
-  StyleSheet,
-  RecyclerViewBackedScrollView,
-  Text,
-  View,
-} = ReactNative;
+<span class="token keyword">var</span> React <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'react'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> ReactNative <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'react-native'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> <span class="token punctuation">{</span>
+  Image<span class="token punctuation">,</span>
+  ListView<span class="token punctuation">,</span>
+  TouchableHighlight<span class="token punctuation">,</span>
+  StyleSheet<span class="token punctuation">,</span>
+  RecyclerViewBackedScrollView<span class="token punctuation">,</span>
+  Text<span class="token punctuation">,</span>
+  View<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token operator">=</span> ReactNative<span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> RNTesterPage = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./RNTesterPage'</span>);
+<span class="token keyword">var</span> RNTesterPage <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./RNTesterPage'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> ListViewSimpleExample = React.createClass({
-  <span class="hljs-attr">statics</span>: {
-    <span class="hljs-attr">title</span>: <span class="hljs-string">'&lt;ListView&gt;'</span>,
-    <span class="hljs-attr">description</span>: <span class="hljs-string">'Performant, scrollable list of data.'</span>
-  },
+<span class="token keyword">var</span> ListViewSimpleExample <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">createClass</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  statics<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    title<span class="token punctuation">:</span> <span class="token string">'&lt;ListView>'</span><span class="token punctuation">,</span>
+    description<span class="token punctuation">:</span> <span class="token string">'Performant, scrollable list of data.'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
-  <span class="hljs-attr">getInitialState</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">var</span> ds = <span class="hljs-keyword">new</span> ListView.DataSource({<span class="hljs-attr">rowHasChanged</span>: <span class="hljs-function">(<span class="hljs-params">r1, r2</span>) =&gt;</span> r1 !== r2});
-    <span class="hljs-keyword">return</span> {
-      <span class="hljs-attr">dataSource</span>: ds.cloneWithRows(<span class="hljs-keyword">this</span>._genRows({})),
-    };
-  },
+  <span class="token function-variable function">getInitialState</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> ds <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListView<span class="token punctuation">.</span>DataSource</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token function-variable function">rowHasChanged</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter">r1<span class="token punctuation">,</span> r2</span><span class="token punctuation">)</span> <span class="token operator">=></span> r1 <span class="token operator">!==</span> r2<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      dataSource<span class="token punctuation">:</span> ds<span class="token punctuation">.</span><span class="token function">cloneWithRows</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_genRows</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
-  <span class="hljs-attr">_pressData</span>: ({}: {[key: number]: boolean}),
+  _pressData<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">[</span>key<span class="token punctuation">:</span> number<span class="token punctuation">]</span><span class="token punctuation">:</span> boolean<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 
-  <span class="hljs-attr">componentWillMount</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">this</span>._pressData = {};
-  },
+  <span class="token function-variable function">componentWillMount</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_pressData <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
-  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> (
-      &lt;RNTesterPage
-        title={this.props.navigator ? null : '&lt;ListView&gt;'}
-        noSpacer={true}
-        noScroll={true}&gt;
-        &lt;ListView
-          dataSource={this.state.dataSource}
-          renderRow={this._renderRow}
-          renderScrollComponent={props =&gt; &lt;RecyclerViewBackedScrollView {...props} /&gt;}
-          renderSeparator={this._renderSeperator}
-        /&gt;
-      &lt;/RNTesterPage&gt;
-    );
-  },
+  <span class="token function-variable function">render</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">RNTesterPage</span></span>
+        <span class="token attr-name">title</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>navigator <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token punctuation">:</span> <span class="token string">'&lt;ListView>'</span><span class="token punctuation">}</span></span>
+        <span class="token attr-name">noSpacer</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
+        <span class="token attr-name">noScroll</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">ListView</span></span>
+          <span class="token attr-name">dataSource</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">}</span></span>
+          <span class="token attr-name">renderRow</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>_renderRow<span class="token punctuation">}</span></span>
+          <span class="token attr-name">renderScrollComponent</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token parameter">props</span> <span class="token operator">=></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">RecyclerViewBackedScrollView</span></span> <span class="token spread"><span class="token punctuation">{</span><span class="token punctuation">...</span><span class="token attr-value">props</span><span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">}</span></span>
+          <span class="token attr-name">renderSeparator</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>_renderSeperator<span class="token punctuation">}</span></span>
+        <span class="token punctuation">/></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">RNTesterPage</span></span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
-  _renderRow: function(rowData: string, sectionID: number, rowID: number, highlightRow: (sectionID: number, rowID: number) =&gt; void) {
-    var rowHash = Math.abs(hashCode(rowData));
-    var imgSource = THUMB_URLS[rowHash % THUMB_URLS.length];
-    return (
-      &lt;TouchableHighlight onPress={() =&gt; {
-          this._pressRow(rowID);
-          highlightRow(sectionID, rowID);
-        }}&gt;
-        &lt;View&gt;
-          &lt;View style={styles.row}&gt;
-            &lt;Image style={styles.thumb} source={imgSource} /&gt;
-            &lt;Text style={styles.text}&gt;
-              {rowData + ' - ' + LOREM_IPSUM.substr(0, rowHash % 301 + 10)}
-            &lt;/Text&gt;
-          &lt;/View&gt;
-        &lt;/View&gt;
-      &lt;/TouchableHighlight&gt;
-    );
-  },
+  <span class="token function-variable function">_renderRow</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>rowData<span class="token punctuation">:</span> string<span class="token punctuation">,</span> sectionID<span class="token punctuation">:</span> number<span class="token punctuation">,</span> rowID<span class="token punctuation">:</span> number<span class="token punctuation">,</span> <span class="token function-variable function">highlightRow</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter">sectionID<span class="token punctuation">:</span> number<span class="token punctuation">,</span> rowID<span class="token punctuation">:</span> number</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> rowHash <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">hashCode</span><span class="token punctuation">(</span>rowData<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> imgSource <span class="token operator">=</span> <span class="token constant">THUMB_URLS</span><span class="token punctuation">[</span>rowHash <span class="token operator">%</span> <span class="token constant">THUMB_URLS</span><span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">TouchableHighlight</span></span> <span class="token attr-name">onPress</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_pressRow</span><span class="token punctuation">(</span>rowID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">highlightRow</span><span class="token punctuation">(</span>sectionID<span class="token punctuation">,</span> rowID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">View</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">View</span></span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>styles<span class="token punctuation">.</span>row<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Image</span></span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>styles<span class="token punctuation">.</span>thumb<span class="token punctuation">}</span></span> <span class="token attr-name">source</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>imgSource<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Text</span></span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>styles<span class="token punctuation">.</span>text<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+              </span><span class="token punctuation">{</span>rowData <span class="token operator">+</span> <span class="token string">' - '</span> <span class="token operator">+</span> <span class="token constant">LOREM_IPSUM</span><span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> rowHash <span class="token operator">%</span> <span class="token number">301</span> <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token plain-text">
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Text</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">View</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">View</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">TouchableHighlight</span></span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
-  _genRows: function(pressData: {[key: number]: boolean}): Array&lt;string&gt; {
-    var dataBlob = [];
-    for (var ii = 0; ii &lt; 100; ii++) {
-      var pressedText = pressData[ii] ? ' (pressed)' : '';
-      dataBlob.push('Row ' + ii + pressedText);
-    }
-    return dataBlob;
-  },
+  <span class="token function-variable function">_genRows</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">pressData<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">[</span>key<span class="token punctuation">:</span> number<span class="token punctuation">]</span><span class="token punctuation">:</span> boolean<span class="token punctuation">}</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span> Array<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">></span></span><span class="token plain-text"> </span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> dataBlob <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> ii <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> ii <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span> ii<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> pressedText <span class="token operator">=</span> pressData<span class="token punctuation">[</span>ii<span class="token punctuation">]</span> <span class="token operator">?</span> <span class="token string">' (pressed)'</span> <span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+      dataBlob<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'Row '</span> <span class="token operator">+</span> ii <span class="token operator">+</span> pressedText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> dataBlob<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token plain-text">,
 
-  _pressRow: function(rowID: number) {
-    this._pressData[rowID] = !this._pressData[rowID];
-    this.setState({dataSource: this.state.dataSource.cloneWithRows(
-      this._genRows(this._pressData)
-    )});
-  },
+  _pressRow: function(rowID: number) </span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_pressData<span class="token punctuation">[</span>rowID<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>_pressData<span class="token punctuation">[</span>rowID<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>dataSource<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">.</span><span class="token function">cloneWithRows</span><span class="token punctuation">(</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_genRows</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_pressData<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token plain-text">,
 
-  _renderSeperator: function(sectionID: number, rowID: number, adjacentRowHighlighted: bool) {
-    return (
-      &lt;View
-        key={`${sectionID}-${rowID}`}
-        style={{
-          height: adjacentRowHighlighted ? 4 : 1,
-          backgroundColor: adjacentRowHighlighted ? '#3B5998' : '#CCCCCC',
-        }}
-      /&gt;
-    );
-  }
+  _renderSeperator: function(sectionID: number, rowID: number, adjacentRowHighlighted: bool) </span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">View</span></span>
+        <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>sectionID<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">-</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>rowID<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span></span>
+        <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+          height<span class="token punctuation">:</span> adjacentRowHighlighted <span class="token operator">?</span> <span class="token number">4</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+          backgroundColor<span class="token punctuation">:</span> adjacentRowHighlighted <span class="token operator">?</span> <span class="token string">'#3B5998'</span> <span class="token punctuation">:</span> <span class="token string">'#CCCCCC'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+      <span class="token punctuation">/></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token plain-text">
 });
 
 var THUMB_URLS = [
@@ -287,32 +287,32 @@ var THUMB_URLS = [
 var LOREM_IPSUM = 'Lorem ipsum dolor sit amet, ius ad pertinax oportere accommodare, an vix civibus corrumpit referrentur. Te nam case ludus inciderint, te mea facilisi adipiscing. Sea id integre luptatum. In tota sale consequuntur nec. Erat ocurreret mei ei. Eu paulo sapientem vulputate est, vel an accusam intellegam interesset. Nam eu stet pericula reprimique, ea vim illud modus, putant invidunt reprehendunt ne qui.';
 
 /* eslint no-bitwise: 0 */
-var hashCode = function(str) {
-  var hash = 15;
-  for (var ii = str.length - 1; ii &gt;= 0; ii--) {
-    hash = ((hash &lt;&lt; 5) - hash) + str.charCodeAt(ii);
-  }
-  return hash;
-};
+var hashCode = function(str) </span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> hash <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> ii <span class="token operator">=</span> str<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> ii <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> ii<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    hash <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>hash <span class="token operator">&lt;&lt;</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">-</span> hash<span class="token punctuation">)</span> <span class="token operator">+</span> str<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span>ii<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> hash<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token plain-text">;
 
-var styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    padding: 10,
-    backgroundColor: '#F6F6F6',
-  },
-  thumb: {
-    width: 64,
-    height: 64,
-  },
-  text: {
-    flex: 1,
-  },
-});
+var styles = StyleSheet.create(</span><span class="token punctuation">{</span>
+  row<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    flexDirection<span class="token punctuation">:</span> <span class="token string">'row'</span><span class="token punctuation">,</span>
+    justifyContent<span class="token punctuation">:</span> <span class="token string">'center'</span><span class="token punctuation">,</span>
+    padding<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+    backgroundColor<span class="token punctuation">:</span> <span class="token string">'#F6F6F6'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  thumb<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    width<span class="token punctuation">:</span> <span class="token number">64</span><span class="token punctuation">,</span>
+    height<span class="token punctuation">:</span> <span class="token number">64</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  text<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    flex<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token plain-text">);
 
 module.exports = ListViewSimpleExample;
-</code></pre>
+</span></code></pre>
 </span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright"><p style="color:inherit">React Native中文网 © 2020 武汉青罗网络科技有限公司</p><p style="color:inherit"><a href="http://beian.miit.gov.cn/">鄂ICP备20002031号</a><img src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" alt="鄂公网安备 42011202001821号"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42011202001821">鄂公网安备 42011202001821号</a></p></section><script>
         (function(){
           var c = document.createElement("div");

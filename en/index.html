@@ -12,39 +12,39 @@
             {"zIndex":100}
           )
         });
-        </script><script src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/scrollSpy.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/css/main.css"/><script src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/codetabs.js"></script></head><body><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/img/header_logo.svg" alt="React Native 中文网"/><h2 class="headerTitleWithLogo">React Native 中文网</h2></a><a href="/versions"><h3>0.62</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/getting-started" target="_self">文档</a></li><li class=""><a href="/docs/activityindicator" target="_self">API</a></li><li class=""><a href="//github.com/reactnativecn/react-native-website/issues" target="_blank">讨论</a></li><li class=""><a href="//pushy.reactnative.cn" target="_blank">热更新</a></li><li class=""><a href="/about" target="_self">关于</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://github.com/facebook/react-native" target="_self">GitHub</a></li><li class=""><a href="//zh-hans.reactjs.org/" target="_blank">React</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="pageContainer"><div class="hero"><div class="text">React Native中文网</div><div class="minitext">使用JavaScript和React编写原生移动应用</div><div class="buttons-unit"><div><a class="big-button" href="/docs/getting-started.html" target="_self">搭建环境</a><a class="big-button" href="/docs/tutorial.html" target="_self">开始使用</a></div></div></div><div><div class="container"><div class="wrapper"><div class="blockElement"><div class="blockContent"><h2>使用JavaScript和React编写原生移动应用</h2><div><span><p>React Native使你只使用JavaScript也能编写原生移动应用。 它在设计原理上和React一致，通过声明式的组件机制来搭建丰富多彩的用户界面。</p>
-</span></div></div><div><span><pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> { Text, View } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+        </script><script src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/scrollSpy.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/css/prism.css"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/css/main.css"/><script src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/js/codetabs.js"></script></head><body><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/img/header_logo.svg" alt="React Native 中文网"/><h2 class="headerTitleWithLogo">React Native 中文网</h2></a><a href="/versions"><h3>0.62</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/getting-started" target="_self">文档</a></li><li class=""><a href="/docs/activityindicator" target="_self">API</a></li><li class=""><a href="//github.com/reactnativecn/react-native-website/issues" target="_blank">讨论</a></li><li class=""><a href="//pushy.reactnative.cn" target="_blank">热更新</a></li><li class=""><a href="/about" target="_self">关于</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://github.com/facebook/react-native" target="_self">GitHub</a></li><li class=""><a href="//zh-hans.reactjs.org/" target="_blank">React</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="pageContainer"><div class="hero"><div class="text">React Native中文网</div><div class="minitext">使用JavaScript和React编写原生移动应用</div><div class="buttons-unit"><div><a class="big-button" href="/docs/getting-started.html" target="_self">搭建环境</a><a class="big-button" href="/docs/tutorial.html" target="_self">开始使用</a></div></div></div><div><div class="container"><div class="wrapper"><div class="blockElement"><div class="blockContent"><h2>使用JavaScript和React编写原生移动应用</h2><div><span><p>React Native使你只使用JavaScript也能编写原生移动应用。 它在设计原理上和React一致，通过声明式的组件机制来搭建丰富多彩的用户界面。</p>
+</span></div></div><div><span><pre><code class="hljs css language-javascript"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Text<span class="token punctuation">,</span> View <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-native'</span><span class="token punctuation">;</span>
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WhyReactNativeIsSoGreat</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
-  render() {
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
-          如果你喜欢在Web上使用React，那你也肯定会喜欢React Native.
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
-          基本上就是用原生组件比如'View'和'Text'
-          来代替web组件'div'和'span'。
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
-    );
-  }
-}
+<span class="token keyword">class</span> <span class="token class-name">WhyReactNativeIsSoGreat</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>View<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Text<span class="token operator">></span>
+          如果你喜欢在Web上使用React，那你也肯定会喜欢React Native<span class="token punctuation">.</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>Text<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Text<span class="token operator">></span>
+          基本上就是用原生组件比如<span class="token string">'View'</span>和<span class="token string">'Text'</span>
+          来代替web组件<span class="token string">'div'</span>和<span class="token string">'span'</span>。
+        <span class="token operator">&lt;</span><span class="token operator">/</span>Text<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>View<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </span></div></div></div></div><div class="container"><div class="wrapper"><div class="blockElement"><div class="blockContent"><h2>React Native应用是真正的移动应用</h2><div><span><p>React Native产出的并不是“网页应用”， 或者说“HTML5应用”，又或者“混合应用”。 最终产品是一个真正的移动应用，从使用感受上和用Objective-C或Java编写的应用相比几乎是无法区分的。 React Native所使用的基础UI组件和原生应用完全一致。 你要做的就是把这些基础组件使用JavaScript和React的方式组合起来。</p>
-</span></div></div><div><span><pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> { Image, ScrollView, Text } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+</span></div></div><div><span><pre><code class="hljs css language-javascript"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Image<span class="token punctuation">,</span> ScrollView<span class="token punctuation">,</span> Text <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-native'</span><span class="token punctuation">;</span>
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AwkwardScrollingImageWithText</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
-  render() {
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ScrollView</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Image</span>
-          <span class="hljs-attr">source</span>=<span class="hljs-string">{{uri:</span> '<span class="hljs-attr">https:</span>//<span class="hljs-attr">i.chzbgr.com</span>/<span class="hljs-attr">full</span>/<span class="hljs-attr">7345954048</span>/<span class="hljs-attr">h7E2C65F9</span>/'}}
-          <span class="hljs-attr">style</span>=<span class="hljs-string">{{width:</span> <span class="hljs-attr">320</span>, <span class="hljs-attr">height:180</span>}}
-        /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+<span class="token keyword">class</span> <span class="token class-name">AwkwardScrollingImageWithText</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>ScrollView<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Image
+          source<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>uri<span class="token punctuation">:</span> <span class="token string">'https://i.chzbgr.com/full/7345954048/h7E2C65F9/'</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+          style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>width<span class="token punctuation">:</span> <span class="token number">320</span><span class="token punctuation">,</span> height<span class="token punctuation">:</span><span class="token number">180</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+        <span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>Text<span class="token operator">></span>
           在iOS上，React Native的ScrollView组件封装的是原生的UIScrollView。
           在Android上，封装的则是原生的ScrollView。
 
@@ -52,31 +52,31 @@
           在Android上，封装的则是原生的ImageView。
 
           React Native封装了这些基础的原生组件，使你在得到媲美原生应用性能的同时，还能受益于React优雅的架构设计。 
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">ScrollView</span>&gt;</span></span>
-    );
-  }
-}
+        <span class="token operator">&lt;</span><span class="token operator">/</span>Text<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>ScrollView<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </span></div></div></div></div><div class="container"><div class="wrapper"><div class="blockElement"><div class="blockContent"><h2>别再傻等编译了！</h2><div><div><span><p>React Native让你可以快速迭代开发应用。 比起传统原生应用漫长的编译过程，现在你可以在瞬间刷新你的应用。开启<a href="docs/debugging.html#自动刷新">Hot Reloading</a>的话，甚至能在保持应用运行状态的情况下热替换新代码！ 试试看吧，包你双击666。</p>
 </span></div></div></div><img src="https://media.giphy.com/media/13WZniThXy0hSE/giphy.gif"/></div></div></div><div class="container"><div class="wrapper"><div class="blockElement"><div class="blockContent"><h2>可随时呼叫原生外援</h2><div><div><span><p>React Native完美兼容使用Objective-C、Java或是Swift编写的组件。 如果你需要针对应用的某一部分特别优化，中途换用原生代码编写也很容易。 想要应用的一部分用原生，一部分用React Native也完全没问题 —— Facebook的应用就是这么做的。</p>
-</span></div></div></div><div><span><pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> { Text, View } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
-<span class="hljs-keyword">import</span> { TheGreatestComponentInTheWorld } <span class="hljs-keyword">from</span> <span class="hljs-string">'./your-native-code'</span>;
+</span></div></div></div><div><span><pre><code class="hljs css language-javascript"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Text<span class="token punctuation">,</span> View <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-native'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> TheGreatestComponentInTheWorld <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./your-native-code'</span><span class="token punctuation">;</span>
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SomethingFast</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
-  render() {
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">TheGreatestComponentInTheWorld</span> /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
-          上面这个TheGreatestComponentInTheWorld组件完全可以使用原生Objective-C、
-          Java或是Swift来编写 - 开发流程并无二致。
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
-    );
-  }
-}
+<span class="token keyword">class</span> <span class="token class-name">SomethingFast</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>View<span class="token operator">></span>
+        <span class="token operator">&lt;</span>TheGreatestComponentInTheWorld <span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>Text<span class="token operator">></span>
+          上面这个TheGreatestComponentInTheWorld组件完全可以使用原生Objective<span class="token operator">-</span><span class="token constant">C</span>、
+          Java或是Swift来编写 <span class="token operator">-</span> 开发流程并无二致。
+        <span class="token operator">&lt;</span><span class="token operator">/</span>Text<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>View<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </span></div></div></div></div></div><div class="hero"><div><a class="big-button" href="/docs/getting-started.html" target="_self">搭建环境</a><a class="big-button" href="/docs/tutorial.html" target="_self">开始使用</a></div></div></div><footer class="nav-footer" id="footer"><section class="copyright"><p style="color:inherit">React Native中文网 © 2020 武汉青罗网络科技有限公司</p><p style="color:inherit"><a href="http://beian.miit.gov.cn/">鄂ICP备20002031号</a><img src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" alt="鄂公网安备 42011202001821号"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42011202001821">鄂公网安备 42011202001821号</a></p></section><script>
         (function(){
