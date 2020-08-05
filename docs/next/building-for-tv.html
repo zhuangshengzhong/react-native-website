@@ -81,7 +81,7 @@
 </div>
 <p><block class="ios" /></p>
 <blockquote>
-<p><strong>已过时。</strong> Use <a href="https://github.com/react-native-community/react-native-tvos">react-native-tvos</a> instead. For the details please check the <a href="https://reactnative.dev/blog/#moving-apple-tv-to-react-native-tvos">0.62 release blog post</a>.</p>
+<p><strong>已过时。</strong> 请使用<a href="https://github.com/react-native-community/react-native-tvos">react-native-tvos</a>代替。 For the details please check the <a href="https://reactnative.dev/blog/#moving-apple-tv-to-react-native-tvos">0.62 release blog post</a>.</p>
 </blockquote>
 <p>源代码仓库里的<a href="https://github.com/facebook/react-native/tree/master/RNTester">RNTester 演示应用</a>支持在 Apple TV 上运行，使用<code>RNTester-tvOS</code>编译目标来在 tvOS 上编译运行。</p>
 <h2><a class="anchor" aria-hidden="true" id="编译变更"></a><a href="#编译变更" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>编译变更</h2>
@@ -195,24 +195,13 @@
 <li><p><em>Dev Menu support</em>: On the simulator, cmd-M will bring up the developer menu, just like on Android. To bring it up on a real Android TV device, press the menu button or long press the fast-forward button on the remote. (Please do not shake the Android TV device, that will not work :) )</p></li>
 <li><p><em>TV remote animations</em>: <code>RCTTVView</code> native code implements Apple-recommended parallax animations to help guide the eye as the user navigates through views. The animations can be disabled or adjusted with new optional view properties.</p></li>
 <li><p><em>Back navigation with the TV remote menu button</em>: The <code>BackHandler</code> component, originally written to support the Android back button, now also supports back navigation on the Apple TV using the menu button on the TV remote.</p></li>
-<li><p><em>TabBarIOS behavior</em>: The <code>TabBarIOS</code> component wraps the native <code>UITabBar</code> API, which works differently on Apple TV. To avoid jittery rerendering of the tab bar in tvOS (see <a href="https://github.com/facebook/react-native/issues/15081">this issue</a>), the selected tab bar item can only be set from Javascript on initial render, and is controlled after that by the user through native code.</p></li>
 </ul>
 <p><block class="android" /></p>
 <ul>
-<li><em>Dev Menu support</em>: On the simulator, cmd-M will bring up the developer menu, just like on Android. To bring it up on a real Android TV device, make a long press on the play/pause button on the remote. (Please do not shake the Android TV device, that will not work :) )</li>
-</ul>
-<p><block class="ios" /></p>
-<ul>
+<li><p><em>Dev Menu support</em>: On the simulator, cmd-M will bring up the developer menu, just like on Android. To bring it up on a real Android TV device, make a long press on the play/pause button on the remote. (Please do not shake the Android TV device, that will not work :) )</p></li>
 <li><p><em>已知问题</em>:</p>
 <ul>
-<li><a href="https://github.com/facebook/react-native/issues/12793">ListView scrolling</a>. The issue can be easily worked around by setting <code>removeClippedSubviews</code> to false in ListView and similar components. For more discussion of this issue, see <a href="https://github.com/facebook/react-native/pull/12944">this PR</a>.</li>
-</ul></li>
-</ul>
-<p><block class="android" /></p>
-<ul>
-<li><p><em>已知问题</em>:</p>
-<ul>
-<li><code>TextInput</code> components do not work for now (i.e. they cannot receive focus).</li>
+<li><code>TextInput</code>组件不能获得焦点，请参考这里讨论的<a href="https://github.com/facebook/react-native/pull/16500#issuecomment-629285638">临时解决方案</a>。</li>
 </ul></li>
 </ul>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/integration-with-existing-apps"><span class="arrow-prev">← </span><span>集成到现有原生应用</span></a><a class="docs-next button" href="/docs/next/native-modules-setup"><span>原生模块配置</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#编译变更">编译变更</a></li><li><a href="#编译修改">编译修改</a></li><li><a href="#代码修改">代码修改</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright"><p style="color:inherit">React Native中文网 © 2020 武汉青罗网络科技有限公司</p><p style="color:inherit"><a href="http://beian.miit.gov.cn/">鄂ICP备20002031号</a><img src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" alt="鄂公网安备 42011202001821号"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42011202001821">鄂公网安备 42011202001821号</a></p></section><script>
