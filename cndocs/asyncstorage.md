@@ -16,7 +16,7 @@ title: 🚧 AsyncStorage
 导入`AsyncStorage`库：
 
 ```
-import { AsyncStorage } from "react-native"
+import AsyncStorage from '@react-native-community/async-storage';
 ```
 
 保存数据：
